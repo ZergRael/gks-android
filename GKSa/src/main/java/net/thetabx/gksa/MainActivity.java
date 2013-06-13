@@ -5,11 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-import net.thetabx.gksa.net.thetabx.gksa.http.AsyncHtmlFetch;
-import net.thetabx.gksa.net.thetabx.gksa.http.AsyncHtmlListener;
-import net.thetabx.gksa.net.thetabx.gksa.http.AsyncJsonFetch;
-import net.thetabx.gksa.net.thetabx.gksa.http.AsyncJsonListener;
-import net.thetabx.gksa.net.thetabx.gksa.http.HttpManager;
+import net.thetabx.gksa.http.*;
 
 import java.util.Map;
 
@@ -18,14 +14,17 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // TODO A real GUI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Instantiate the connection manager
-        http = new HttpManager();
+        // TODO Store it ?
+        String authKey = "";
+        http = new HttpManager(authKey);
 
         // Try to get some JSON
-        AsyncJsonFetch asyncJson = new AsyncJsonFetch(http);
+        AsyncFetchApi asyncJson = new AsyncFetchApi(http);
         asyncJson.setCallback(new AsyncJsonListener() {
             @Override
             public void onPreExecute() {
@@ -34,13 +33,14 @@ public class MainActivity extends Activity {
 
             @Override
             public void onPostExecute(Boolean result, Map<String, String> map) {
-
+                if(result)
+                    ;
             }
         });
         asyncJson.execute("/");
 
         // Try to get some pure HTML
-        AsyncHtmlFetch asyncHtml = new AsyncHtmlFetch(http);
+        AsyncFetchHtml asyncHtml = new AsyncFetchHtml(http);
         asyncHtml.setCallback(new AsyncHtmlListener() {
             @Override
             public void onPreExecute() {
@@ -49,12 +49,12 @@ public class MainActivity extends Activity {
 
             @Override
             public void onPostExecute(Boolean result, String content) {
-
+                if(result)
+                    ;
             }
         });
-        asyncJson.execute("/");
+        asyncHtml.execute("/");
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

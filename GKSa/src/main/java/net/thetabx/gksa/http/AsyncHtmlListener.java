@@ -1,4 +1,4 @@
-package net.thetabx.gksa.net.thetabx.gksa.http;
+package net.thetabx.gksa.http;
 
 /**
  * Created by Zerg on 13/06/13.

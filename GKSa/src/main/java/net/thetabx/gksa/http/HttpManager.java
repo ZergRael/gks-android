@@ -1,4 +1,4 @@
-package net.thetabx.gksa.net.thetabx.gksa.http;
+package net.thetabx.gksa.http;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -16,8 +16,9 @@ public class HttpManager {
     private static String BASEURL = "https://gks.gs";
     private String authKey;
 
-    public HttpManager() {
+    public HttpManager(String authKey) {
         http = new DefaultHttpClient();
+        this.authKey = authKey;
     }
 
     public HttpData get(String url) {

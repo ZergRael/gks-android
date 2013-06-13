@@ -1,4 +1,4 @@
-package net.thetabx.gksa.net.thetabx.gksa.http;
+package net.thetabx.gksa.http;
 
 import android.content.Entity;
 
