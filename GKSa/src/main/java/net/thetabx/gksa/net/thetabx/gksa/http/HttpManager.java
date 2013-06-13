@@ -1,18 +1,12 @@
-package net.thetabx.gksa;
+package net.thetabx.gksa.net.thetabx.gksa.http;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Zerg on 12/06/13.
@@ -20,6 +14,7 @@ import java.util.List;
 public class HttpManager {
     private DefaultHttpClient http;
     private static String BASEURL = "https://gks.gs";
+    private String authKey;
 
     public HttpManager() {
         http = new DefaultHttpClient();
@@ -47,5 +42,13 @@ public class HttpManager {
         }
 
         return new HttpData(getResponse);
+    }
+
+    public String getAuthKey() {
+        return authKey;
+    }
+
+    public void setAuthKey(String authKey) {
+        this.authKey = authKey;
     }
 }

@@ -1,4 +1,4 @@
-package net.thetabx.gksa;
+package net.thetabx.gksa.net.thetabx.gksa.http;
 
 import android.content.Entity;
 
@@ -37,5 +37,9 @@ public class HttpData {
 
     public boolean isOk() {
         return ok;
+    }
+
+    public HttpResponse getHttpResponse() {
+        return httpResponse;
     }
 }
