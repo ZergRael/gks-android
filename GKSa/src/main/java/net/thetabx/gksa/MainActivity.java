@@ -38,6 +38,12 @@ public class MainActivity extends Activity {
         initActivity();
     }
 
+    // TODO AppWidget
+    // TODO TorrentList
+    // TODO TorrentSearch
+    // TODO MP list
+    // TODO Unread Twits
+
     public void initActivity() {
         SharedPreferences settings = getSharedPreferences("Credentials", MODE_PRIVATE);
         String authKey = settings.getString("AuthKey", "");
@@ -64,6 +70,7 @@ public class MainActivity extends Activity {
             public void onPostExecute(GStatus result, Document htmlDoc) {
                 txt_helloWorld.setText(result.name());
                 if(result == GStatus.OK) {
+                    // TODO Proper layout
                     String unreadMP = htmlDoc.select(".mailbox.ui-link").last().text();
                     ((TextView)findViewById(R.id.main_txt_unreadMP)).setText(unreadMP);
 

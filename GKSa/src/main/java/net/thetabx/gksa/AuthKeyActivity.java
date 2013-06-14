@@ -15,7 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 /**
- * Created by pgrr9790 on 14/06/13.
+ * Created by Zerg on 14/06/13.
  */
 public class AuthKeyActivity extends Activity {
     private HttpManager http;
@@ -27,6 +27,11 @@ public class AuthKeyActivity extends Activity {
         http = new HttpManager(null);
         res = getResources();
     }
+
+    // TODO Proper layout
+    // login
+    // password
+    // send button
 
     public void fetchAuthKey() {
         // Try to get some pure HTML
@@ -59,6 +64,7 @@ public class AuthKeyActivity extends Activity {
                 }
             }
         });
+        // TODO Post data
         asyncFetch.execute("/login.php");
     }
 }

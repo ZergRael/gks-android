@@ -14,11 +14,12 @@ import java.io.IOException;
  */
 public class HttpData {
     private HttpResponse httpResponse;
-    private GStatus state = GStatus.NOTDONE;
+    private GStatus state = GStatus.NOTSTARTED;
     private int statusCode;
     private String content;
 
     public HttpData(HttpResponse response) {
+        state = GStatus.STARTED;
         this.httpResponse = response;
         this.statusCode = response.getStatusLine().getStatusCode();
         try {
