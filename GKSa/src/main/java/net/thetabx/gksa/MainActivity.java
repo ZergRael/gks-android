@@ -2,11 +2,13 @@ package net.thetabx.gksa;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.thetabx.gksa.http.AsyncFetchApi;
 import net.thetabx.gksa.http.AsyncFetchHtml;
@@ -23,39 +25,33 @@ import java.util.Map;
 
 public class MainActivity extends Activity {
     private HttpManager http;
-    public final int LOGIN_REQUEST = 2;
+    private Resources res;
+    private TextView txt_helloWorld = (TextView)findViewById(R.id.main_txt_helloWorld);
+    public final int AUTHKEY_REQUEST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        res = getResources();
 
-        final TextView txt_helloWorld = (TextView)findViewById(R.id.txt_helloWorld);
+        initActivity();
+    }
 
+    public void initActivity() {
         SharedPreferences settings = getSharedPreferences("Credentials", MODE_PRIVATE);
         String authKey = settings.getString("AuthKey", "");
-        if(authKey == "") {
-            startActivityForResult(new Intent(this, SettingsActivity.class), LOGIN_REQUEST);
+        if(authKey != "") {
+            http = new HttpManager(authKey);
+
+            getStats();
         }
-        http = new HttpManager(authKey);
+        else {
+            Toast.makeText(getApplicationContext(), res.getText(R.string.toast_setAuthKey), Toast.LENGTH_LONG).show();
+        }
+    }
 
-        /*
-        // Try to get some JSON
-        AsyncFetchApi asyncJson = new AsyncFetchApi(http);
-        asyncJson.setCallback(new AsyncJsonListener() {
-            @Override
-            public void onPreExecute() {
-
-            }
-
-            @Override
-            public void onPostExecute(Boolean result, Map<String, String> map) {
-                if(result)
-                    ;
-            }
-        });
-        asyncJson.execute("/");*/
-
+    public void getStats() {
         // Try to get some pure HTML
         AsyncFetchMobile asyncFetch = new AsyncFetchMobile(http);
         asyncFetch.setCallback(new AsyncHtmlListener() {
@@ -70,17 +66,51 @@ public class MainActivity extends Activity {
                 if(result == GStatus.OK) {
                     Elements htmlEls = htmlDoc.select("li.ui-body-c span");
 
-                    ((TextView)findViewById(R.id.txt_Pseudo)).setText(htmlEls.get(0).text());
-                    ((TextView)findViewById(R.id.txt_Ratio)).setText(htmlEls.get(1).text());
-                    ((TextView)findViewById(R.id.txt_Upload)).setText(htmlEls.get(2).text());
-                    ((TextView)findViewById(R.id.txt_Download)).setText(htmlEls.get(3).text());
-                    ((TextView)findViewById(R.id.txt_Class)).setText(htmlEls.get(4).text());
-                    ((TextView)findViewById(R.id.txt_Karma)).setText(htmlEls.get(5).text());
-                    ((TextView)findViewById(R.id.txt_Aura)).setText(htmlEls.get(6).text());
+                    ((TextView)findViewById(R.id.main_txt_pseudo)).setText(htmlEls.get(0).text());
+                    ((TextView)findViewById(R.id.main_txt_ratio)).setText(htmlEls.get(1).text());
+                    ((TextView)findViewById(R.id.main_txt_upload)).setText(htmlEls.get(2).text());
+                    ((TextView)findViewById(R.id.main_txt_download)).setText(htmlEls.get(3).text());
+                    ((TextView)findViewById(R.id.main_txt_class)).setText(htmlEls.get(4).text());
+                    ((TextView)findViewById(R.id.main_txt_karma)).setText(htmlEls.get(5).text());
+                    ((TextView)findViewById(R.id.main_txt_aura)).setText(htmlEls.get(6).text());
+
+                    Toast.makeText(getApplicationContext(), res.getText(R.string.toast_connected), Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    int toastText;
+                    switch(result) {
+                        case BADKEY:
+                            toastText = R.string.toast_badAuthKey;
+                            break;
+                        case STATUSCODE:
+                            toastText = R.string.toast_serverError;
+                            break;
+                        default:
+                            toastText = R.string.toast_internalError;
+                    }
+                    Toast.makeText(getApplicationContext(), String.format(res.getString(toastText), result.name()), Toast.LENGTH_LONG).show();
                 }
             }
         });
         asyncFetch.execute("infos.php");
+    }
+
+    public void getApiStats() {
+        // Try to get some JSON
+        AsyncFetchApi asyncJson = new AsyncFetchApi(http);
+        asyncJson.setCallback(new AsyncJsonListener() {
+            @Override
+            public void onPreExecute() {
+
+            }
+
+            @Override
+            public void onPostExecute(GStatus result, Map<String, String> map) {
+                if(result == GStatus.OK)
+                    ;
+            }
+        });
+        asyncJson.execute("/");
     }
 
 
@@ -97,7 +127,7 @@ public class MainActivity extends Activity {
         switch(item.getItemId())
         {
             case R.id.action_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
+                startActivityForResult(new Intent(this, SettingsActivity.class), AUTHKEY_REQUEST);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -105,8 +135,9 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == LOGIN_REQUEST)
-            ;
+        if(requestCode == AUTHKEY_REQUEST && resultCode == RESULT_OK) {
+            initActivity();
+        }
         super.onActivityResult(requestCode, resultCode, data);
     }
 }

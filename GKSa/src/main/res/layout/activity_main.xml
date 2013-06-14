@@ -12,62 +12,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world"
-        android:id="@+id/txt_helloWorld"/>
+        android:id="@+id/main_txt_helloWorld"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pseudo"
-            android:id="@+id/txt_Pseudo"
-            android:layout_below="@+id/txt_helloWorld"
-            android:layout_alignLeft="@+id/txt_helloWorld"/>
+            android:text="@string/txt_main_pseudo"
+            android:id="@+id/main_txt_pseudo"
+            android:layout_below="@+id/main_txt_helloWorld"
+            android:layout_alignLeft="@+id/main_txt_helloWorld"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload"
-            android:id="@+id/txt_Upload"
-            android:layout_below="@+id/txt_Pseudo"
-            android:layout_alignLeft="@+id/txt_Pseudo"/>
+            android:text="@string/txt_main_upload"
+            android:id="@+id/main_txt_upload"
+            android:layout_below="@+id/main_txt_pseudo"
+            android:layout_alignLeft="@+id/main_txt_pseudo"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Download"
-            android:id="@+id/txt_Download"
-            android:layout_below="@+id/txt_Upload"
-            android:layout_alignLeft="@+id/txt_Upload"/>
+            android:text="@string/txt_main_download"
+            android:id="@+id/main_txt_download"
+            android:layout_below="@+id/main_txt_upload"
+            android:layout_alignLeft="@+id/main_txt_upload"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ratio"
-            android:id="@+id/txt_Ratio"
-            android:layout_below="@+id/txt_Download"
-            android:layout_alignLeft="@+id/txt_Download"/>
+            android:text="@string/txt_main_ratio"
+            android:id="@+id/main_txt_ratio"
+            android:layout_below="@+id/main_txt_download"
+            android:layout_alignLeft="@+id/main_txt_download"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Classe"
-            android:id="@+id/txt_Class"
-            android:layout_below="@+id/txt_Ratio"
-            android:layout_alignLeft="@+id/txt_Ratio"/>
+            android:text="@string/txt_main_class"
+            android:id="@+id/main_txt_class"
+            android:layout_below="@+id/main_txt_ratio"
+            android:layout_alignLeft="@+id/main_txt_ratio"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Karma"
-            android:id="@+id/txt_Karma"
-            android:layout_below="@+id/txt_Class"
-            android:layout_alignLeft="@+id/txt_Class"/>
+            android:text="@string/txt_main_karma"
+            android:id="@+id/main_txt_karma"
+            android:layout_below="@+id/main_txt_class"
+            android:layout_alignLeft="@+id/main_txt_class"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aura"
-            android:id="@+id/txt_Aura"
-            android:layout_below="@+id/txt_Karma"
-            android:layout_alignLeft="@+id/txt_Karma"/>
+            android:text="@string/txt_main_aura"
+            android:id="@+id/main_txt_aura"
+            android:layout_below="@+id/main_txt_karma"
+            android:layout_alignLeft="@+id/main_txt_karma"/>
 
 </RelativeLayout>

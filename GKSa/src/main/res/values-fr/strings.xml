@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings" >Options</string>
+    <string name="action_fetchAuthKey">Récupérer l'authKey</string>
+    <string name="hello_world" >Bonjour monde!</string>
+
+    <string name="toast_setAuthKey">Entrez votre AuthKey dans les options !</string>
+    <string name="toast_connected">Connecté !</string>
+    <string name="toast_badAuthKey">AuthKey incorrecte</string>
+    <string name="toast_serverError">Erreur serveur : %s</string>
+    <string name="toast_internalError">Erreur interne : %s</string>
+
+    <string name="txt_settings_authKey">AuthKey</string>
+    <string name="btn_settings_save">Enregistrer</string>
+
+    <string name="txt_main_pseudo">Pseudo</string>
+    <string name="txt_main_class">Classe</string>
+
+</resources>
