@@ -64,6 +64,9 @@ public class MainActivity extends Activity {
             public void onPostExecute(GStatus result, Document htmlDoc) {
                 txt_helloWorld.setText(result.name());
                 if(result == GStatus.OK) {
+                    String unreadMP = htmlDoc.select(".mailbox.ui-link").last().text();
+                    ((TextView)findViewById(R.id.main_txt_unreadMP)).setText(unreadMP);
+
                     Elements htmlEls = htmlDoc.select("li.ui-body-c span");
 
                     ((TextView)findViewById(R.id.main_txt_pseudo)).setText(htmlEls.get(0).text());

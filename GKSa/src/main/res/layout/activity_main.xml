@@ -70,4 +70,12 @@
             android:layout_below="@+id/main_txt_karma"
             android:layout_alignLeft="@+id/main_txt_karma"/>
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_main_unreadMP"
+            android:id="@+id/main_txt_unreadMP"
+            android:layout_below="@+id/main_txt_aura"
+            android:layout_alignLeft="@+id/main_txt_aura"/>
+
 </RelativeLayout>

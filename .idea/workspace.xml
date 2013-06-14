@@ -25,15 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a66abc5-2525-414d-91f4-8aa25a8d3598" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/GKSa/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/GKSa.iml" afterPath="$PROJECT_DIR$/GKSa/GKSa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java" afterPath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/SettingsActivity.java" afterPath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/SettingsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_settings.xml" afterPath="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gksa.iml" afterPath="$PROJECT_DIR$/gksa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml" afterPath="$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml" />
     </list>
     <ignored path="GKSa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,12 +92,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="40" selection-start="1640" selection-end="3708" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1680">
+            <state line="67" column="68" selection-start="2221" selection-end="2221" vertical-scroll-proportion="0.33847982" vertical-offset="405" max-vertical-offset="1725">
               <folding>
-                <element signature="e#2893#2930#0" expanded="true" />
+                <element signature="e#3070#3107#0" expanded="true" />
                 <element signature="method#getApiStats#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
@@ -118,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthKeyActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AuthKeyActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="38" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.89311165" vertical-offset="163" max-vertical-offset="1035">
+            <state line="61" column="38" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="1035">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,10 +159,29 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="59" selection-start="444" selection-end="444" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="1185">
+            <state line="78" column="56" selection-start="3287" selection-end="3287" vertical-scroll-proportion="-27.8" vertical-offset="475" max-vertical-offset="1305">
               <folding>
                 <element signature="e#605#626#0" expanded="true" />
+                <element signature="e#812#837#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="47" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="57" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -230,13 +244,13 @@
         <option value="$PROJECT_DIR$/GKSa/src/main/res/values-v11/styles.xml" />
         <option value="$PROJECT_DIR$/GKSa/src/main/res/values-v14/styles.xml" />
         <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_settings.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/GKSa/src/main/res/menu/settings.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java" />
         <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -357,6 +371,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GKSa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gksa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GKSa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-fr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -916,49 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="49" selection-start="199" selection-end="199" vertical-scroll-proportion="0.10526316" vertical-offset="0" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="52" selection-start="104" selection-end="172" vertical-scroll-proportion="0.05263158" vertical-offset="0" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="59" selection-start="444" selection-end="444" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="1185">
-          <folding>
-            <element signature="e#605#626#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="40" selection-start="1640" selection-end="3708" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1680">
-          <folding>
-            <element signature="e#2893#2930#0" expanded="true" />
-            <element signature="method#getApiStats#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="72" selection-start="1734" selection-end="1750" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/AsyncFetchHtml.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="32" selection-start="764" selection-end="767" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
@@ -977,9 +978,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="38" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.89311165" vertical-offset="163" max-vertical-offset="1035">
+        <state line="61" column="38" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="1035">
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="47" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="57" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="56" selection-start="3287" selection-end="3287" vertical-scroll-proportion="-27.8" vertical-offset="475" max-vertical-offset="1305">
+          <folding>
+            <element signature="e#605#626#0" expanded="true" />
+            <element signature="e#812#837#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="72" selection-start="1734" selection-end="1750" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="68" selection-start="2221" selection-end="2221" vertical-scroll-proportion="0.33847982" vertical-offset="405" max-vertical-offset="1725">
+          <folding>
+            <element signature="e#3070#3107#0" expanded="true" />
+            <element signature="method#getApiStats#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -16,5 +16,6 @@
 
     <string name="txt_main_pseudo">Pseudo</string>
     <string name="txt_main_class">Classe</string>
+    <string name="txt_main_unreadMP">MPs non lus</string>
 
 </resources>

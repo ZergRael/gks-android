@@ -23,5 +23,6 @@
     <string name="txt_main_class">Class</string>
     <string name="txt_main_karma">Karma</string>
     <string name="txt_main_aura">Aura</string>
+    <string name="txt_main_unreadMP">Unread MPs</string>
 
 </resources>
