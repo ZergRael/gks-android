@@ -2,6 +2,8 @@ package net.thetabx.gksa.http;
 
 import android.content.Entity;
 
+import net.thetabx.gksa.GStatus;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -12,7 +14,7 @@ import java.io.IOException;
  */
 public class HttpData {
     private HttpResponse httpResponse;
-    private boolean ok = false;
+    private GStatus state = GStatus.NOTDONE;
     private int statusCode;
     private String content;
 
@@ -24,7 +26,18 @@ public class HttpData {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.ok = true;
+        if(content == null || content.length() == 0)
+            state = GStatus.EMPTY;
+        else if(content.indexOf("Bad Key") != -1)
+            state = GStatus.BADKEY;
+        else if (statusCode != 200)
+            state = GStatus.STATUSCODE;
+        else
+            state = GStatus.OK;
+    }
+
+    public GStatus getState() {
+        return state;
     }
 
     public int getStatusCode() {
@@ -33,10 +46,6 @@ public class HttpData {
 
     public String getContent() {
         return content;
-    }
-
-    public boolean isOk() {
-        return ok;
     }
 
     public HttpResponse getHttpResponse() {

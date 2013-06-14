@@ -2,12 +2,19 @@ package net.thetabx.gksa.http;
 
 import android.os.AsyncTask;
 
+import net.thetabx.gksa.GStatus;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.util.ArrayList;
+
 /**
  * Created by Zerg on 13/06/13.
  */
-public class AsyncFetchMobile extends AsyncTask<String, Boolean, Boolean> {
+public class AsyncFetchMobile extends AsyncTask<String, Boolean, GStatus> {
     private HttpManager http;
-    private String content;
+    private Document htmlDoc;
     private AsyncHtmlListener listener;
 
     public AsyncFetchMobile(HttpManager http) {
@@ -21,26 +28,37 @@ public class AsyncFetchMobile extends AsyncTask<String, Boolean, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(String... strings) {
-        String url = strings[0];
+    protected GStatus doInBackground(String... params) {
         if(http == null)
-            return false;
+            return GStatus.NOHTTP;
 
         // Build the correct URL
+        //Expected : https://gks.gs/mob/infos.php?k=<authKey>
+        String url = "/mob/";
+        for(int i = 0; i <= params.length; i++) {
+            if(i == 1)
+                url += "?";
+            else if(i > 1)
+                url += "&";
+
+            if(i == params.length)
+                url += "k=" + http.getAuthKey();
+            else
+                url += params[i];
+        }
 
         // Send request
         HttpData data = http.get(url);
-        if(data == null || !data.isOk() || data.getStatusCode() != 200)
-            return false;
-        content = data.getContent();
-        // TODO Add a Jsoup parser instead of pure Html String
-        return true;
+        if(data == null || data.getState() != GStatus.OK)
+            return data.getState();
+        htmlDoc = Jsoup.parse(data.getContent());
+        return GStatus.OK;
     }
 
     @Override
-    protected void onPostExecute(Boolean result) {
+    protected void onPostExecute(GStatus result) {
         if(listener != null)
-            listener.onPostExecute(result, content);
+            listener.onPostExecute(result, htmlDoc);
     }
 
     public void setCallback(AsyncHtmlListener listener) {

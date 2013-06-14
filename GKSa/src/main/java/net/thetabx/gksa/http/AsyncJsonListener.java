@@ -1,5 +1,7 @@
 package net.thetabx.gksa.http;
 
+import net.thetabx.gksa.GStatus;
+
 import java.util.Map;
 
 /**
@@ -7,5 +9,5 @@ import java.util.Map;
  */
 public interface AsyncJsonListener {
     public void onPreExecute();
-    public void onPostExecute(Boolean result, Map<String, String> map);
+    public void onPostExecute(GStatus result, Map<String, String> map);
 }
