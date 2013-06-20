@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-        >
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Authkey"
-            android:id="@+id/txt_AuthKey"
-            android:layout_gravity="left|center_vertical"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"/>
-
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/edtxt_AuthKey"
-            android:layout_gravity="left|center_vertical"
-            android:layout_below="@+id/txt_AuthKey"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
-            android:id="@+id/btn_Save"
-            android:layout_gravity="center"
+            android:text="@string/txt_save"
+            android:id="@+id/settings_btn_save"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"/>
 </RelativeLayout>

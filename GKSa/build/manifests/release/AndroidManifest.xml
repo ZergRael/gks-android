@@ -1,16 +1,17 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="net.thetabx.gksa">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="0.1.0" package="net.thetabx.gksa">
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="16"/>
 
     <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
-        <activity android:label="@string/app_name" android:name="net.thetabx.gksa.MainActivity">
+        <activity android:label="@string/app_name" android:name="net.thetabx.gksa.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="net.thetabx.gksa.SettingsActivity"/>
+        <activity android:name="net.thetabx.gksa.activity.CredsActivity"/>
+        <activity android:name="net.thetabx.gksa.activity.SettingsActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

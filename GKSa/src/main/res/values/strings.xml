@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" >GKSa</string>
+    <string name="app_name">GKSa</string>
+    <string name="hello_world">Hello world!</string>
 
-    <string name="action_settings" >Settings</string>
-    <string name="action_fetchAuthKey">Fetch the authKey</string>
-    <string name="hello_world" >Hello world!</string>
+    <!-- Menu buttons -->
+    <string name="menu_settings">Settings</string>
 
-    <string name="toast_setAuthKey">Set your AuthKey in settings !</string>
+    <!-- Toasts -->
     <string name="toast_connected">Connected !</string>
-    <string name="toast_badAuthKey">Wrong AuthKey</string>
+    <string name="toast_badLogin">Wrong credentials</string>
     <string name="toast_serverError">Server error : %s</string>
     <string name="toast_internalError">Internal error : %s</string>
 
-    <string name="txt_settings_authKey">AuthKey</string>
-    <string name="btn_settings_save">Save</string>
+    <!-- Input fields -->
+    <string name="txt_username">Username</string>
+    <string name="txt_password">Password</string>
 
-    <string name="txt_main_pseudo">Nickname</string>
-    <string name="txt_main_upload">Upload</string>
-    <string name="txt_main_download">Download</string>
-    <string name="txt_main_ratio">Ratio</string>
-    <string name="txt_main_class">Class</string>
-    <string name="txt_main_karma">Karma</string>
-    <string name="txt_main_aura">Aura</string>
-    <string name="txt_main_unreadMP">Unread MPs</string>
+    <!-- Buttons -->
+    <string name="txt_connect">Connect</string>
+    <string name="txt_save">Save</string>
+
+    <!-- Txt -->
+    <string name="txt_status">Status</string>
+    <string name="txt_userId">User ID</string>
+    <string name="txt_pseudo">Nickname</string>
+    <string name="txt_upload">Upload</string>
+    <string name="txt_download">Download</string>
+    <string name="txt_ratio">Ratio</string>
+    <string name="txt_reqRatio">Required ratio</string>
+    <string name="txt_class">Class</string>
+    <string name="txt_karma">Karma</string>
+    <string name="txt_aura">Aura</string>
+    <string name="txt_unreadMP">Unread PM</string>
+    <string name="txt_MP">PM</string>
+    <string name="txt_unreadTwits">Unread Twits</string>
+    <string name="txt_hitAndRun">Hit\'n\'Run</string>
+    <string name="txt_authKey">AuthKey</string>
+    <string name="txt_twits">Twits</string>
+    <string name="txt_seeding">Seeding</string>
+    <string name="txt_leeching">Leeching</string>
 
 </resources>

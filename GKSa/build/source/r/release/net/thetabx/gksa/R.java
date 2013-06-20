@@ -15,33 +15,88 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int border=0x7f020000;
+        public static final int divider=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000b;
-        public static final int btn_Save=0x7f08000a;
-        public static final int edtxt_AuthKey=0x7f080009;
-        public static final int txt_Aura=0x7f080007;
-        public static final int txt_AuthKey=0x7f080008;
-        public static final int txt_Class=0x7f080005;
-        public static final int txt_Download=0x7f080003;
-        public static final int txt_Karma=0x7f080006;
-        public static final int txt_Pseudo=0x7f080001;
-        public static final int txt_Ratio=0x7f080004;
-        public static final int txt_Upload=0x7f080002;
-        public static final int txt_helloWorld=0x7f080000;
+        public static final int _creds_txt_Password=0x7f080004;
+        public static final int _creds_txt_Username=0x7f080000;
+        public static final int action_settings=0x7f080023;
+        public static final int creds_btn_Connect=0x7f080002;
+        public static final int creds_etxt_Password=0x7f080003;
+        public static final int creds_etxt_Username=0x7f080001;
+        public static final int linearLayout=0x7f080020;
+        public static final int main_txt_aura=0x7f08000f;
+        public static final int main_txt_authKey=0x7f080012;
+        public static final int main_txt_class=0x7f080008;
+        public static final int main_txt_download=0x7f08000b;
+        public static final int main_txt_helloWorld=0x7f080005;
+        public static final int main_txt_hitAndRun=0x7f080011;
+        public static final int main_txt_karma=0x7f08000e;
+        public static final int main_txt_pseudo=0x7f080007;
+        public static final int main_txt_ratio=0x7f08000c;
+        public static final int main_txt_reqRatio=0x7f08000d;
+        public static final int main_txt_unreadMP=0x7f080009;
+        public static final int main_txt_unreadTwits=0x7f080010;
+        public static final int main_txt_upload=0x7f08000a;
+        public static final int main_txt_userId=0x7f080006;
+        public static final int settings_btn_save=0x7f080013;
+        public static final int textView4=0x7f080016;
+        public static final int welc_img_mp=0x7f080018;
+        public static final int welc_img_user=0x7f080014;
+        public static final int welc_txt_class=0x7f080017;
+        public static final int welc_txt_download=0x7f08001d;
+        public static final int welc_txt_hitAndRun=0x7f08001c;
+        public static final int welc_txt_leeching=0x7f080022;
+        public static final int welc_txt_meh=0x7f08001f;
+        public static final int welc_txt_mp=0x7f080019;
+        public static final int welc_txt_pseudo=0x7f080015;
+        public static final int welc_txt_ratio=0x7f08001b;
+        public static final int welc_txt_reqRatio=0x7f08001e;
+        public static final int welc_txt_seeding=0x7f080021;
+        public static final int welc_txt_upload=0x7f08001a;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int activity_settings=0x7f030001;
+        public static final int activity_creds=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_settings=0x7f030002;
+        public static final int activity_welcome=0x7f030003;
+        public static final int scroll_test=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f070000;
     }
     public static final class string {
-        public static final int action_settings=0x7f050000;
-        public static final int app_name=0x7f050001;
-        public static final int hello_world=0x7f050002;
+        public static final int app_name=0x7f050000;
+        public static final int hello_world=0x7f050001;
+        public static final int menu_settings=0x7f050002;
+        public static final int toast_badLogin=0x7f050003;
+        public static final int toast_connected=0x7f050004;
+        public static final int toast_internalError=0x7f050005;
+        public static final int toast_serverError=0x7f050006;
+        public static final int txt_MP=0x7f050007;
+        public static final int txt_aura=0x7f050008;
+        public static final int txt_authKey=0x7f050009;
+        public static final int txt_class=0x7f05000a;
+        public static final int txt_connect=0x7f05000b;
+        public static final int txt_download=0x7f05000c;
+        public static final int txt_hitAndRun=0x7f05000d;
+        public static final int txt_karma=0x7f05000e;
+        public static final int txt_leeching=0x7f05000f;
+        public static final int txt_password=0x7f050010;
+        public static final int txt_pseudo=0x7f050011;
+        public static final int txt_ratio=0x7f050012;
+        public static final int txt_reqRatio=0x7f050013;
+        public static final int txt_save=0x7f050014;
+        public static final int txt_seeding=0x7f050015;
+        public static final int txt_status=0x7f050016;
+        public static final int txt_twits=0x7f050017;
+        public static final int txt_unreadMP=0x7f050018;
+        public static final int txt_unreadTwits=0x7f050019;
+        public static final int txt_upload=0x7f05001a;
+        public static final int txt_userId=0x7f05001b;
+        public static final int txt_username=0x7f05001c;
     }
     public static final class style {
         /** 

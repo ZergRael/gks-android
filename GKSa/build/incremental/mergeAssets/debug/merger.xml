@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\assets" />
+        <source path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\debug\assets" />
+        <source path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\debug\assets" />
     </dataSet>
 
 </merger>

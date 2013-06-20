@@ -2,39 +2,69 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res" >
+        <source path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res" >
+            <file
+                name="border"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable\border.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="divider"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable\divider.xml"
+                qualifiers=""
+                type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\drawable-hdpi\ic_launcher.png"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable-hdpi\ic_launcher.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\drawable-mdpi\ic_launcher.png"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable-mdpi\ic_launcher.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\drawable-xhdpi\ic_launcher.png"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable-xhdpi\ic_launcher.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\drawable-xxhdpi\ic_launcher.png"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable-xxhdpi\ic_launcher.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
+                name="activity_creds"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_creds.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="activity_main"
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\layout\activity_main.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_settings"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_settings.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_welcome"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_welcome.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="scroll_test"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\scroll_test.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="main"
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\menu\main.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\menu\main.xml"
                 qualifiers=""
                 type="menu" />
             <file
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\values\dimens.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values\dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_horizontal_margin" >16dp
                 </dimen>
@@ -42,17 +72,69 @@
                 </dimen>
             </file>
             <file
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\values\strings.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values\strings.xml"
                 qualifiers="" >
-                <string name="action_settings" >Settings
+                <string name="txt_aura" >Aura
                 </string>
-                <string name="app_name" >GKSa
+                <string name="toast_connected" >Connected !
+                </string>
+                <string name="txt_MP" >PM
+                </string>
+                <string name="txt_leeching" >Leeching
+                </string>
+                <string name="txt_upload" >Upload
+                </string>
+                <string name="txt_pseudo" >Nickname
+                </string>
+                <string name="toast_badLogin" >Wrong credentials
+                </string>
+                <string name="txt_save" >Save
+                </string>
+                <string name="txt_authKey" >AuthKey
+                </string>
+                <string name="txt_password" >Password
+                </string>
+                <string name="txt_ratio" >Ratio
+                </string>
+                <string name="txt_class" >Class
                 </string>
                 <string name="hello_world" >Hello world!
                 </string>
+                <string name="toast_internalError" >Internal error : %s
+                </string>
+                <string name="menu_settings" >Settings
+                </string>
+                <string name="txt_username" >Username
+                </string>
+                <string name="txt_seeding" >Seeding
+                </string>
+                <string name="txt_status" >Status
+                </string>
+                <string name="txt_download" >Download
+                </string>
+                <string name="txt_unreadTwits" >Unread Twits
+                </string>
+                <string name="txt_connect" >Connect
+                </string>
+                <string name="toast_serverError" >Server error : %s
+                </string>
+                <string name="txt_unreadMP" >Unread PM
+                </string>
+                <string name="txt_userId" >User ID
+                </string>
+                <string name="txt_karma" >Karma
+                </string>
+                <string name="app_name" >GKSa
+                </string>
+                <string name="txt_reqRatio" >Required ratio
+                </string>
+                <string name="txt_hitAndRun" >Hit\'n\'Run
+                </string>
+                <string name="txt_twits" >Twits
+                </string>
             </file>
             <file
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\values\styles.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values\styles.xml"
                 qualifiers="" >
 
                 <style
@@ -74,46 +156,85 @@
                 </style>
             </file>
             <file
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\values-sw600dp\dimens.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values-fr\strings.xml"
+                qualifiers="fr" >
+                <string name="toast_connected" >Connecté !
+                </string>
+                <string name="hello_world" >Bonjour monde !
+                </string>
+                <string name="txt_unreadMP" >MP non lus
+                </string>
+                <string name="txt_pseudo" >Pseudo
+                </string>
+                <string name="toast_internalError" >Erreur interne : %s
+                </string>
+                <string name="txt_username" >Nom d\'utilisateur
+                </string>
+                <string name="txt_save" >Enregistrer
+                </string>
+                <string name="toast_badLogin" >Login / password incorrect
+                </string>
+                <string name="txt_status" >Statut
+                </string>
+                <string name="txt_leeching" >En leech
+                </string>
+                <string name="txt_MP" >MP
+                </string>
+                <string name="menu_settings" >Options
+                </string>
+                <string name="txt_unreadTwits" >Twits non lus
+                </string>
+                <string name="txt_class" >Classe
+                </string>
+                <string name="txt_seeding" >En seed
+                </string>
+                <string name="txt_userId" >ID utilisateur
+                </string>
+                <string name="txt_password" >Mot de passe
+                </string>
+                <string name="txt_reqRatio" >Ratio requis
+                </string>
+                <string name="toast_serverError" >Erreur serveur : %s
+                </string>
+                <string name="txt_connect" >Se connecter
+                </string>
+            </file>
+            <file
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values-sw600dp\dimens.xml"
                 qualifiers="sw600dp" />
             <file
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\values-sw720dp-land\dimens.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values-sw720dp-land\dimens.xml"
                 qualifiers="sw720dp-land" >
                 <dimen name="activity_horizontal_margin" >128dp
                 </dimen>
             </file>
             <file
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\values-v11\styles.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values-v11\styles.xml"
                 qualifiers="v11" >
 
                 <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Holo" >
+                    parent="android:Theme.Holo.Light" >
 
                     <!-- API 11 theme customizations can go here. -->
                 </style>
             </file>
             <file
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\values-v14\styles.xml"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values-v14\styles.xml"
                 qualifiers="v14" >
 
                 <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Holo" >
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
 
                     <!-- API 14 theme customizations can go here. -->
                 </style>
             </file>
-            <file
-                name="activity_settings"
-                path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\main\res\layout\activity_settings.xml"
-                qualifiers=""
-                type="layout" />
         </source>
-        <source path="C:\Users\Zerg\workspace\android\gksa\GKSa\build\res\rs\debug" />
+        <source path="C:\Users\Zerg\workspace\android\gks-android\GKSa\build\res\rs\debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Users\Zerg\workspace\android\gksa\GKSa\src\debug\res" />
+        <source path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\debug\res" />
     </dataSet>
 
 </merger>

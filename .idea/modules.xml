@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GKSa/GKSa.iml" filepath="$PROJECT_DIR$/GKSa/GKSa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gksa.iml" filepath="$PROJECT_DIR$/gksa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gks-android.iml" filepath="$PROJECT_DIR$/gks-android.iml" />
     </modules>
   </component>
 </project>

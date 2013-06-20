@@ -18,18 +18,19 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_welcome.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="thetabx" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a66abc5-2525-414d-91f4-8aa25a8d3598" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java" afterPath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/GStatus.java" afterPath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/GStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/HttpData.java" afterPath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/HttpData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java" afterPath="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java" />
-    </list>
+    <list default="true" id="1e0d5e1f-209c-4378-ac3f-4ab487df445f" name="Default" comment="" />
     <ignored path="GKSa.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -92,37 +93,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java">
+      <file leaf-file-name="GKS.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/GKS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="24" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.40973872" vertical-offset="0" max-vertical-offset="1830">
+            <state line="103" column="46" selection-start="3432" selection-end="3432" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1785">
               <folding>
-                <element signature="e#3230#3267#0" expanded="true" />
-                <element signature="method#getApiStats#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#connect#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchUserMe#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchMPList#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchMP#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchTwitsList#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchForums#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchForum#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchForum#1;class#GKS#0" expanded="false" />
+                <element signature="method#fetchTopic#0;class#GKS#0" expanded="false" />
+                <element signature="method#fetchTopic#1;class#GKS#0" expanded="false" />
+                <element signature="method#fetchBookmarks#0;class#GKS#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthKeyActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java">
+      <file leaf-file-name="UserMe.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/UserMe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="18" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="1125">
+            <state line="17" column="4" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1785">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserStats.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/UserStats.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="46" selection-start="486" selection-end="486" vertical-scroll-proportion="0.35581395" vertical-offset="0" max-vertical-offset="1819">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/activity/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="88" column="49" selection-start="2993" selection-end="2995" vertical-scroll-proportion="0.0" vertical-offset="1557" max-vertical-offset="2703">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state line="78" column="56" selection-start="3287" selection-end="3287" vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="1305">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -133,14 +149,6 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitLogSettings">
-    <option name="myDateState">
-      <MyDateState />
-    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="tasksExpandState">
@@ -153,8 +161,8 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="gksa" />
-              <option name="path" value="C:\Users\Zerg\workspace\android\gksa\build.gradle" />
+              <option name="name" value="gks-android" />
+              <option name="path" value="C:\Users\Zerg\workspace\android\gks-android\build.gradle" />
             </ExternalProjectPojo>
           </key>
           <value>
@@ -164,7 +172,7 @@
                 <option name="path" value="$PROJECT_DIR$/GKSa/build.gradle" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="gksa" />
+                <option name="name" value="gks-android" />
                 <option name="path" value="$PROJECT_DIR$/build.gradle" />
               </ExternalProjectPojo>
             </list>
@@ -176,31 +184,32 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/AsyncFetchApi.java" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/AsyncFetchHtml.java" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/AsyncFetchRss.java" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/values-v11/styles.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/values-v14/styles.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_settings.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/menu/settings.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/HttpData.java" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/GStatus.java" />
-        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_welcome.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/User.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/GObject.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/http/AsyncFetcher.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/Forum.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/Forums.java" />
+        <option value="$PROJECT_DIR$/GKSa/build/res/all/debug/layout/activity_creds.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_settings.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/res/layout/activity_creds.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/res/menu/main.xml" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/activity/SettingsActivity.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/GKS.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/UserMe.java" />
+        <option value="$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/UserStats.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1280" />
-    <option name="height" value="1000" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -212,11 +221,6 @@
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
-  </component>
-  <component name="ProjectStructureProblems">
-    <ignored-problems>
-      <problem id="unused-library(library:project:jsoup-1.7.2 (2))" />
-    </ignored-problems>
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -231,6 +235,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -238,10 +244,6 @@
               <option name="myItemId" value="GKSa" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -249,7 +251,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,7 +261,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -273,7 +275,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -295,7 +297,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -321,7 +323,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -351,7 +353,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -381,7 +383,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -411,7 +413,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -441,7 +443,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -457,11 +459,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="drawable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -471,7 +473,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
+              <option name="myItemId" value="gks-android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -492,6 +494,82 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gksa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGKSj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GKSa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gks-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GKSa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gksa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGKSj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GKSa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gks-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GKSa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gksa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGKSj" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -505,65 +583,74 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="gks-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GKSa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gksa" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GKSa" />
+              <option name="myItemId" value="activity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GKSa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gksa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GKSa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-support-v4.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="459" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jsoup-1.7.2.jar!/" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="appearance" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="015d2bc2892bf411" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0123456789ABCDEF" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Kyno-2.3.3" />
-    <property name="MemberChooser.showClasses" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\java\net\thetabx\gksa" />
+      <recent name="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\java\net\thetabx\gksa\parser" />
+      <recent name="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\java\net\thetabx\gksa\http" />
+      <recent name="C:\Users\Zerg\workspace\android\gks-android\GKSa\libs" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="net.thetabx.gksa" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Zerg\workspace\android\gks-android\GKSa\archive" />
+      <recent name="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\java\net\thetabx\gksa" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.GKSa">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -691,11 +778,6 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SliceManager">
-    <option name="analysisUIOptions">
-      <AnalysisUIOptions />
-    </option>
-  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -715,69 +797,42 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0a66abc5-2525-414d-91f4-8aa25a8d3598" name="Default" comment="" />
-      <created>1371150702160</created>
-      <updated>1371150702160</updated>
+      <changelist id="1e0d5e1f-209c-4378-ac3f-4ab487df445f" name="Default" comment="" />
+      <created>1371236148172</created>
+      <updated>1371236148172</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1280" height="1000" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.67074525" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.79310346" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5650723" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20689656" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3337041" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24878444" sideWeight="0.6708286" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1456777" sideWeight="0.6662959" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.67074525" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67074525" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -840,130 +895,145 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values-v14/styles.xml">
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/activity/CredsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="57" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+        <state line="19" column="13" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/AsyncJsonListener.java">
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/GObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="37" selection-start="235" selection-end="235" vertical-scroll-proportion="0.19975787" vertical-offset="0" max-vertical-offset="826">
+        <state line="5" column="16" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/Forum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="52" selection-start="442" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/build/res/all/debug/layout/activity_creds.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="46" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.53625375" vertical-offset="121" max-vertical-offset="969">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#358#380#0" expanded="true" />
+            <element signature="e#1121#1142#0" expanded="true" />
+            <element signature="e#1485#1507#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_creds.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="38" selection-start="458" selection-end="466" vertical-scroll-proportion="0.28070176" vertical-offset="0" max-vertical-offset="855">
-          <folding />
+        <state line="30" column="43" selection-start="1234" selection-end="1234" vertical-scroll-proportion="-15.56" vertical-offset="121" max-vertical-offset="969">
+          <folding>
+            <element signature="e#358#380#0" expanded="true" />
+            <element signature="e#1121#1142#0" expanded="true" />
+            <element signature="e#1485#1507#0" expanded="true" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/HttpManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="27" selection-start="1113" selection-end="1121" vertical-scroll-proportion="0.6666667" vertical-offset="0" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_settings.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/Forums.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="48" selection-start="919" selection-end="919" vertical-scroll-proportion="0.39759037" vertical-offset="0" max-vertical-offset="830">
+        <state line="15" column="53" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/http/AsyncFetcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="80" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/AsyncFetchHtml.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="32" selection-start="764" selection-end="767" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/menu/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="52" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+        <state line="1" column="27" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="47" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+        <state line="40" column="47" selection-start="1558" selection-end="1608" vertical-scroll-proportion="0.7525473" vertical-offset="163" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/values-fr/strings.xml">
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_settings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="57" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+        <state line="8" column="48" selection-start="330" selection-end="330" vertical-scroll-proportion="0.20543806" vertical-offset="0" max-vertical-offset="662">
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="72" selection-start="1734" selection-end="1750" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state line="78" column="56" selection-start="3287" selection-end="3287" vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/GStatus.java">
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/activity/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="24" selection-start="113" selection-end="113" vertical-scroll-proportion="0.10526316" vertical-offset="0" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/http/HttpData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="32" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/AuthKeyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="18" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="1125">
+        <state line="88" column="49" selection-start="2993" selection-end="2995" vertical-scroll-proportion="0.0" vertical-offset="1251" max-vertical-offset="2703">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/activity/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="24" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.40973872" vertical-offset="0" max-vertical-offset="1830">
+        <state line="53" column="37" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.61053836" vertical-offset="317" max-vertical-offset="1190">
           <folding>
-            <element signature="e#3230#3267#0" expanded="true" />
-            <element signature="method#getApiStats#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/http/HttpWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="18" selection-start="3538" selection-end="3544" vertical-scroll-proportion="1.5773196" vertical-offset="0" max-vertical-offset="3502">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/GKS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="46" selection-start="3432" selection-end="3432" vertical-scroll-proportion="0.0" vertical-offset="868" max-vertical-offset="1785">
+          <folding>
+            <element signature="method#connect#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchUserMe#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchMPList#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchMP#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchTwitsList#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchForums#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchForum#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchForum#1;class#GKS#0" expanded="false" />
+            <element signature="method#fetchTopic#0;class#GKS#0" expanded="false" />
+            <element signature="method#fetchTopic#1;class#GKS#0" expanded="false" />
+            <element signature="method#fetchBookmarks#0;class#GKS#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/UserMe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="4" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GKSa/src/main/java/net/thetabx/gksa/libGKSj/objects/UserStats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="46" selection-start="486" selection-end="486" vertical-scroll-proportion="0.35581395" vertical-offset="0" max-vertical-offset="1819">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,7 +1077,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.6</last-edited>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1019,7 +1089,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>GKSa</last-edited>
+          <last-edited>gks-android</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
