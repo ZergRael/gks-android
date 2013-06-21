@@ -5,6 +5,8 @@
 
     <!-- Menu buttons -->
     <string name="menu_settings">Options</string>
+    <string name="menu_disconnect">Se déconnecter</string>
+    <string name="menu_connect">Se connecter</string>
 
     <!-- Toasts -->
     <string name="toast_connected">Connecté !</string>
@@ -13,6 +15,7 @@
     <string name="toast_internalError">Erreur interne : %s</string>
 
     <!-- Progress -->
+    <string name="progress_connecting">Connection</string>
     <string name="progress_loading">Chargement</string>
 
     <!-- Input fields -->
@@ -34,5 +37,7 @@
     <string name="txt_unreadTwits">Twits non lus</string>
     <string name="txt_seeding">En seed</string>
     <string name="txt_leeching">En leech</string>
+
+    <!-- Debug -->
 
 </resources>
