@@ -6,7 +6,11 @@
 
     <string name="app_name">GKSa</string>
     <string name="hello_world">Hello world!</string>
+    <string name="menu_connect">Login</string>
+    <string name="menu_disconnect">Logout</string>
     <string name="menu_settings">Settings</string>
+    <string name="progress_connecting">Connecting</string>
+    <string name="progress_loading">Loading</string>
     <string name="toast_badLogin">Wrong credentials</string>
     <string name="toast_connected">Connected !</string>
     <string name="toast_internalError">Internal error : %s</string>
@@ -16,6 +20,7 @@
     <string name="txt_authKey">AuthKey</string>
     <string name="txt_class">Class</string>
     <string name="txt_connect">Connect</string>
+    <string name="txt_debug">Debug</string>
     <string name="txt_download">Download</string>
     <string name="txt_hitAndRun">Hit\'n\'Run</string>
     <string name="txt_karma">Karma</string>

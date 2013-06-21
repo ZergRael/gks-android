@@ -74,25 +74,33 @@
             <file
                 path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values\strings.xml"
                 qualifiers="" >
-                <string name="txt_aura" >Aura
-                </string>
                 <string name="toast_connected" >Connected !
+                </string>
+                <string name="txt_aura" >Aura
                 </string>
                 <string name="txt_MP" >PM
                 </string>
+                <string name="progress_connecting" >Connecting
+                </string>
                 <string name="txt_leeching" >Leeching
                 </string>
-                <string name="txt_upload" >Upload
-                </string>
                 <string name="txt_pseudo" >Nickname
+                </string>
+                <string name="txt_upload" >Upload
                 </string>
                 <string name="toast_badLogin" >Wrong credentials
                 </string>
                 <string name="txt_save" >Save
                 </string>
+                <string name="txt_debug" >Debug
+                </string>
+                <string name="menu_connect" >Login
+                </string>
                 <string name="txt_authKey" >AuthKey
                 </string>
                 <string name="txt_password" >Password
+                </string>
+                <string name="progress_loading" >Loading
                 </string>
                 <string name="txt_ratio" >Ratio
                 </string>
@@ -122,13 +130,15 @@
                 </string>
                 <string name="txt_userId" >User ID
                 </string>
+                <string name="menu_disconnect" >Logout
+                </string>
                 <string name="txt_karma" >Karma
                 </string>
                 <string name="app_name" >GKSa
                 </string>
-                <string name="txt_reqRatio" >Required ratio
-                </string>
                 <string name="txt_hitAndRun" >Hit\'n\'Run
+                </string>
+                <string name="txt_reqRatio" >Required ratio
                 </string>
                 <string name="txt_twits" >Twits
                 </string>
@@ -162,6 +172,8 @@
                 </string>
                 <string name="hello_world" >Bonjour monde !
                 </string>
+                <string name="menu_connect" >Se connecter
+                </string>
                 <string name="txt_unreadMP" >MP non lus
                 </string>
                 <string name="txt_pseudo" >Pseudo
@@ -169,6 +181,10 @@
                 <string name="toast_internalError" >Erreur interne : %s
                 </string>
                 <string name="txt_username" >Nom d\'utilisateur
+                </string>
+                <string name="menu_disconnect" >Se déconnecter
+                </string>
+                <string name="progress_connecting" >Connection
                 </string>
                 <string name="txt_save" >Enregistrer
                 </string>
@@ -180,19 +196,21 @@
                 </string>
                 <string name="txt_MP" >MP
                 </string>
-                <string name="menu_settings" >Options
+                <string name="progress_loading" >Chargement
                 </string>
                 <string name="txt_unreadTwits" >Twits non lus
+                </string>
+                <string name="menu_settings" >Options
                 </string>
                 <string name="txt_class" >Classe
                 </string>
                 <string name="txt_seeding" >En seed
                 </string>
-                <string name="txt_userId" >ID utilisateur
+                <string name="txt_reqRatio" >Ratio requis
                 </string>
                 <string name="txt_password" >Mot de passe
                 </string>
-                <string name="txt_reqRatio" >Ratio requis
+                <string name="txt_userId" >ID utilisateur
                 </string>
                 <string name="toast_serverError" >Erreur serveur : %s
                 </string>

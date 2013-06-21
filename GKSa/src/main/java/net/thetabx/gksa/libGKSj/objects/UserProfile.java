@@ -1,5 +1,7 @@
 package net.thetabx.gksa.libGKSj.objects;
 
+import android.util.Log;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,6 +12,7 @@ import org.jsoup.select.Elements;
  */
 public class UserProfile extends User {
     public final static String DEFAULT_URL = "/users/%s";
+    private final String LOG_TAG = "UserProfile";
 
     protected String userPicture;
     protected int sex = -1;
@@ -226,7 +229,7 @@ public class UserProfile extends User {
         else if(key.equals("Sexe"))
             sex = value.equals("Homme") ? 0 : (value.equals("Femme") ? 1 : -1);
         else if(key.equals("Age"))
-            age = Integer.parseInt(value.substring(0, value.charAt(' ')));
+            age = Integer.parseInt(value.substring(0, value.indexOf(' ')));
         else if(key.equals("Client Torrent"))
             torrentClient = value.length() == 0 ? null : value;
         else if(key.equals("Classe d'Utilisateur")) {
@@ -262,7 +265,7 @@ public class UserProfile extends User {
                 leechingTorrents = Integer.parseInt(value.substring(value.indexOf('/') + 1).trim());
             }
         else if(key.equals("Ratio"))
-            ratio = value.contains("asqu") ? -1 : (value.contains("&infin;") ? -2 : Float.parseFloat(value));
+            ratio = value.contains("asqu") ? -1 : (value.charAt(0) == 8734 ? -2 : Float.parseFloat(value));
         else if(key.equals("Upload"))
             if(value.contains("asqu")) {
                 uploadStr = null;

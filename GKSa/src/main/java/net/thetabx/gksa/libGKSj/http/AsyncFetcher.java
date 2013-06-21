@@ -24,6 +24,13 @@ public abstract class AsyncFetcher extends AsyncTask<String, Boolean, GStatus> {
     }
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        if(listener != null)
+            listener.onPreExecute();
+    }
+
+    @Override
     protected void onPostExecute(GStatus gStatus) {
         super.onPostExecute(gStatus);
         if(listener != null)

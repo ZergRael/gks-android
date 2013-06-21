@@ -47,7 +47,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_twits"
-                        android:id="@+id/textView4"/>
+                        android:id="@+id/welc_txt_twits"/>
             </LinearLayout>
 
             <LinearLayout
@@ -120,6 +120,12 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txt_hitAndRun"
                         android:id="@+id/welc_txt_hitAndRun"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_karma"
+                        android:id="@+id/welc_txt_karma"/>
             </LinearLayout>
 
             <LinearLayout
@@ -145,6 +151,12 @@
                         android:layout_height="wrap_content"
                         android:text="@android:string/unknownName"
                         android:id="@+id/welc_txt_meh"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_aura"
+                        android:id="@+id/welc_txt_aura"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -153,7 +165,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/border"
                 android:padding="4dp"
-                android:id="@+id/linearLayout"
                 android:baselineAligned="false"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp">
@@ -184,6 +195,57 @@
                         android:text="@string/txt_leeching"
                         android:id="@+id/welc_txt_leeching"
                         />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:baselineAligned="false"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_debug"
+                        android:id="@+id/welc_txt_debug"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_debug"
+                        android:id="@+id/welc_txt_authKey"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="50">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_userId"
+                        android:id="@+id/welc_txt_userId"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_debug"
+                        android:id="@+id/welc_txt_debug2"/>
 
             </LinearLayout>
         </LinearLayout>
