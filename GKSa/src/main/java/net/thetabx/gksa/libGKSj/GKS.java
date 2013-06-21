@@ -8,6 +8,8 @@ import net.thetabx.gksa.libGKSj.objects.Forum;
 import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
+import net.thetabx.gksa.libGKSj.objects.MPList;
+import net.thetabx.gksa.libGKSj.objects.User;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 import net.thetabx.gksa.libGKSj.objects.UserProfile;
 
@@ -58,6 +60,10 @@ public class GKS {
         http = new HttpWrapper();
     }
 
+    /**
+     * Initializers
+     */
+
     public void setUserToken(String userId, String token) {
         this.meUserId = userId;
         http.setUserToken(userId, token);
@@ -92,6 +98,10 @@ public class GKS {
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
+    /**
+     * Fetchers
+     */
+
     public void fetchUserMe(AsyncListener progressListener) throws IOException {
         fetchUser(meUserId, progressListener);
     }
@@ -115,7 +125,7 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("/users/%s", userId);
+        new Fetcher().SetParams(http, progressListener).execute(UserProfile.DEFAULT_URL, userId);
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -123,15 +133,15 @@ public class GKS {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
-                /*try {
+                try {
                     parsedObject = new MPList(http.getUrl(urlFragments[0]), urlFragments);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
+                }
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("/mailbox/");
+        new Fetcher().SetParams(http, progressListener).execute(MPList.DEFAULT_URL);
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -179,12 +189,12 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("/forums.php");
+        new Fetcher().SetParams(http, progressListener).execute(Forums.DEFAULT_URL);
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public void fetchForum(int forumId, AsyncListener progressListener) {
-        fetchForum(forumId, 1, progressListener);
+        fetchForum(forumId, Forum.MIN_PAGE, progressListener);
     }
 
     public void fetchForum(int forumId, int page, AsyncListener progressListener) {
@@ -199,12 +209,12 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("/forums.php?action=viewforum&forumid=%s&page=%s", Integer.toString(forumId), Integer.toString(page));
+        new Fetcher().SetParams(http, progressListener).execute(Forum.DEFAULT_URL, Integer.toString(forumId), Integer.toString(page));
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public void fetchTopic(int topicId, AsyncListener progressListener) {
-        fetchTopic(topicId, 1, progressListener);
+        fetchTopic(topicId, Forum.MIN_PAGE, progressListener);
     }
 
     public void fetchTopic(int topicId, int page, AsyncListener progressListener) {
@@ -219,8 +229,8 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("/forums.php?action=viewtopic&topicid=%s&page=%s", Integer.toString(topicId), Integer.toString(page));
-        throw new UnsupportedOperationException("Not yet implemented");
+        new Fetcher().SetParams(http, progressListener).execute("", Integer.toString(topicId), Integer.toString(page));
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public void fetchBookmarks(AsyncListener progressListener) {
