@@ -21,6 +21,7 @@ public class TopicMin {
     private String lastPostTime;
 
     public TopicMin(Element htmlEl, int position) {
+        // from Forum.java
         this.position = position;
 
         Elements td = htmlEl.select("td");

@@ -20,6 +20,7 @@ public class ForumMin {
 
 
     public ForumMin(Element htmlEl, int position) {
+        // from Forums.java
         Elements td = htmlEl.select("td");
         this.read = htmlEl.select(".read").size() != 0;
         this.position = position;

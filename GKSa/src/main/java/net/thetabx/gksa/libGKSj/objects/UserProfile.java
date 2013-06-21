@@ -9,6 +9,7 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 21/06/13.
  */
 public class UserProfile extends User {
+    public final static String DEFAULT_URL = "/users/%s";
 
     protected String userPicture;
     protected int sex = -1;

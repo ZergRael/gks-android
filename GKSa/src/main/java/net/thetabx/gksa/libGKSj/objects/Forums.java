@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class Forums extends GObject {
     private List<ForumMin> forums;
+    public final static String DEFAULT_URL = "/forums.php";
 
     public Forums(String html, String... urlFragments) {
-        // https://gks.gs/forums.php
         Document htmlDoc = Jsoup.parse(html);
         Elements forumsEls = htmlDoc.select("table tbody");
         if(forumsEls.isEmpty())
