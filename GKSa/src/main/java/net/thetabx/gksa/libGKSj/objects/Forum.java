@@ -13,11 +13,15 @@ import java.util.List;
  */
 public class Forum extends GObject {
     private List<TopicMin> topics;
+    public final static int MIN_PAGE = 1;
+    public final static String DEFAULT_URL = "/forums.php?action=viewtopic&topicid=%s&page=%s";
     private int page;
     private int maxPage;
 
     public Forum(String html, String... urlFragments) {
-        // https://gks.gs/forums.php?action=viewforum&forumid=2
+        page = Integer.parseInt(urlFragments[2]);
+        maxPage = page;
+
         Document htmlDoc = Jsoup.parse(html);
         Elements topicsEls = htmlDoc.select("table tbody");
         if(topicsEls.isEmpty())
@@ -31,11 +35,16 @@ public class Forum extends GObject {
 
         Element linkbox = htmlDoc.select(".linkbox").get(1);
         if(linkbox.children().size() != 0) {
-            ; //TODO Parse forum linkbox
-        }
-        else {
-            this.page = 1;
-            this.maxPage = 1;
+            Elements aList = linkbox.select("a");
+            if(aList.size() == 0) {
+                return;
+            }
+
+            for(Element a : aList) {
+                String href = a.attr("href");
+                int parsedPage = Integer.parseInt(href.substring(href.indexOf("page=") + 5, href.indexOf("&", href.indexOf("page="))));
+                maxPage = maxPage < parsedPage ? parsedPage : maxPage;
+            }
         }
     }
 
@@ -49,5 +58,9 @@ public class Forum extends GObject {
 
     public int getMaxPage() {
         return maxPage;
+    }
+
+    public int getNextPage() {
+        return page < maxPage ? page + 1 : -1;
     }
 }
