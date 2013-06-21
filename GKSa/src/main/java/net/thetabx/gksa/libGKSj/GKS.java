@@ -9,11 +9,9 @@ import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
-import net.thetabx.gksa.libGKSj.objects.UserStats;
+import net.thetabx.gksa.libGKSj.objects.UserProfile;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Observer;
 
 /**
  * Created by Zerg on 18/06/13.
@@ -65,7 +63,7 @@ public class GKS {
         http.setUserToken(userId, token);
     }
 
-    public void connect(String user, String password, AsyncListener onResult) {
+    public void connect(final String user, final String password, final AsyncListener progressListener) {
         // Check for 302
         class Fetcher extends AsyncFetcher {
             @Override
@@ -77,24 +75,29 @@ public class GKS {
                 return GStatus.BADCREDS;
             }
         }
-        AsyncListener proxyOnResult = new AsyncListener() {
+        final AsyncListener proxyListener = new AsyncListener() {
+            @Override
+            public void onPreExecute() {
+                progressListener.onPreExecute();
+            }
+
             @Override
             public void onPostExecute(GStatus status, GObject result) {
                 if(status == GStatus.OK)
                     meUserId = ((Credentials)result).getUserId();
-                this.onPostExecute(status, result);
+                progressListener.onPostExecute(status, result);
             }
         };
-        new Fetcher().SetParams(http, proxyOnResult).execute(user, password);
+        new Fetcher().SetParams(http, proxyListener).execute(user, password);
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchUserMe(AsyncListener onResult) throws IOException {
-        fetchUser(meUserId, onResult);
+    public void fetchUserMe(AsyncListener progressListener) throws IOException {
+        fetchUser(meUserId, progressListener);
     }
 
     // If no cached Me or Me(id) != uid, fetch user
-    public void fetchUser(final String userId, AsyncListener onResult) throws IOException {
+    public void fetchUser(final String userId, AsyncListener progressListener) throws IOException {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -102,21 +105,21 @@ public class GKS {
                     String html = http.getUrl(String.format(urlFragments[0], urlFragments[1]));
                     if(html.isEmpty())
                         return GStatus.NOHTTP;
-                    if(userId == meUserId)
+                    if(userId.equals(meUserId))
                         parsedObject = new UserMe(html, urlFragments);
                     else
-                        parsedObject = new UserStats(html, urlFragments);
+                        parsedObject = new UserProfile(html, urlFragments);
                 } catch (IOException e) {
                     return GStatus.ERROR;
                 }
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/users/%s", userId);
+        new Fetcher().SetParams(http, progressListener).execute("/users/%s", userId);
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchMPList(AsyncListener onResult) {
+    public void fetchMPList(AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -128,11 +131,11 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/mailbox/");
+        new Fetcher().SetParams(http, progressListener).execute("/mailbox/");
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchMP(int conversationId, AsyncListener onResult) {
+    public void fetchMP(int conversationId, AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -144,11 +147,11 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/mailbox/?mb&conversation=%s", Integer.toString(conversationId));
+        new Fetcher().SetParams(http, progressListener).execute("/mailbox/?mb&conversation=%s", Integer.toString(conversationId));
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchTwitsList(AsyncListener onResult) {
+    public void fetchTwitsList(AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -160,11 +163,11 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/m/aura/");
+        new Fetcher().SetParams(http, progressListener).execute("/m/aura/");
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchForums(AsyncListener onResult) {
+    public void fetchForums(AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -176,15 +179,15 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/forums.php");
+        new Fetcher().SetParams(http, progressListener).execute("/forums.php");
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchForum(int forumId, AsyncListener onResult) {
-        fetchForum(forumId, 1, onResult);
+    public void fetchForum(int forumId, AsyncListener progressListener) {
+        fetchForum(forumId, 1, progressListener);
     }
 
-    public void fetchForum(int forumId, int page, AsyncListener onResult) {
+    public void fetchForum(int forumId, int page, AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -196,15 +199,15 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/forums.php?action=viewforum&forumid=%s&page=%s", Integer.toString(forumId), Integer.toString(page));
+        new Fetcher().SetParams(http, progressListener).execute("/forums.php?action=viewforum&forumid=%s&page=%s", Integer.toString(forumId), Integer.toString(page));
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchTopic(int topicId, AsyncListener onResult) {
-        fetchTopic(topicId, 1, onResult);
+    public void fetchTopic(int topicId, AsyncListener progressListener) {
+        fetchTopic(topicId, 1, progressListener);
     }
 
-    public void fetchTopic(int topicId, int page, AsyncListener onResult) {
+    public void fetchTopic(int topicId, int page, AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -216,11 +219,11 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/forums.php?action=viewtopic&topicid=%s&page=%s", Integer.toString(topicId), Integer.toString(page));
+        new Fetcher().SetParams(http, progressListener).execute("/forums.php?action=viewtopic&topicid=%s&page=%s", Integer.toString(topicId), Integer.toString(page));
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchBookmarks(AsyncListener onResult) {
+    public void fetchBookmarks(AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -232,7 +235,7 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, onResult).execute("/bookmark/");
+        new Fetcher().SetParams(http, progressListener).execute("/bookmark/");
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }

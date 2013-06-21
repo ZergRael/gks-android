@@ -2,20 +2,15 @@ package net.thetabx.gksa.libGKSj.http;
 
 import android.os.Build;
 import android.util.Log;
-import android.webkit.CookieSyncManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.EventListener;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +23,6 @@ public class HttpWrapper {
 
     private String userId;
     private String token;
-    //private SetCookieListener listener;
 
     public HttpWrapper() {
         disableConnectionReuseIfNecessary();
@@ -37,13 +31,6 @@ public class HttpWrapper {
     public void setUserToken(String userId, String token) {
         this.userId = userId;
         this.token = token;
-    }
-
-    public String getUrl(HashMap<String, String> params) throws IOException {
-        String url = "";
-        if(params.containsKey("path"))
-            url += params.get("path");
-        return getUrl(url);
     }
 
     public String getUrl(String urlString) throws IOException {
@@ -73,8 +60,8 @@ public class HttpWrapper {
             // Parse cookies since we got 2 Set-Cookie
             if(conn.getHeaderField("Set-Cookie") != null) {
                 Map<String, List<String>> headers = conn.getHeaderFields();
-                for(String header : (List<String>)headers.get("Set-Cookie")) {
-                    int start = -2;
+                for(String header : headers.get("Set-Cookie")) {
+                    int start;
                     if((start = header.indexOf("uid")) != -1) {
                         this.userId = header.substring(start + 4, header.indexOf(';', start));
                     }
@@ -91,7 +78,7 @@ public class HttpWrapper {
 
             is = conn.getInputStream();
             BufferedReader bReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-            String line = "";
+            String line;
             StringBuilder sb = new StringBuilder();
             while ((line = bReader.readLine()) != null) {
                 sb.append(line + '\n');
@@ -107,7 +94,7 @@ public class HttpWrapper {
 
     public String postUrl(String urlString, String[][] params) throws IOException {
         InputStream is = null;
-        OutputStreamWriter writer = null;
+        OutputStreamWriter writer;
 
         if(urlString.indexOf('/') != 0)
             urlString = '/' + urlString;
@@ -149,8 +136,8 @@ public class HttpWrapper {
             // Parse cookies since we got 2 Set-Cookie
             if(conn.getHeaderField("Set-Cookie") != null) {
                 Map<String, List<String>> headers = conn.getHeaderFields();
-                for(String header : (List<String>)headers.get("Set-Cookie")) {
-                    int start = -2;
+                for(String header : headers.get("Set-Cookie")) {
+                    int start;
                     if((start = header.indexOf("uid")) != -1) {
                         this.userId = header.substring(start + 4, header.indexOf(';', start));
                     }
@@ -167,7 +154,7 @@ public class HttpWrapper {
 
             is = conn.getInputStream();
             BufferedReader bReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-            String line = "";
+            String line;
             StringBuilder sb = new StringBuilder();
             while ((line = bReader.readLine()) != null) {
                 sb.append(line + '\n');

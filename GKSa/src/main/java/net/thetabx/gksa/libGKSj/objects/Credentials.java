@@ -1,7 +1,5 @@
 package net.thetabx.gksa.libGKSj.objects;
 
-import net.thetabx.gksa.libGKSj.*;
-
 /**
  * Created by Zerg on 20/06/13.
  */

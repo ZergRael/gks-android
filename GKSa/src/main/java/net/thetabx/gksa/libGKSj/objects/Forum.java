@@ -1,12 +1,11 @@
 package net.thetabx.gksa.libGKSj.objects;
 
-import net.thetabx.gksa.libGKSj.objects.TopicMin;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,6 +24,7 @@ public class Forum extends GObject {
             return;
 
         Elements topicsList = topicsEls.select("tr");
+        topics = new ArrayList<TopicMin>();
         for(int i = 1; i < topicsList.size(); i++) {
             topics.add(new TopicMin(topicsList.get(i), i));
         }

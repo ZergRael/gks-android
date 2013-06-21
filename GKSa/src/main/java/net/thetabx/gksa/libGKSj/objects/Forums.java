@@ -4,6 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,6 @@ import java.util.List;
  */
 public class Forums extends GObject {
     private List<ForumMin> forums;
-    public static String URL = "/forums.php";
 
     public Forums(String html, String... urlFragments) {
         // https://gks.gs/forums.php
@@ -21,6 +21,7 @@ public class Forums extends GObject {
             return;
 
         Elements forumsList = forumsEls.select("tr");
+        forums = new ArrayList<ForumMin>();
         for(int i = 1; i < forumsList.size(); i++) {
             forums.add(new ForumMin(forumsList.get(i), i));
         }

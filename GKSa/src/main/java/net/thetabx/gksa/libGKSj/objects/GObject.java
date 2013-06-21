@@ -1,7 +1,7 @@
 package net.thetabx.gksa.libGKSj.objects;
 
 /**
- * Created by pgrr9790 on 20/06/13.
+ * Created by Zerg on 20/06/13.
  */
 public abstract class GObject {
     protected GStatus status = GStatus.NOTSTARTED;
