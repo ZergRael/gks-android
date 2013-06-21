@@ -13,6 +13,9 @@
     <string name="toast_serverError">Server error : %s</string>
     <string name="toast_internalError">Internal error : %s</string>
 
+    <!-- Progress -->
+    <string name="progress_loading">Loading</string>
+
     <!-- Input fields -->
     <string name="txt_username">Username</string>
     <string name="txt_password">Password</string>
@@ -40,5 +43,7 @@
     <string name="txt_twits">Twits</string>
     <string name="txt_seeding">Seeding</string>
     <string name="txt_leeching">Leeching</string>
+
+    <string name="txt_debug">Debug</string>
 
 </resources>

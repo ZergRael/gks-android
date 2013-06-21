@@ -1,5 +1,6 @@
 package net.thetabx.gksa.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,9 @@ import net.thetabx.gksa.libGKSj.objects.UserMe;
 
 import java.io.IOException;
 
+/**
+ * Created by Zerg on 21/06/13.
+ */
 public class MainActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -31,10 +35,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_welcome);
         res = getResources();
         con = getApplicationContext();
-        txt_helloWorld = (TextView)findViewById(R.id.main_txt_helloWorld);
 
         SharedPreferences settings = getSharedPreferences("Credentials", MODE_PRIVATE);
         gks = new GKS();
@@ -46,7 +49,62 @@ public class MainActivity extends Activity {
         }
         else {
             gks.setUserToken(userId, token);
-            initActivityBak();
+            initActivity();
+        }
+    }
+
+    public void initActivity() {
+        try {
+            gks.fetchUserMe(new AsyncListener() {
+                ProgressDialog initProgressDiag = null;
+
+                @Override
+                public void onPreExecute() {
+                    initProgressDiag = ProgressDialog.show(MainActivity.this, "", res.getString(R.string.progress_loading), true, false);
+                }
+
+                @Override
+                public void onPostExecute(GStatus status, GObject result) {
+                    if(status == GStatus.OK) {
+                        UserMe me = (UserMe)result;
+                        // TODO Proper layout
+                        ((TextView)findViewById(R.id.welc_txt_debug)).setText(me.getStatus().name());
+
+                        ((TextView)findViewById(R.id.welc_txt_userId)).setText(me.getUserId());
+                        ((TextView)findViewById(R.id.welc_txt_pseudo)).setText(me.getPseudo());
+                        ((TextView)findViewById(R.id.welc_txt_ratio)).setText(Float.toString(me.getRatio()));
+                        ((TextView)findViewById(R.id.welc_txt_reqRatio)).setText(Float.toString(me.getRequiredRatio()));
+                        ((TextView)findViewById(R.id.welc_txt_upload)).setText(Float.toString(me.getUpload()) + " " + me.getUploadUnit());
+                        ((TextView)findViewById(R.id.welc_txt_download)).setText(Float.toString(me.getDownload()) + " " + me.getDownloadUnit());
+                        ((TextView)findViewById(R.id.welc_txt_class)).setText(me.getClassName());
+                        ((TextView)findViewById(R.id.welc_txt_karma)).setText(Float.toString(me.getKarma()));
+                        ((TextView)findViewById(R.id.welc_txt_aura)).setText(Float.toString(me.getAura()));
+                        ((TextView)findViewById(R.id.welc_txt_mp)).setText(Integer.toString(me.getUnreadMP()));
+                        ((TextView)findViewById(R.id.welc_txt_twits)).setText(Integer.toString(me.getUnreadTwits()));
+                        ((TextView)findViewById(R.id.welc_txt_hitAndRun)).setText(Integer.toString(me.getHitAndRun()));
+                        ((TextView)findViewById(R.id.welc_txt_authKey)).setText(me.getAuthKey());
+
+                        ((TextView)findViewById(R.id.welc_txt_debug2)).setText(me.getTitle());
+                    }
+                    else {
+                        int toastText;
+                        switch(status) {
+                            case BADKEY:
+                                toastText = R.string.toast_badLogin;
+                                break;
+                            case STATUSCODE:
+                                toastText = R.string.toast_serverError;
+                                break;
+                            default:
+                                toastText = R.string.toast_internalError;
+                        }
+                        Toast.makeText(con, String.format(res.getString(toastText), status.name()), Toast.LENGTH_LONG).show();
+                    }
+                    initProgressDiag.dismiss();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -80,6 +138,11 @@ public class MainActivity extends Activity {
     public void initActivityBak() {
         try {
             gks.fetchUserMe(new AsyncListener() {
+                @Override
+                public void onPreExecute() {
+
+                }
+
                 @Override
                 public void onPostExecute(GStatus status, GObject result) {
                     txt_helloWorld.setText(status.name());
@@ -121,10 +184,6 @@ public class MainActivity extends Activity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void initActivity() {
-
     }
 
     @Override

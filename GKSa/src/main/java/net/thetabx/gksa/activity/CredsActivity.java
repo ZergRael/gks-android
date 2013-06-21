@@ -17,6 +17,9 @@ import net.thetabx.gksa.libGKSj.objects.Credentials;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
 
+/**
+ * Created by Zerg on 21/06/13.
+ */
 public class CredsActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -55,6 +58,11 @@ public class CredsActivity extends Activity {
 
     public void TestCredentials(final String username, final String password) {
         gks.connect(username, password, new AsyncListener() {
+            @Override
+            public void onPreExecute() {
+
+            }
+
             @Override
             public void onPostExecute(GStatus status, GObject result) {
                 if(status == GStatus.OK) {

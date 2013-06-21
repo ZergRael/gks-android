@@ -12,6 +12,9 @@
     <string name="toast_serverError">Erreur serveur : %s</string>
     <string name="toast_internalError">Erreur interne : %s</string>
 
+    <!-- Progress -->
+    <string name="progress_loading">Chargement</string>
+
     <!-- Input fields -->
     <string name="txt_username">Nom d\'utilisateur</string>
     <string name="txt_password">Mot de passe</string>

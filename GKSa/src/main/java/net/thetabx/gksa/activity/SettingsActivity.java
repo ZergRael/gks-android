@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import net.thetabx.gksa.R;
 
-
 /**
  * Created by Zerg on 14/06/13.
  */
