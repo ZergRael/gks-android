@@ -81,7 +81,7 @@ public class HttpWrapper {
             String line;
             StringBuilder sb = new StringBuilder();
             while ((line = bReader.readLine()) != null) {
-                sb.append(line + '\n');
+                sb.append(line).append('\n');
             }
             return sb.toString();
 
@@ -157,7 +157,7 @@ public class HttpWrapper {
             String line;
             StringBuilder sb = new StringBuilder();
             while ((line = bReader.readLine()) != null) {
-                sb.append(line + '\n');
+                sb.append(line).append('\n');
             }
             return sb.toString();
 

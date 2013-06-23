@@ -45,7 +45,7 @@ public class CredsActivity extends Activity {
         res = getResources();
         con = getApplicationContext();
 
-        ((Button) findViewById(R.id.creds_btn_Connect)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.creds_btn_Connect).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String editedUsername = etxt_Username.getText().toString();
@@ -56,7 +56,7 @@ public class CredsActivity extends Activity {
         });
     }
 
-    public void TestCredentials(final String username, final String password) {
+    void TestCredentials(final String username, final String password) {
         gks.connect(username, password, new AsyncListener() {
             @Override
             public void onPreExecute() {

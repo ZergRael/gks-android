@@ -69,7 +69,7 @@ public class UserMe extends UserProfile {
         //karma = Integer.parseInt(karmaStr.replaceAll(",", ""));
 
         //aura = Float.parseFloat(htmlEls.get(6).text().replaceAll(",", ""));
-        String fourthLiString = htmlEls.get(3).text();
+        //String fourthLiString = htmlEls.get(3).text();
         //int auraSpace = fourthLiString.indexOf(' ');
         //aura = Float.parseFloat(fourthLiString.substring(auraSpace + 1, fourthLiString.indexOf(' ', auraSpace + 1)));
         Elements fourthLiLinks = htmlEls.get(3).select("a");

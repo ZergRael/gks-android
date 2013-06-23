@@ -1,15 +1,17 @@
 package net.thetabx.gksa.libGKSj;
 
+import android.util.Log;
+
 import net.thetabx.gksa.libGKSj.http.AsyncFetcher;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.http.HttpWrapper;
+import net.thetabx.gksa.libGKSj.objects.Conversation;
 import net.thetabx.gksa.libGKSj.objects.Credentials;
 import net.thetabx.gksa.libGKSj.objects.Forum;
 import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
-import net.thetabx.gksa.libGKSj.objects.MPList;
-import net.thetabx.gksa.libGKSj.objects.User;
+import net.thetabx.gksa.libGKSj.objects.Mailbox;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 import net.thetabx.gksa.libGKSj.objects.UserProfile;
 
@@ -19,8 +21,11 @@ import java.io.IOException;
  * Created by Zerg on 18/06/13.
  */
 public class GKS {
-    public String meUserId;
+    private String meUserId;
+    private UserMe me;
     private HttpWrapper http;
+    private boolean ready = false;
+    private final String LOG_TAG = "GKS";
 
     /*
     Basic auth interaction
@@ -67,6 +72,7 @@ public class GKS {
     public void setUserToken(String userId, String token) {
         this.meUserId = userId;
         http.setUserToken(userId, token);
+        ready = true;
     }
 
     public void connect(final String user, final String password, final AsyncListener progressListener) {
@@ -76,6 +82,7 @@ public class GKS {
             protected GStatus doInBackground(String... strings) {
                 if(http.ForceConnection(strings[0], strings[1])) {
                     this.parsedObject = new Credentials(http.getUserId(), http.getToken());
+                    ready = true;
                     return GStatus.OK;
                 }
                 return GStatus.BADCREDS;
@@ -102,12 +109,25 @@ public class GKS {
      * Fetchers
      */
 
-    public void fetchUserMe(AsyncListener progressListener) throws IOException {
-        fetchUser(meUserId, progressListener);
+    public void fetchUserMe(final AsyncListener progressListener) {
+        final AsyncListener proxyListener = new AsyncListener() {
+            @Override
+            public void onPreExecute() {
+                progressListener.onPreExecute();
+            }
+
+            @Override
+            public void onPostExecute(GStatus status, GObject result) {
+                if(status == GStatus.OK)
+                    me = (UserMe)result;
+                progressListener.onPostExecute(status, result);
+            }
+        };
+        fetchUser(meUserId, proxyListener);
     }
 
     // If no cached Me or Me(id) != uid, fetch user
-    public void fetchUser(final String userId, AsyncListener progressListener) throws IOException {
+    public void fetchUser(final String userId, AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -129,39 +149,39 @@ public class GKS {
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchMPList(AsyncListener progressListener) {
+    public void fetchMailbox(AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
                 try {
-                    parsedObject = new MPList(http.getUrl(urlFragments[0]), urlFragments);
+                    parsedObject = new Mailbox(http.getUrl(urlFragments[0]), urlFragments);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute(MPList.DEFAULT_URL);
-        throw new UnsupportedOperationException("Not yet implemented");
+        new Fetcher().SetParams(http, progressListener).execute(Mailbox.DEFAULT_URL);
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchMP(int conversationId, AsyncListener progressListener) {
+    public void fetchConversation(String conversationId, AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
-                /*try {
-                    parsedObject = new MPConversation(http.getUrl(String.format(urlFragments[0], urlFragments[1])), urlFragments);
+                try {
+                    parsedObject = new Conversation(http.getUrl(String.format(urlFragments[0], urlFragments[1])), urlFragments);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
+                }
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("/mailbox/?mb&conversation=%s", Integer.toString(conversationId));
-        throw new UnsupportedOperationException("Not yet implemented");
+        new Fetcher().SetParams(http, progressListener).execute("/mailbox/?mb&conversation=%s", conversationId);
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchTwitsList(AsyncListener progressListener) {
+    public void fetchTwits(AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -193,11 +213,11 @@ public class GKS {
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchForum(int forumId, AsyncListener progressListener) {
+    public void fetchForum(String forumId, AsyncListener progressListener) {
         fetchForum(forumId, Forum.MIN_PAGE, progressListener);
     }
 
-    public void fetchForum(int forumId, int page, AsyncListener progressListener) {
+    public void fetchForum(String forumId, int page, AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
@@ -209,7 +229,7 @@ public class GKS {
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute(Forum.DEFAULT_URL, Integer.toString(forumId), Integer.toString(page));
+        new Fetcher().SetParams(http, progressListener).execute(Forum.DEFAULT_URL, forumId, Integer.toString(page));
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -247,5 +267,31 @@ public class GKS {
         }
         new Fetcher().SetParams(http, progressListener).execute("/bookmark/");
         throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    public UserMe getMe() {
+        if(meUserId != null && me.getUserId().equals(meUserId))
+            return me;
+        return null;
+    }
+
+    public void fetchImage(String url, AsyncListener progressListener) {
+        class Fetcher extends AsyncFetcher {
+            @Override
+            protected GStatus doInBackground(String... urlFragments) {
+                /*try {
+                    parsedObject = new BookmarksList(http.getUrl(urlFragments[0]), urlFragments);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
+                return GStatus.OK;
+            }
+        }
+        new Fetcher().SetParams(http, progressListener).execute(url);
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    public boolean isReady() {
+        return ready;
     }
 }

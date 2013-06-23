@@ -21,7 +21,7 @@
             android:layout_below="@+id/_creds_txt_Username"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            />
+            android:inputType="text"/>
 
     <Button
             android:layout_width="wrap_content"

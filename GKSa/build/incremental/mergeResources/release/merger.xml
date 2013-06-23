@@ -79,9 +79,13 @@
             <file
                 path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\values\strings.xml"
                 qualifiers="" >
+                <string name="title_activity_settings" >Settings
+                </string>
                 <string name="toast_connected" >Connected !
                 </string>
                 <string name="txt_MP" >PM
+                </string>
+                <string name="title_activity_topic_empty" >Topic
                 </string>
                 <string name="txt_pseudo" >Nickname
                 </string>
@@ -91,39 +95,59 @@
                 </string>
                 <string name="txt_debug" >Debug
                 </string>
+                <string name="title_activity_mailbox" >Private messages
+                </string>
                 <string name="menu_connect" >Login
+                </string>
+                <string name="title_activity_mplist" >Private messages
                 </string>
                 <string name="txt_authKey" >AuthKey
                 </string>
                 <string name="txt_password" >Password
                 </string>
+                <string name="action_twits" >Twits
+                </string>
                 <string name="txt_ratio" >Ratio
                 </string>
+                <string name="title_activity_forums" >Forums
+                </string>
                 <string name="txt_main_authKey" >AuthKey
+                </string>
+                <string name="title_activity_forum" >Forum : %s
                 </string>
                 <string name="txt_class" >Class
                 </string>
                 <string name="txt_main_hitAndRun" >Hit\'n\'Run
                 </string>
+                <string name="txt_main_pseudo" >Nickname
+                </string>
                 <string name="txt_main_userId" >User ID
                 </string>
-                <string name="txt_main_pseudo" >Nickname
+                <string name="menu_settings" >Settings
                 </string>
                 <string name="txt_creds_username" >Username
                 </string>
-                <string name="menu_settings" >Settings
+                <string name="txt_topiclastmsg" >%1$s - %2$s
                 </string>
                 <string name="btn_creds_connect" >Connect
                 </string>
                 <string name="txt_seeding" >Seeding
                 </string>
-                <string name="toast_serverError" >Server error : %s
+                <string name="title_activity_twitlist" >Twits list
                 </string>
                 <string name="txt_main_reqRatio" >Required ratio
                 </string>
-                <string name="txt_unreadMP" >Unread PM
+                <string name="toast_serverError" >Server error : %s
+                </string>
+                <string name="txt_ntopics" >%s topics
+                </string>
+                <string name="title_activity_conversation" >PM : %s
                 </string>
                 <string name="txt_main_status" >Status
+                </string>
+                <string name="txt_unreadMP" >Unread PM
+                </string>
+                <string name="title_activity_creds" >Login
                 </string>
                 <string name="txt_userId" >User ID
                 </string>
@@ -135,6 +159,8 @@
                 </string>
                 <string name="txt_karma" >Karma
                 </string>
+                <string name="action_mailbox" >Private messages
+                </string>
                 <string name="toast_setAuthKey" >Set your AuthKey in settings !
                 </string>
                 <string name="txt_hitAndRun" >Hit\'n\'Run
@@ -143,27 +169,53 @@
                 </string>
                 <string name="txt_main_aura" >Aura
                 </string>
+                <string name="title_activity_mpconversation" >PM : %s
+                </string>
+                <string name="title_activity_forum_empty" >Forum
+                </string>
+                <string name="title_activity_topic" >Topic : %s
+                </string>
                 <string name="txt_aura" >Aura
                 </string>
-                <string name="action_settings" >Settings
+                <string name="title_activity_mp" >PM : %s
                 </string>
                 <string name="txt_main_download" >Download
+                </string>
+                <string name="action_settings" >Settings
                 </string>
                 <string name="progress_connecting" >Connecting
                 </string>
                 <string name="txt_leeching" >Leeching
                 </string>
+                <string name="imgdesc_read" >Read status
+                </string>
                 <string name="txt_upload" >Upload
                 </string>
                 <string name="toast_badLogin" >Wrong credentials
+                </string>
+                <string name="title_activity_conversation_empty" >Private message
+                </string>
+                <string name="title_activity_mpslist" >Private messages
+                </string>
+                <string name="action_forums" >Forums
                 </string>
                 <string name="txt_main_ratio" >Ratio
                 </string>
                 <string name="progress_loading" >Loading
                 </string>
+                <string name="action_torrentsbrowse" >Browse torrents
+                </string>
+                <string name="title_activity_twits" >Twits
+                </string>
+                <string name="action_connect" >Settings
+                </string>
+                <string name="title_activity_mp_empty" >Private message
+                </string>
                 <string name="txt_main_unreadTwits" >Unread Twits
                 </string>
                 <string name="hello_world" >Hello world!
+                </string>
+                <string name="txt_splash_placeholder" >Placeholder splash screen
                 </string>
                 <string name="toast_internalError" >Internal error : %s
                 </string>
@@ -171,15 +223,25 @@
                 </string>
                 <string name="txt_username" >Username
                 </string>
+                <string name="title_activity_mpconversation_empty" >Private message
+                </string>
+                <string name="action_disconnect" >Settings
+                </string>
+                <string name="txt_download" >Download
+                </string>
                 <string name="txt_main_karma" >Karma
                 </string>
                 <string name="txt_status" >Status
                 </string>
-                <string name="txt_download" >Download
-                </string>
                 <string name="txt_unreadTwits" >Unread Twits
                 </string>
                 <string name="txt_connect" >Connect
+                </string>
+                <string name="action_torrentsearch" >Search torrent
+                </string>
+                <string name="action_twitlist" >Twits
+                </string>
+                <string name="action_mplist" >Private messages
                 </string>
                 <string name="action_fetchAuthKey" >Fetch the authKey
                 </string>
@@ -188,6 +250,10 @@
                 <string name="txt_reqRatio" >Required ratio
                 </string>
                 <string name="txt_creds_password" >Password
+                </string>
+                <string name="txt_topicpagereads" >Page %1$s/%2$s
+                </string>
+                <string name="action_mpslist" >Private messages
                 </string>
                 <string name="txt_main_unreadMP" >Unread MPs
                 </string>
@@ -223,23 +289,23 @@
                 </string>
                 <string name="txt_unreadMP" >MP non lus
                 </string>
-                <string name="progress_connecting" >Connection
-                </string>
                 <string name="toast_badAuthKey" >AuthKey incorrecte
+                </string>
+                <string name="progress_connecting" >Connection
                 </string>
                 <string name="txt_save" >Enregistrer
                 </string>
-                <string name="toast_badLogin" >Login / password incorrect
-                </string>
                 <string name="txt_status" >Statut
+                </string>
+                <string name="toast_badLogin" >Login / password incorrect
                 </string>
                 <string name="txt_leeching" >En leech
                 </string>
                 <string name="txt_MP" >MP
                 </string>
-                <string name="txt_unreadTwits" >Twits non lus
-                </string>
                 <string name="menu_settings" >Options
+                </string>
+                <string name="txt_unreadTwits" >Twits non lus
                 </string>
                 <string name="txt_main_userId" >ID utilisateur
                 </string>
@@ -277,11 +343,11 @@
                 </string>
                 <string name="menu_connect" >Se connecter
                 </string>
-                <string name="txt_pseudo" >Pseudo
+                <string name="toast_internalError" >Erreur interne : %s
                 </string>
                 <string name="txt_username" >Nom d\'utilisateur
                 </string>
-                <string name="toast_internalError" >Erreur interne : %s
+                <string name="txt_pseudo" >Pseudo
                 </string>
                 <string name="menu_disconnect" >Se déconnecter
                 </string>
@@ -327,6 +393,121 @@
                     <!-- API 14 theme customizations can go here. -->
                 </style>
             </file>
+            <file
+                name="activity_splash"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_splash.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_debug"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_debug.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="mplist"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\menu\mplist.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="activity_mplist"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_mplist.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="mpconv_min"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\mpconv_min.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="clickable_row_border"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable\clickable_row_border.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="border_clicked"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\drawable\border_clicked.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="m"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\menu\m.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="activity_mp"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_mp.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="mp_incoming"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\mp_incoming.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_mpconversation"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_mpconversation.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_mpslist"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_mpslist.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="mp_outgoing"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\mp_outgoing.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="mptopic"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\mptopic.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="pm_incoming"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\pm_incoming.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="conversation_min"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\conversation_min.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="forum_min"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\forum_min.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_forums"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_forums.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="pm_outgoing"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\pm_outgoing.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_mailbox"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_mailbox.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_conversation"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_conversation.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_forum"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\activity_forum.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="topic_min"
+                path="C:\Users\Zerg\workspace\android\gks-android\GKSa\src\main\res\layout\topic_min.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="C:\Users\Zerg\workspace\android\gks-android\GKSa\build\res\rs\release" />
     </dataSet>

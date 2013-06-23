@@ -10,7 +10,7 @@ import net.thetabx.gksa.libGKSj.objects.GStatus;
  */
 public abstract class AsyncFetcher extends AsyncTask<String, Boolean, GStatus> {
     protected GObject parsedObject;
-    protected AsyncListener listener;
+    private AsyncListener listener;
     protected HttpWrapper http;
 
     public AsyncFetcher() {

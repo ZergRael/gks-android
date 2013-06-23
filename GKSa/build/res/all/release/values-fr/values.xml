@@ -2,9 +2,6 @@
 <resources>
 
     <string name="hello_world">Bonjour monde !</string>
-    <string name="menu_connect">Se connecter</string>
-    <string name="menu_disconnect">Se déconnecter</string>
-    <string name="menu_settings">Options</string>
     <string name="progress_connecting">Connection</string>
     <string name="progress_loading">Chargement</string>
     <string name="toast_badLogin">Login / password incorrect</string>

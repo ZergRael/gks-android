@@ -6,15 +6,19 @@
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name="net.thetabx.gksa.GKSa"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="net.thetabx.gksa.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +26,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CredsActivity"/>
-        <activity android:name=".activity.SettingsActivity"/>
+        <activity
+            android:name=".activity.CredsActivity"
+            android:label="@string/title_activity_creds" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".activity.MailboxActivity"
+            android:label="@string/title_activity_mailbox" />
+        <activity
+            android:name=".activity.ConversationActivity"
+            android:label="@string/title_activity_conversation_empty" />
+        <activity
+            android:name=".activity.ForumsActivity"
+            android:label="@string/title_activity_forums" />
+        <activity
+            android:name=".activity.ForumActivity"
+            android:label="@string/title_activity_forum_empty" />
+        <activity
+            android:name=".activity.TopicActivity"
+            android:label="@string/title_activity_topic_empty" />
+        <activity
+            android:name=".activity.TwitsActivity"
+            android:label="@string/title_activity_twits" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 </manifest>

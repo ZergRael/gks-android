@@ -4,8 +4,6 @@ package net.thetabx.gksa.libGKSj.objects;
  * Created by Zerg on 14/06/13.
  */
 public abstract class User extends GObject {
-    protected GStatus status = GStatus.NOTSTARTED;
-
     protected String pseudo;
     protected String userId;
     protected GClass classId;
@@ -29,6 +27,10 @@ public abstract class User extends GObject {
 
     public int getClassId() {
         return classId.id();
+    }
+
+    public String getClassColor() {
+        return classId.colorStr();
     }
 
     public String getTitle() {

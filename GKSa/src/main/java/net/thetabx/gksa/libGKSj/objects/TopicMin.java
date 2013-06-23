@@ -13,8 +13,11 @@ public class TopicMin {
     private boolean starred;
     private String name;
     private String url;
+    private String topicId;
     private String lastReadUrl;
-    private int reads;
+    private String page;
+    private String maxPage;
+    private String reads;
 
     private String author;
     private String lastPostAuthor;
@@ -29,12 +32,23 @@ public class TopicMin {
 
         this.locked = td.get(1).select(".locked").size() != 0;
         this.starred = td.get(1).select(".sticky").size() != 0;
-        this.name = td.get(1).text();
 
-        this.url = td.get(1).select("a").get(0).attr("href");
-        this.lastReadUrl = td.get(1).select("a").get(1).attr("href");
+        Elements pages = td.get(1).select("a");
+        this.name = pages.first().text();
+        String lastLink = pages.last().attr("href");
+        this.page = lastLink.contains("#") ? lastLink.substring(lastLink.lastIndexOf('=') + 1, lastLink.lastIndexOf('#')) : "1";
+        if(pages.size() >= 3) {
+            String beforeLastLink = pages.get(pages.size() - 2).attr("href");
+            this.maxPage = lastLink.contains("#") ? beforeLastLink.substring(beforeLastLink.lastIndexOf('=') + 1) : lastLink.substring(lastLink.lastIndexOf('=') + 1);
+        }
+        else
+            this.maxPage = "1";
 
-        this.reads = Integer.parseInt(td.get(2).text());
+        this.url = pages.first().attr("href");
+        this.topicId = url.substring(url.lastIndexOf("=") + 1);
+        //this.lastReadUrl = td.get(1).select("a").get(1).attr("href");
+
+        this.reads = td.get(2).text();
 
         this.author = td.get(3).text();
 
@@ -70,7 +84,7 @@ public class TopicMin {
         return lastReadUrl;
     }
 
-    public int getReads() {
+    public String getReads() {
         return reads;
     }
 
@@ -84,5 +98,17 @@ public class TopicMin {
 
     public String getLastPostTime() {
         return lastPostTime;
+    }
+
+    public String getPage() {
+        return page;
+    }
+
+    public String getMaxPage() {
+        return maxPage;
+    }
+
+    public String getTopicId() {
+        return topicId;
     }
 }

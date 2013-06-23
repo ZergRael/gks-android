@@ -11,8 +11,9 @@ public class ForumMin {
     private int position;
     private String name;
     private String forumUrl;
+    private String forumId;
     private String description;
-    private int topicsNum;
+    private String topicsNum;
     private String lastMessage;
     private String lastMessageUrl;
     private String lastMessageAuthor;
@@ -26,9 +27,10 @@ public class ForumMin {
         this.position = position;
         this.name = td.get(1).select("h4").text();
         this.forumUrl = td.get(1).select("h4 a").attr("href");
+        this.forumId = forumUrl.substring(forumUrl.lastIndexOf('=') + 1);
         this.description = td.get(1).select("p").text();
 
-        this.topicsNum = Integer.parseInt(td.get(2).text());
+        this.topicsNum = td.get(2).text();
 
         this.lastMessage = td.get(3).select("p strong").text();
         this.lastMessageUrl = td.get(3).select("p strong a").attr("href");
@@ -52,7 +54,7 @@ public class ForumMin {
         return description;
     }
 
-    public int getTopicsNum() {
+    public String getTopicsNum() {
         return topicsNum;
     }
 
@@ -70,6 +72,10 @@ public class ForumMin {
 
     public String getForumUrl() {
         return forumUrl;
+    }
+
+    public String getForumId() {
+        return forumId;
     }
 
     public String getLastMessageUrl() {

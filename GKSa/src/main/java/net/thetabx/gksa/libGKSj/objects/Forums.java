@@ -17,7 +17,7 @@ public class Forums extends GObject {
     public Forums(String html, String... urlFragments) {
         Document htmlDoc = Jsoup.parse(html);
         Elements forumsEls = htmlDoc.select("table tbody");
-        if(forumsEls.isEmpty())
+        if(forumsEls.size() == 0)
             return;
 
         Elements forumsList = forumsEls.select("tr");
