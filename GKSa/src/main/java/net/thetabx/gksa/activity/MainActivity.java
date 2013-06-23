@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +31,7 @@ public class MainActivity extends Activity {
     private Context con;
 
     private TextView txt_helloWorld;
-    private final String CACHED_PROFILE_FILE = "cached_profile";
+    private final String LOG_TAG = "MainActivity";
     public final int CREDS_REQUEST = 2;
 
     // TODO AppWidget
@@ -45,6 +46,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LOG_TAG, "onCreate");
         res = getResources();
         con = getApplicationContext();
         gks = GKSa.getGKSlib();
@@ -69,6 +71,7 @@ public class MainActivity extends Activity {
     }
 
     public void initActivity() {
+        Log.d(LOG_TAG, "initActivity");
         gks.fetchUserMe(new AsyncListener() {
             //ProgressDialog initProgressDiag = null;
 
@@ -104,6 +107,7 @@ public class MainActivity extends Activity {
     }
 
     private void fillActivity(UserMe me) {
+        Log.d(LOG_TAG, "fillActivity");
         ((TextView)findViewById(R.id.welc_txt_debug)).setText(me.getStatus().name());
 
         ((TextView)findViewById(R.id.welc_txt_userId)).setText(me.getUserId());
@@ -146,6 +150,9 @@ public class MainActivity extends Activity {
                 return true;
             case R.id.action_forums:
                 startActivity(new Intent(this, ForumsActivity.class));
+                return true;
+            case R.id.action_twits:
+                startActivity(new Intent(this, TwitsActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

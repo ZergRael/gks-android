@@ -1,4 +1,6 @@
-package net.thetabx.gksa.libGKSj.objects;
+package net.thetabx.gksa.libGKSj.objects.rows;
+
+import net.thetabx.gksa.libGKSj.objects.GObject;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

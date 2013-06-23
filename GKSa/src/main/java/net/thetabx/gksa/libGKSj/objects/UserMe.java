@@ -1,5 +1,7 @@
 package net.thetabx.gksa.libGKSj.objects;
 
+import android.util.Log;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 //import org.jsoup.nodes.Element;
@@ -14,6 +16,8 @@ public class UserMe extends UserProfile {
     protected int unreadTwits;
     protected int hitAndRun;
     protected String authKey;
+
+    private final String LOG_TAG = "UserMeParser";
 
     /*
         <ul id="userlink">
@@ -33,6 +37,7 @@ public class UserMe extends UserProfile {
 
     public UserMe(String html, String... urlFragments) {
         super(html, urlFragments);
+        Log.d(LOG_TAG, "__constructor");
 
         if(html.equals("")) {
             status = GStatus.EMPTY;
@@ -81,6 +86,7 @@ public class UserMe extends UserProfile {
         authKey = authKeyString.substring(authKeyString.lastIndexOf('/') + 1);
 
         status = GStatus.OK;
+        Log.d(LOG_TAG, "Done");
     }
 
     public float getRequiredRatio() {

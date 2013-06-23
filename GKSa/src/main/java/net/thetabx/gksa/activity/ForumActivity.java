@@ -3,6 +3,7 @@ package net.thetabx.gksa.activity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,7 @@ import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.Forum;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
-import net.thetabx.gksa.libGKSj.objects.TopicMin;
+import net.thetabx.gksa.libGKSj.objects.rows.TopicMin;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class ForumActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forums);
+        setContentView(R.layout.activity_forum);
         res = getResources();
         con = getApplicationContext();
         gks = GKSa.getGKSlib();
@@ -85,7 +86,7 @@ public class ForumActivity extends Activity {
     private void fillActivity(Forum forum) {
         Log.d(LOG_TAG, "Inflating views");
 
-        TableLayout table = (TableLayout)findViewById(R.id.forums_table);
+        TableLayout table = (TableLayout)findViewById(R.id.forum_table);
         List<TopicMin> topicsList = forum.getTopics();
         if(topicsList == null) {
             Log.d(LOG_TAG, "No Topics");
@@ -104,9 +105,10 @@ public class ForumActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         Log.d(LOG_TAG, "Clicked me " + topic.getPosition());
-                        /*Intent intent = new Intent(ForumsActivity.this, ForumActivity.class);
-                        intent.putExtra("forumName", forum.getName());
-                        startActivity(intent);*/
+                        Intent intent = new Intent(ForumActivity.this, TopicActivity.class);
+                        intent.putExtra("topicName", topic.getName());
+                        intent.putExtra("topicId", topic.getTopicId());
+                        startActivity(intent);
                     }
                 });
                 row.setOnLongClickListener(new View.OnLongClickListener() {

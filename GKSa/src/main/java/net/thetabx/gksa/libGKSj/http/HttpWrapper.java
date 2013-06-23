@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class HttpWrapper {
     private String LOG_TAG = "HttpWrapper";
-    private final String BASE_URL = "https://gks.gs";
+    public final String BASE_URL = "https://gks.gs";
 
     private String userId;
     private String token;
@@ -83,6 +83,7 @@ public class HttpWrapper {
             while ((line = bReader.readLine()) != null) {
                 sb.append(line).append('\n');
             }
+            Log.d(LOG_TAG, "Return htmlStr");
             return sb.toString();
 
         } finally {
@@ -159,6 +160,7 @@ public class HttpWrapper {
             while ((line = bReader.readLine()) != null) {
                 sb.append(line).append('\n');
             }
+            Log.d(LOG_TAG, "return htmlStr");
             return sb.toString();
 
         } finally {

@@ -9,18 +9,59 @@
         <activity android:label="@string/app_name" android:name="net.thetabx.gksa.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_creds" android:name="net.thetabx.gksa.activity.CredsActivity"/>
-        <activity android:label="@string/title_activity_settings" android:name="net.thetabx.gksa.activity.SettingsActivity"/>
-        <activity android:label="@string/title_activity_mailbox" android:name="net.thetabx.gksa.activity.MailboxActivity"/>
-        <activity android:label="@string/title_activity_conversation_empty" android:name="net.thetabx.gksa.activity.ConversationActivity"/>
-        <activity android:label="@string/title_activity_forums" android:name="net.thetabx.gksa.activity.ForumsActivity"/>
-        <activity android:label="@string/title_activity_forum_empty" android:name="net.thetabx.gksa.activity.ForumActivity"/>
-        <activity android:label="@string/title_activity_topic_empty" android:name="net.thetabx.gksa.activity.TopicActivity"/>
-        <activity android:label="@string/title_activity_twits" android:name="net.thetabx.gksa.activity.TwitsActivity"/>
+        <activity android:label="@string/title_activity_creds" android:name="net.thetabx.gksa.activity.CredsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_settings" android:name="net.thetabx.gksa.activity.SettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_mailbox" android:name="net.thetabx.gksa.activity.MailboxActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_conversation_empty" android:name="net.thetabx.gksa.activity.ConversationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_forums" android:name="net.thetabx.gksa.activity.ForumsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_forum_empty" android:name="net.thetabx.gksa.activity.ForumActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_topic_empty" android:name="net.thetabx.gksa.activity.TopicActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gks.gs" android:pathPattern="/forums\\.php.*" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_twits" android:name="net.thetabx.gksa.activity.TwitsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,8 @@ package net.thetabx.gksa.libGKSj.objects;
 
 import android.util.Log;
 
+import net.thetabx.gksa.libGKSj.objects.rows.TopicMin;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

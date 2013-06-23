@@ -12,7 +12,7 @@ import org.jsoup.select.Elements;
  */
 public class UserProfile extends User {
     public final static String DEFAULT_URL = "/users/%s";
-    private final String LOG_TAG = "UserProfile";
+    private final String LOG_TAG = "UserProfileParser";
 
     protected String userPicture;
     protected int sex = -1;
@@ -189,6 +189,7 @@ public class UserProfile extends User {
 	</div>
 	*/
     public UserProfile(String html, String... urlFragments) {
+        Log.d(LOG_TAG, "__constructor");
         if(html.equals("")) {
             status = GStatus.EMPTY;
             return;
@@ -213,6 +214,7 @@ public class UserProfile extends User {
         for(Element p : pList) {
             pToText(p);
         }
+        Log.d(LOG_TAG, "Done");
     }
 
     private void pToText(Element p) {

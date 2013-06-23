@@ -19,7 +19,7 @@ import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.Conversation;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
-import net.thetabx.gksa.libGKSj.objects.PM;
+import net.thetabx.gksa.libGKSj.objects.rows.PM;
 
 import java.util.List;
 

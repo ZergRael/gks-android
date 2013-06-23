@@ -12,6 +12,8 @@ import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Mailbox;
+import net.thetabx.gksa.libGKSj.objects.Topic;
+import net.thetabx.gksa.libGKSj.objects.Twits;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 import net.thetabx.gksa.libGKSj.objects.UserProfile;
 
@@ -185,16 +187,16 @@ public class GKS {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
-                /*try {
-                    parsedObject = new TwitsList(http.getUrl(urlFragments[0]), urlFragments);
+                try {
+                    parsedObject = new Twits(http.getUrl(urlFragments[0]), urlFragments);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
+                }
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("/m/aura/");
-        throw new UnsupportedOperationException("Not yet implemented");
+        new Fetcher().SetParams(http, progressListener).execute(Twits.DEFAULT_URL);
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public void fetchForums(AsyncListener progressListener) {
@@ -233,23 +235,23 @@ public class GKS {
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void fetchTopic(int topicId, AsyncListener progressListener) {
+    public void fetchTopic(String topicId, AsyncListener progressListener) {
         fetchTopic(topicId, Forum.MIN_PAGE, progressListener);
     }
 
-    public void fetchTopic(int topicId, int page, AsyncListener progressListener) {
+    public void fetchTopic(String topicId, int page, AsyncListener progressListener) {
         class Fetcher extends AsyncFetcher {
             @Override
             protected GStatus doInBackground(String... urlFragments) {
-                /*try {
+                try {
                     parsedObject = new Topic(http.getUrl(String.format(urlFragments[0], urlFragments[1], urlFragments[2])), urlFragments);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
+                }
                 return GStatus.OK;
             }
         }
-        new Fetcher().SetParams(http, progressListener).execute("", Integer.toString(topicId), Integer.toString(page));
+        new Fetcher().SetParams(http, progressListener).execute(Topic.DEFAULT_URL, topicId, Integer.toString(page));
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -270,7 +272,7 @@ public class GKS {
     }
 
     public UserMe getMe() {
-        if(meUserId != null && me.getUserId().equals(meUserId))
+        if(meUserId != null && me != null && me.getUserId().equals(meUserId))
             return me;
         return null;
     }
@@ -293,5 +295,9 @@ public class GKS {
 
     public boolean isReady() {
         return ready;
+    }
+
+    public String getBaseUrl() {
+        return http.BASE_URL;
     }
 }
