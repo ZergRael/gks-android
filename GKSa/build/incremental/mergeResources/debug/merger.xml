@@ -96,17 +96,17 @@
                 </string>
                 <string name="txt_authKey" >AuthKey
                 </string>
-                <string name="txt_password" >Password
-                </string>
                 <string name="action_twits" >Twits
+                </string>
+                <string name="txt_password" >Password
                 </string>
                 <string name="txt_ratio" >Ratio
                 </string>
                 <string name="title_activity_forums" >Forums
                 </string>
-                <string name="title_activity_forum" >Forum : %s
-                </string>
                 <string name="txt_class" >Class
+                </string>
+                <string name="title_activity_forum" >Forum : %s
                 </string>
                 <string name="menu_settings" >Settings
                 </string>
@@ -170,27 +170,27 @@
                 </string>
                 <string name="action_torrentsbrowse" >Browse torrents
                 </string>
-                <string name="action_connect" >Settings
-                </string>
                 <string name="title_activity_twits" >Twits
+                </string>
+                <string name="action_connect" >Settings
                 </string>
                 <string name="title_activity_mp_empty" >Private message
                 </string>
                 <string name="hello_world" >Hello world!
                 </string>
-                <string name="txt_splash_placeholder" >Placeholder splash screen
-                </string>
                 <string name="toast_internalError" >Internal error : %s
                 </string>
-                <string name="title_activity_mpconversation_empty" >Private message
+                <string name="txt_splash_placeholder" >Placeholder splash screen
                 </string>
                 <string name="txt_username" >Username
                 </string>
+                <string name="title_activity_mpconversation_empty" >Private message
+                </string>
                 <string name="action_disconnect" >Settings
                 </string>
-                <string name="txt_status" >Status
-                </string>
                 <string name="txt_download" >Download
+                </string>
+                <string name="txt_status" >Status
                 </string>
                 <string name="txt_unreadTwits" >Unread Twits
                 </string>
@@ -264,21 +264,21 @@
                 </string>
                 <string name="txt_MP" >MP
                 </string>
-                <string name="progress_loading" >Chargement
+                <string name="menu_settings" >Options
                 </string>
                 <string name="txt_unreadTwits" >Twits non lus
                 </string>
-                <string name="menu_settings" >Options
+                <string name="progress_loading" >Chargement
                 </string>
                 <string name="txt_class" >Classe
                 </string>
                 <string name="txt_seeding" >En seed
                 </string>
-                <string name="txt_reqRatio" >Ratio requis
+                <string name="txt_userId" >ID utilisateur
                 </string>
                 <string name="txt_password" >Mot de passe
                 </string>
-                <string name="txt_userId" >ID utilisateur
+                <string name="txt_reqRatio" >Ratio requis
                 </string>
                 <string name="toast_serverError" >Erreur serveur : %s
                 </string>

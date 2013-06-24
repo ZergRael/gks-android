@@ -95,7 +95,6 @@ public class MainActivity extends Activity {
                 setContentView(R.layout.activity_welcome);
                 if(status == GStatus.OK) {
                     fillActivity((UserMe)result);
-                    getProfilePicture(((UserMe) result).getUserPicture());
                 }
                 else {
                     int toastText;
@@ -116,25 +115,8 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void getProfilePicture(String url) {
-        if(url == null)
-            return;
-        Log.d(LOG_TAG, "getProfilePicture");
-        gks.fetchImage(url, new AsyncListener() {
-            @Override
-            public void onPreExecute() {
-            }
-
-            @Override
-            public void onPostExecute(GStatus status, Object result) {
-                if (status == GStatus.OK) {
-                    setProfilePicture((Bitmap) result);
-                }
-            }
-        });
-    }
-
     private void fillActivity(UserMe me) {
+        getProfilePicture(me.getUserPicture());
         Log.d(LOG_TAG, "fillActivity");
         ((TextView)findViewById(R.id.welc_txt_debug)).setText(me.getStatus().name());
 
@@ -159,9 +141,21 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.welc_txt_debug2)).setText(me.getTitle());
     }
 
-    private void setProfilePicture(Bitmap image) {
-        if(image != null)
-            ((ImageView)findViewById(R.id.welc_img_user)).setImageBitmap(image);
+    public void getProfilePicture(String url) {
+        if(url == null)
+            return;
+        Log.d(LOG_TAG, "getProfilePicture");
+        gks.fetchImage(url, new AsyncListener() {
+            @Override
+            public void onPreExecute() { }
+
+            @Override
+            public void onPostExecute(GStatus status, Object result) {
+                if (status == GStatus.OK && result != null) {
+                    ((ImageView)findViewById(R.id.welc_img_user)).setImageBitmap((Bitmap) result);
+                }
+            }
+        });
     }
 
     @Override

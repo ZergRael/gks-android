@@ -28,24 +28,32 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gks.gs" android:path="/mailbox/" android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/title_activity_conversation_empty" android:name="net.thetabx.gksa.activity.ConversationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gks.gs" android:pathPattern="/mailbox/.*conversation.*" android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/title_activity_forums" android:name="net.thetabx.gksa.activity.ForumsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gks.gs" android:path="/forums.php" android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/title_activity_forum_empty" android:name="net.thetabx.gksa.activity.ForumActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gks.gs" android:pathPattern="/forums\\.php.*viewforum.*" android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/title_activity_topic_empty" android:name="net.thetabx.gksa.activity.TopicActivity">
@@ -53,13 +61,15 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gks.gs" android:pathPattern="/forums\\.php.*" android:scheme="https"/>
+                <data android:host="gks.gs" android:pathPattern="/forums\\.php.*viewtopic.*" android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/title_activity_twits" android:name="net.thetabx.gksa.activity.TwitsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="gks.gs" android:path="/m/account/twits" android:scheme="https"/>
             </intent-filter>
         </activity>
     </application>

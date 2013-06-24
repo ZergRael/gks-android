@@ -106,7 +106,7 @@ public class HttpWrapper {
                 sb.append(line).append('\n');
             }
             status = GStatus.OK;
-            Log.d(LOG_TAG, String.format("Took %s ms", startMillis - SystemClock.uptimeMillis()));
+            Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
             return sb.toString();
 
         } finally {
@@ -194,7 +194,7 @@ public class HttpWrapper {
                 sb.append(line).append('\n');
             }
             status = GStatus.OK;
-            Log.d(LOG_TAG, String.format("Took %s ms", startMillis - SystemClock.uptimeMillis()));
+            Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
             return sb.toString();
 
         } finally {
@@ -243,7 +243,7 @@ public class HttpWrapper {
             Bitmap image = BitmapFactory.decodeStream(is);
 
             status = GStatus.OK;
-            Log.d(LOG_TAG, String.format("Took %s ms", startMillis - SystemClock.uptimeMillis()));
+            Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
             return image;
 
         } finally {

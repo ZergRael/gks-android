@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="false">
+            android:clickable="false"
+            android:background="#eeeeee">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
@@ -27,13 +28,18 @@
                     android:maxHeight="80dp"
                     android:minHeight="80dp"
                     android:minWidth="80dp"
-                    android:contentDescription="@string/txt_pseudo"/>
+                    android:contentDescription="@string/txt_pseudo"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"/>
 
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
-                    android:layout_weight="50">
+                    android:layout_weight="50"
+                    >
 
                 <TextView
                         android:layout_width="wrap_content"

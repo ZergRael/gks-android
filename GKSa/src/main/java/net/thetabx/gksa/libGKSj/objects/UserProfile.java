@@ -207,7 +207,7 @@ public class UserProfile extends User {
 
         Elements userImg = htmlEls.select("#sifuture_public_history img");
         // https://s.gks.gs/static/images/avatars/avatar.png
-        userPicture = userImg.size() != 0 ? userImg.first().attr("href") : null;
+        userPicture = userImg.size() != 0 ? userImg.first().attr("src") : null;
 
         userId = urlFragments[1];
 
