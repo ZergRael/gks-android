@@ -1,5 +1,6 @@
 package net.thetabx.gksa.libGKSj.objects;
 
+import android.os.SystemClock;
 import android.util.Log;
 
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMin;
@@ -20,17 +21,30 @@ public class Forum extends GObject {
     public final static int MIN_PAGE = 1;
     public final static String DEFAULT_URL = "/forums.php?action=viewforum&forumid=%1$s&page=%2$s";
     private final String LOG_TAG = "ForumParser";
-    private int page;
+    private String title;
+    private final int page;
     private int maxPage;
 
     public Forum(String html, String... urlFragments) {
+        long startMillis = SystemClock.uptimeMillis();
+        status = GStatus.STARTED;
         page = Integer.parseInt(urlFragments[2]);
         maxPage = page;
 
+        if(html.length() == 0) {
+            status = GStatus.EMPTY;
+            return;
+        }
+
         Document htmlDoc = Jsoup.parse(html);
         Elements topicsEls = htmlDoc.select("table tbody");
-        if(topicsEls.size() == 0)
+        if(topicsEls.size() == 0) {
+            status = GStatus.EMPTY;
             return;
+        }
+
+        title = htmlDoc.select("#forums h2").first().text();
+        title = title.substring(title.lastIndexOf(">") + 1).trim();
 
         Elements topicsList = topicsEls.select("tr");
         Log.d(LOG_TAG, String.format("Found %s topics", topicsList.size()));
@@ -44,6 +58,7 @@ public class Forum extends GObject {
         if(linkbox.children().size() != 0) {
             Elements aList = linkbox.select("a");
             if(aList.size() == 0) {
+                status = GStatus.OK;
                 return;
             }
 
@@ -53,6 +68,8 @@ public class Forum extends GObject {
                 maxPage = maxPage < parsedPage ? parsedPage : maxPage;
             }
         }
+        status = GStatus.OK;
+        Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
     public List<TopicMin> getTopics() {
@@ -69,5 +86,9 @@ public class Forum extends GObject {
 
     public int getNextPage() {
         return page < maxPage ? page + 1 : -1;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

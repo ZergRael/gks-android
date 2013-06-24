@@ -9,11 +9,11 @@ import org.jsoup.nodes.Element;
  */
 public class Twit extends GObject {
     private final String LOG_TAG = "TwitParser";
-    private int position;
-    private String name;
-    private String time;
-    private String url;
-    private String content;
+    private final int position;
+    private final String name;
+    private final String time;
+    private final String url;
+    private final String content;
 
     /*
     <p class="twit">Par <a href="/users/2354547"><span class="userclass_40">champaf</span></a> , il y a 2 jours || <a href="/forums.php?action=viewtopic&amp;topicid=7531&amp;page=1#post415673">gks.gs/forums.php?action=viewtopic&amp;topicid=7531&amp;page=1#post415673</a><br>

@@ -8,5 +8,5 @@ import net.thetabx.gksa.libGKSj.objects.GStatus;
  */
 public interface AsyncListener {
     public void onPreExecute();
-    public void onPostExecute(GStatus status, GObject result);
+    public void onPostExecute(GStatus status, Object parsedObject);
 }

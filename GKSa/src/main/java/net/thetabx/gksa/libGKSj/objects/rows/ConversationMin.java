@@ -6,7 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class ConversationMin extends GObject {
-    private int position;
+    private final int position;
     private boolean read;
     private String fromUser;
     private String subject;

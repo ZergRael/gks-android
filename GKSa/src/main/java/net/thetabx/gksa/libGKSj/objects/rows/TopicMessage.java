@@ -11,11 +11,11 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 23/06/13.
  */
 public class TopicMessage extends GObject {
-    private int position;
+    private final int position;
 
-    private String author;
-    private String postId;
-    private String time;
+    private final String author;
+    private final String postId;
+    private final String time;
     private String content;
     private final String LOG_TAG = "TopicMessageParser";
 

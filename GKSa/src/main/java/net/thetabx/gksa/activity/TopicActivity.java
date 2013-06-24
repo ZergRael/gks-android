@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import net.thetabx.gksa.libGKSj.objects.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Topic;
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMessage;
 
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -32,8 +34,7 @@ public class TopicActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
-    private String topicName;
-    public final String LOG_TAG = "TopicActivity";
+    private final String LOG_TAG = "TopicActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,19 +46,26 @@ public class TopicActivity extends Activity {
 
         final Intent intent = getIntent();
 
-        String topicId = intent.getStringExtra("topicId");
+        String topicId = intent.getStringExtra("topicid");
+        String pageStr = intent.getStringExtra("page");
+        int page = Topic.MIN_PAGE;
         if(topicId == null) {
-            String url = intent.getDataString();
-            topicId = url.substring(url.indexOf("topicid=") + 8, url.indexOf("&", url.indexOf("topicid=")));
+            final Uri uri = intent.getData();
+            if(uri != null) {
+                topicId = uri.getQueryParameter("topicid");
+                pageStr = uri.getQueryParameter("page");
+            }
         }
-        else {
-            topicName = getIntent().getStringExtra("topicName");
-        }
-        initActivity(topicId);
+        if(pageStr != null)
+            page = Integer.parseInt(pageStr);
+        if(topicId != null)
+            initActivity(topicId, page);
+        else
+            finish();
     }
 
-    public void initActivity(String topicId) {
-        gks.fetchTopic(topicId, new AsyncListener() {
+    public void initActivity(String topicId, int page) {
+        gks.fetchTopic(topicId, page, new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 
             @Override
@@ -66,7 +74,7 @@ public class TopicActivity extends Activity {
             }
 
             @Override
-            public void onPostExecute(GStatus status, GObject result) {
+            public void onPostExecute(GStatus status, Object result) {
                 //findViewById(R.id.splash_progress).setVisibility(View.INVISIBLE);
                 //setContentView(R.layout.activity_welcome);
                 if (status == GStatus.OK) {
@@ -94,11 +102,12 @@ public class TopicActivity extends Activity {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.topic_table);
-        List<TopicMessage> messagesList = topic.getMessages();
+        final List<TopicMessage> messagesList = topic.getMessages();
         if(messagesList == null) {
             Log.d(LOG_TAG, "No messages");
             return;
         }
+        final String topicName = topic.getTitle();
         if(topicName != null)
             this.setTitle(res.getString(R.string.title_activity_topic, topicName));
         for(final TopicMessage message : messagesList) {

@@ -1,5 +1,6 @@
 package net.thetabx.gksa.libGKSj.objects;
 
+import android.os.SystemClock;
 import android.util.Log;
 
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMessage;
@@ -20,17 +21,30 @@ public class Topic extends GObject {
     public final static int MIN_PAGE = 1;
     public static final String DEFAULT_URL = "/forums.php?action=viewtopic&topicid=%1$s&page=%2$s";
     private final String LOG_TAG = "TopicParser";
-    private int page;
+    private String title;
+    private final int page;
     private int maxPage;
 
     public Topic(String html, String... urlFragments) {
+        long startMillis = SystemClock.uptimeMillis();
+        status = GStatus.STARTED;
         page = Integer.parseInt(urlFragments[2]);
         maxPage = page;
 
+        if(html.length() == 0) {
+            status = GStatus.EMPTY;
+            return;
+        }
+
         Document htmlDoc = Jsoup.parse(html);
         Elements messagesEls = htmlDoc.select("#forums .thin");
-        if(messagesEls.size() == 0)
+        if(messagesEls.size() == 0) {
+            status = GStatus.EMPTY;
             return;
+        }
+
+        title = messagesEls.select("h2").first().text();
+        title = title.substring(title.lastIndexOf(">") + 1).trim();
 
         Elements messagesList = messagesEls.select("table");
         Log.d(LOG_TAG, String.format("Found %s messages", messagesList.size()));
@@ -44,6 +58,7 @@ public class Topic extends GObject {
         if(linkbox.children().size() != 0) {
             Elements aList = linkbox.select("a");
             if(aList.size() == 0) {
+                status = GStatus.OK;
                 return;
             }
 
@@ -53,6 +68,8 @@ public class Topic extends GObject {
                 maxPage = maxPage < parsedPage ? parsedPage : maxPage;
             }
         }
+        status = GStatus.OK;
+        Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
     public List<TopicMessage> getMessages() {
@@ -65,6 +82,10 @@ public class Topic extends GObject {
 
     public int getMaxPage() {
         return maxPage;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public int getNextPage() {

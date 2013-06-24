@@ -1,5 +1,6 @@
 package net.thetabx.gksa.libGKSj.objects;
 
+import android.os.SystemClock;
 import android.util.Log;
 
 import org.jsoup.Jsoup;
@@ -11,11 +12,12 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 14/06/13.
  */
 public class UserMe extends UserProfile {
-    protected float requiredRatio;
-    protected int unreadMP;
-    protected int unreadTwits;
-    protected int hitAndRun;
-    protected String authKey;
+    private float requiredRatio;
+    private int unreadMP;
+    private int unreadTwits;
+    private int hitAndRun;
+    private String authKey;
+    private boolean freeleech;
 
     private final String LOG_TAG = "UserMeParser";
 
@@ -37,17 +39,19 @@ public class UserMe extends UserProfile {
 
     public UserMe(String html, String... urlFragments) {
         super(html, urlFragments);
-        Log.d(LOG_TAG, "__constructor");
-
-        if(html.equals("")) {
-            status = GStatus.EMPTY;
+        if(status != GStatus.OK) {
             return;
         }
-
+        long startMillis = SystemClock.uptimeMillis();
 
         status = GStatus.STARTED;
         Document htmlDoc = Jsoup.parse(html);
         Elements htmlEls = htmlDoc.select("#userlink li");
+
+        if(htmlEls.size() == 0) {
+            status = GStatus.EMPTY;
+            return;
+        }
 
         //Element pseudoLink = htmlEls.get(0).select("a").get(0);
         //String pseudoHref = pseudoLink.attr("href");
@@ -86,7 +90,7 @@ public class UserMe extends UserProfile {
         authKey = authKeyString.substring(authKeyString.lastIndexOf('/') + 1);
 
         status = GStatus.OK;
-        Log.d(LOG_TAG, "Done");
+        Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
     public float getRequiredRatio() {
@@ -107,5 +111,9 @@ public class UserMe extends UserProfile {
 
     public String getAuthKey() {
         return authKey;
+    }
+
+    public boolean isFreeleech() {
+        return freeleech;
     }
 }

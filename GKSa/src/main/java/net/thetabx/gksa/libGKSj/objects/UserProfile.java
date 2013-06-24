@@ -1,5 +1,6 @@
 package net.thetabx.gksa.libGKSj.objects;
 
+import android.os.SystemClock;
 import android.util.Log;
 
 import org.jsoup.Jsoup;
@@ -189,8 +190,8 @@ public class UserProfile extends User {
 	</div>
 	*/
     public UserProfile(String html, String... urlFragments) {
-        Log.d(LOG_TAG, "__constructor");
-        if(html.equals("")) {
+        long startMillis = SystemClock.uptimeMillis();
+        if(html.length() == 0) {
             status = GStatus.EMPTY;
             return;
         }
@@ -214,7 +215,8 @@ public class UserProfile extends User {
         for(Element p : pList) {
             pToText(p);
         }
-        Log.d(LOG_TAG, "Done");
+        status = GStatus.OK;
+        Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
     private void pToText(Element p) {

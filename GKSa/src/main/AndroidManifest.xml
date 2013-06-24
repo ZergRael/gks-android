@@ -47,6 +47,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="gks.gs" android:path="/mailbox/" />
             </intent-filter>
         </activity>
         <activity
@@ -55,6 +57,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="gks.gs" android:pathPattern="/mailbox/.*conversation.*" />
             </intent-filter>
         </activity>
         <activity
@@ -63,6 +67,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="gks.gs" android:path="/forums.php" />
             </intent-filter>
         </activity>
         <activity
@@ -71,6 +77,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="gks.gs" android:pathPattern="/forums\\.php.*viewforum.*" />
             </intent-filter>
         </activity>
         <activity
@@ -80,7 +88,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="gks.gs" android:pathPattern="/forums\\.php.*" />
+                <data android:scheme="https" android:host="gks.gs" android:pathPattern="/forums\\.php.*viewtopic.*" />
             </intent-filter>
         </activity>
         <activity
@@ -89,6 +97,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="gks.gs" android:path="/m/account/twits" />
             </intent-filter>
         </activity>
     </application>

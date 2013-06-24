@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,13 @@ import net.thetabx.gksa.libGKSj.objects.GObject;
 import net.thetabx.gksa.libGKSj.objects.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 
+import org.json.JSONStringer;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  * Created by Zerg on 21/06/13.
  */
@@ -30,9 +39,9 @@ public class MainActivity extends Activity {
     private Resources res;
     private Context con;
 
-    private TextView txt_helloWorld;
     private final String LOG_TAG = "MainActivity";
-    public final int CREDS_REQUEST = 2;
+    private final String CACHED_PROFILE = "cached_profile.tmp";
+    private final int CREDS_REQUEST = 2;
 
     // TODO AppWidget
     // TODO TorrentList
@@ -81,16 +90,17 @@ public class MainActivity extends Activity {
             }
 
             @Override
-            public void onPostExecute(GStatus status, GObject result) {
+            public void onPostExecute(GStatus status, Object result) {
                 findViewById(R.id.splash_progress).setVisibility(View.INVISIBLE);
                 setContentView(R.layout.activity_welcome);
                 if(status == GStatus.OK) {
                     fillActivity((UserMe)result);
+                    getProfilePicture(((UserMe) result).getUserPicture());
                 }
                 else {
                     int toastText;
                     switch(status) {
-                        case BADKEY:
+                        case BADCREDS:
                             toastText = R.string.toast_badLogin;
                             break;
                         case STATUSCODE:
@@ -102,6 +112,24 @@ public class MainActivity extends Activity {
                     Toast.makeText(con, String.format(res.getString(toastText), status.name()), Toast.LENGTH_LONG).show();
                 }
                 //initProgressDiag.dismiss();
+            }
+        });
+    }
+
+    public void getProfilePicture(String url) {
+        if(url == null)
+            return;
+        Log.d(LOG_TAG, "getProfilePicture");
+        gks.fetchImage(url, new AsyncListener() {
+            @Override
+            public void onPreExecute() {
+            }
+
+            @Override
+            public void onPostExecute(GStatus status, Object result) {
+                if (status == GStatus.OK) {
+                    setProfilePicture((Bitmap) result);
+                }
             }
         });
     }
@@ -131,6 +159,11 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.welc_txt_debug2)).setText(me.getTitle());
     }
 
+    private void setProfilePicture(Bitmap image) {
+        if(image != null)
+            ((ImageView)findViewById(R.id.welc_img_user)).setImageBitmap(image);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -143,7 +176,7 @@ public class MainActivity extends Activity {
     {
         switch(item.getItemId()) {
             case R.id.action_settings:
-                startActivityForResult(new Intent(this, SettingsActivity.class), CREDS_REQUEST);
+                startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             case R.id.action_mailbox:
                 startActivity(new Intent(this, MailboxActivity.class));
@@ -154,6 +187,10 @@ public class MainActivity extends Activity {
             case R.id.action_twits:
                 startActivity(new Intent(this, TwitsActivity.class));
                 return true;
+            case R.id.action_torrentsbrowse:
+                return super.onOptionsItemSelected(item);
+            case R.id.action_torrentsearch:
+                return super.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);
     }

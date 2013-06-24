@@ -3,7 +3,9 @@ package net.thetabx.gksa.activity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,8 +32,7 @@ public class ConversationActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
-    private String user;
-    public final String LOG_TAG = "Conversation";
+    private final String LOG_TAG = "Conversation";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +42,19 @@ public class ConversationActivity extends Activity {
         con = getApplicationContext();
         gks = GKSa.getGKSlib();
 
-        String conversationId = getIntent().getStringExtra("conversationId");
+        final Intent intent = getIntent();
+
+        String conversationId = getIntent().getStringExtra("conversation");
         if(conversationId == null) {
-            finish();
+            final Uri uri = intent.getData();
+            if(uri != null) {
+                conversationId = uri.getQueryParameter("conversation");
+            }
         }
-        user = getIntent().getStringExtra("userStr");
-        initActivity(conversationId);
+        if(conversationId != null)
+            initActivity(conversationId);
+        else
+            finish();
     }
 
     public void initActivity(String conversationId) {
@@ -59,7 +67,7 @@ public class ConversationActivity extends Activity {
             }
 
             @Override
-            public void onPostExecute(GStatus status, GObject result) {
+            public void onPostExecute(GStatus status, Object result) {
                 //findViewById(R.id.splash_progress).setVisibility(View.INVISIBLE);
                 //setContentView(R.layout.activity_welcome);
                 if (status == GStatus.OK) {
@@ -92,7 +100,9 @@ public class ConversationActivity extends Activity {
             Log.d(LOG_TAG, "No PM");
             return;
         }
-        this.setTitle(res.getString(R.string.title_activity_conversation, user));
+        String title = conversation.getTitle();
+        if(title != null)
+            this.setTitle(res.getString(R.string.title_activity_conversation, title));
         for(final PM pm : PMsList) {
             TableRow row;
             if(pm.isMe()) {

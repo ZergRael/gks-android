@@ -1,14 +1,21 @@
 package net.thetabx.gksa.libGKSj.http;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
+import android.os.SystemClock;
 import android.util.Log;
 
+import net.thetabx.gksa.libGKSj.objects.GStatus;
+
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
@@ -18,13 +25,17 @@ import java.util.Map;
  * Created by Zerg on 14/06/13.
  */
 public class HttpWrapper {
-    private String LOG_TAG = "HttpWrapper";
+    private final String LOG_TAG = "HttpWrapper";
     public final String BASE_URL = "https://gks.gs";
+    public final String CDN_URL = "https://s.gks.gs";
 
     private String userId;
     private String token;
+    private GStatus status = GStatus.NOTSTARTED;
+    private long startMillis;
 
     public HttpWrapper() {
+        status = GStatus.READY;
         disableConnectionReuseIfNecessary();
     }
 
@@ -34,6 +45,8 @@ public class HttpWrapper {
     }
 
     public String getUrl(String urlString) throws IOException {
+        startMillis = SystemClock.uptimeMillis();
+        status = GStatus.STARTED;
         InputStream is = null;
 
         if(urlString.indexOf('/') != 0)
@@ -51,11 +64,6 @@ public class HttpWrapper {
             conn.setDoInput(true);
 
             conn.connect();
-            int responseCode = conn.getResponseCode();
-            Log.d(LOG_TAG, "The response is: " + responseCode);
-
-            Boolean isRedirected = conn.getHeaderField("Refresh") != null && conn.getHeaderField("Refresh").equals("0; url=/");
-            Log.d(LOG_TAG, "Redirected: " + isRedirected);
 
             // Parse cookies since we got 2 Set-Cookie
             if(conn.getHeaderField("Set-Cookie") != null) {
@@ -74,6 +82,20 @@ public class HttpWrapper {
                 //    this.listener.onCookieSet();
             }
 
+            int responseCode = conn.getResponseCode();
+            Log.d(LOG_TAG, "The response is: " + responseCode);
+            if(responseCode != 200 && responseCode != 304) {
+                status = GStatus.STATUSCODE;
+                return null;
+            }
+
+            Boolean isRedirected = conn.getHeaderField("Refresh") != null && conn.getHeaderField("Refresh").equals("0; url=/");
+            Log.d(LOG_TAG, "Redirected: " + isRedirected);
+            if(isRedirected) {
+                status = GStatus.REDIRECTED;
+                return null;
+            }
+
             Log.d(LOG_TAG, "Headers: " + conn.getHeaderFields().toString());
 
             is = conn.getInputStream();
@@ -83,7 +105,8 @@ public class HttpWrapper {
             while ((line = bReader.readLine()) != null) {
                 sb.append(line).append('\n');
             }
-            Log.d(LOG_TAG, "Return htmlStr");
+            status = GStatus.OK;
+            Log.d(LOG_TAG, String.format("Took %s ms", startMillis - SystemClock.uptimeMillis()));
             return sb.toString();
 
         } finally {
@@ -94,6 +117,8 @@ public class HttpWrapper {
     }
 
     public String postUrl(String urlString, String[][] params) throws IOException {
+        startMillis = SystemClock.uptimeMillis();
+        status = GStatus.STARTED;
         InputStream is = null;
         OutputStreamWriter writer;
 
@@ -128,12 +153,6 @@ public class HttpWrapper {
             writer.flush();
 
             conn.connect();
-            int responseCode = conn.getResponseCode();
-            Log.d(LOG_TAG, "The response is: " + responseCode);
-
-            Boolean isRedirected = conn.getHeaderField("Refresh") != null && conn.getHeaderField("Refresh").equals("0; url=/");
-            Log.d(LOG_TAG, "Redirected: " + isRedirected);
-
             // Parse cookies since we got 2 Set-Cookie
             if(conn.getHeaderField("Set-Cookie") != null) {
                 Map<String, List<String>> headers = conn.getHeaderFields();
@@ -151,6 +170,20 @@ public class HttpWrapper {
                 //    this.listener.onCookieSet();
             }
 
+            int responseCode = conn.getResponseCode();
+            Log.d(LOG_TAG, "The response is: " + responseCode);
+            if(responseCode != 200 && responseCode != 304) {
+                status = GStatus.STATUSCODE;
+                return null;
+            }
+
+            Boolean isRedirected = conn.getHeaderField("Refresh") != null && conn.getHeaderField("Refresh").equals("0; url=/");
+            Log.d(LOG_TAG, "Redirected: " + isRedirected);
+            if(isRedirected) {
+                status = GStatus.REDIRECTED;
+                return null;
+            }
+
             Log.d(LOG_TAG, "Headers: " + conn.getHeaderFields().toString());
 
             is = conn.getInputStream();
@@ -160,8 +193,58 @@ public class HttpWrapper {
             while ((line = bReader.readLine()) != null) {
                 sb.append(line).append('\n');
             }
-            Log.d(LOG_TAG, "return htmlStr");
+            status = GStatus.OK;
+            Log.d(LOG_TAG, String.format("Took %s ms", startMillis - SystemClock.uptimeMillis()));
             return sb.toString();
+
+        } finally {
+            if (is != null) {
+                is.close();
+            }
+        }
+    }
+
+    public Bitmap getImage(String urlString) throws IOException {
+        startMillis = SystemClock.uptimeMillis();
+        status = GStatus.STARTED;
+        InputStream is = null;
+
+        //if(urlString.indexOf('/') != 0)
+        //   urlString = '/' + urlString;
+
+        Log.d(LOG_TAG, "Sending GET img to: " + urlString);
+        try {
+            //URL url = new URL(CDN_URL + urlString);
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("GET");
+            conn.setDoInput(true);
+
+            conn.connect();
+            int responseCode = conn.getResponseCode();
+            Log.d(LOG_TAG, "The response is: " + responseCode);
+            if(responseCode != 200 && responseCode != 304) {
+                status = GStatus.STATUSCODE;
+                return null;
+            }
+
+            Boolean isRedirected = conn.getHeaderField("Refresh") != null && conn.getHeaderField("Refresh").equals("0; url=/");
+            Log.d(LOG_TAG, "Redirected: " + isRedirected);
+            if(isRedirected) {
+                status = GStatus.REDIRECTED;
+                return null;
+            }
+
+            Log.d(LOG_TAG, "Headers: " + conn.getHeaderFields().toString());
+
+            is = conn.getInputStream();
+            Bitmap image = BitmapFactory.decodeStream(is);
+
+            status = GStatus.OK;
+            Log.d(LOG_TAG, String.format("Took %s ms", startMillis - SystemClock.uptimeMillis()));
+            return image;
 
         } finally {
             if (is != null) {
@@ -202,5 +285,9 @@ public class HttpWrapper {
 
     public String getToken() {
         return token;
+    }
+
+    public GStatus getLastStatus() {
+        return status;
     }
 }

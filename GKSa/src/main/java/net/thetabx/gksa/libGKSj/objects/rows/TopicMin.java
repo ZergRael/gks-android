@@ -7,21 +7,21 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 17/06/13.
  */
 public class TopicMin {
-    private int position;
-    private boolean read;
-    private boolean locked;
-    private boolean starred;
-    private String name;
-    private String url;
-    private String topicId;
+    private final int position;
+    private final boolean read;
+    private final boolean locked;
+    private final boolean starred;
+    private final String name;
+    private final String url;
+    private final String topicId;
     private String lastReadUrl;
-    private String page;
-    private String maxPage;
-    private String reads;
+    private final String page;
+    private final String maxPage;
+    private final String reads;
 
-    private String author;
-    private String lastPostAuthor;
-    private String lastPostTime;
+    private final String author;
+    private final String lastPostAuthor;
+    private final String lastPostTime;
 
     public TopicMin(Element htmlEl, int position) {
         // from Forum.java

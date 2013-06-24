@@ -20,9 +20,9 @@ public enum GClass {
     _80 ("Méchant !", 80, "#22bbaa"), //Admin
     _90 ("SysOP", 90, "#ff0000"); // SysOp
 
-    private int id;
-    private String realName;
-    private String colorStr;
+    private final int id;
+    private final String realName;
+    private final String colorStr;
 
     GClass(String realName, int id, String colorStr) {
         this.realName = realName;

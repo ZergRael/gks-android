@@ -9,11 +9,11 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 22/06/13.
  */
 public class PM extends GObject {
-    private int position;
-    private String user;
-    private String message;
-    private boolean me;
-    private String time;
+    private final int position;
+    private final String user;
+    private final String message;
+    private final boolean me;
+    private final String time;
 
     /*
     <div id="message" style="display:block;">

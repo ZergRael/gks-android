@@ -29,7 +29,7 @@ public class MailboxActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
-    public final String LOG_TAG = "Mailbox";
+    private final String LOG_TAG = "Mailbox";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class MailboxActivity extends Activity {
             }
 
             @Override
-            public void onPostExecute(GStatus status, GObject result) {
+            public void onPostExecute(GStatus status, Object result) {
                 //findViewById(R.id.splash_progress).setVisibility(View.INVISIBLE);
                 //setContentView(R.layout.activity_welcome);
                 if (status == GStatus.OK) {
@@ -96,8 +96,7 @@ public class MailboxActivity extends Activity {
                     public void onClick(View view) {
                         Log.d(LOG_TAG, "Clicked me " + conv.getConversationId());
                         Intent intent = new Intent(MailboxActivity.this, ConversationActivity.class);
-                        intent.putExtra("conversationId", conv.getConversationId());
-                        intent.putExtra("userStr", conv.getFromUser());
+                        intent.putExtra("conversation", conv.getConversationId());
                         startActivity(intent);
                     }
                 });

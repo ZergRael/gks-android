@@ -8,16 +8,16 @@ import org.jsoup.select.Elements;
  */
 public class ForumMin {
     private boolean read = false;
-    private int position;
-    private String name;
-    private String forumUrl;
-    private String forumId;
-    private String description;
-    private String topicsNum;
-    private String lastMessage;
-    private String lastMessageUrl;
-    private String lastMessageAuthor;
-    private String lastMessageTime;
+    private final int position;
+    private final String name;
+    private final String forumUrl;
+    private final String forumId;
+    private final String description;
+    private final String topicsNum;
+    private final String lastMessage;
+    private final String lastMessageUrl;
+    private final String lastMessageAuthor;
+    private final String lastMessageTime;
 
 
     public ForumMin(Element htmlEl, int position) {

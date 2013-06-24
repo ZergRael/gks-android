@@ -35,7 +35,7 @@ public class TwitsActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
-    public final String LOG_TAG = "TwitsActivity";
+    private final String LOG_TAG = "TwitsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class TwitsActivity extends Activity {
             }
 
             @Override
-            public void onPostExecute(GStatus status, GObject result) {
+            public void onPostExecute(GStatus status, Object result) {
                 //findViewById(R.id.splash_progress).setVisibility(View.INVISIBLE);
                 //setContentView(R.layout.activity_welcome);
                 if (status == GStatus.OK) {

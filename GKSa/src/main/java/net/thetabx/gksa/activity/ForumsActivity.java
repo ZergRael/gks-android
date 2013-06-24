@@ -33,7 +33,7 @@ public class ForumsActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
-    public final String LOG_TAG = "Forums";
+    private final String LOG_TAG = "Forums";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class ForumsActivity extends Activity {
             }
 
             @Override
-            public void onPostExecute(GStatus status, GObject result) {
+            public void onPostExecute(GStatus status, Object result) {
                 //findViewById(R.id.splash_progress).setVisibility(View.INVISIBLE);
                 //setContentView(R.layout.activity_welcome);
                 if (status == GStatus.OK) {
@@ -96,14 +96,13 @@ public class ForumsActivity extends Activity {
                     ((ImageView)row.findViewById(R.id.forummin_img_read)).setImageResource(android.R.drawable.presence_online);
                 ((TextView)row.findViewById(R.id.forummin_txt_name)).setText(forum.getName());
                 ((TextView)row.findViewById(R.id.forummin_txt_desc)).setText(forum.getDescription());
-                ((TextView)row.findViewById(R.id.forummin_txt_ntopics)).setText(forum.getTopicsNum());
+                ((TextView)row.findViewById(R.id.forummin_txt_ntopics)).setText(res.getString(R.string.txt_ntopics, forum.getTopicsNum()));
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Log.d(LOG_TAG, "Clicked me " + forum.getPosition());
                         Intent intent = new Intent(ForumsActivity.this, ForumActivity.class);
-                        intent.putExtra("forumId", forum.getForumId());
-                        intent.putExtra("forumName", forum.getName());
+                        intent.putExtra("forumid", forum.getForumId());
                         startActivity(intent);
                     }
                 });

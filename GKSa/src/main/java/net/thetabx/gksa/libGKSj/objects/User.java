@@ -9,10 +9,6 @@ public abstract class User extends GObject {
     protected GClass classId;
     protected String title;
 
-    public GStatus getStatus() {
-        return status;
-    }
-
     public String getPseudo() {
         return pseudo;
     }

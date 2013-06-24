@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.GKS;
@@ -40,7 +41,7 @@ public class CredsActivity extends Activity {
         final EditText etxt_Password = (EditText)findViewById(R.id.creds_etxt_Password);
         etxt_Password.setText(password);
 
-        gks = new GKS();
+        gks = GKSa.getGKSlib();
 
         res = getResources();
         con = getApplicationContext();
@@ -64,7 +65,7 @@ public class CredsActivity extends Activity {
             }
 
             @Override
-            public void onPostExecute(GStatus status, GObject result) {
+            public void onPostExecute(GStatus status, Object result) {
                 if(status == GStatus.OK) {
                     Credentials creds = (Credentials)result;
                     settings.edit().putString("UserId", creds.getUserId()).putString("Token", creds.getToken()).commit();
