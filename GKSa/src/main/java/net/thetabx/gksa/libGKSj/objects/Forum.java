@@ -3,6 +3,7 @@ package net.thetabx.gksa.libGKSj.objects;
 import android.os.SystemClock;
 import android.util.Log;
 
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMin;
 
 import org.jsoup.Jsoup;
@@ -22,12 +23,14 @@ public class Forum extends GObject {
     public final static String DEFAULT_URL = "/forums.php?action=viewforum&forumid=%1$s&page=%2$s";
     private final String LOG_TAG = "ForumParser";
     private String title;
+    private final String forumId;
     private final int page;
     private int maxPage;
 
     public Forum(String html, String... urlFragments) {
         long startMillis = SystemClock.uptimeMillis();
         status = GStatus.STARTED;
+        forumId = urlFragments[1];
         page = Integer.parseInt(urlFragments[2]);
         maxPage = page;
 
@@ -76,16 +79,28 @@ public class Forum extends GObject {
         return topics;
     }
 
+    public String getForumId() {
+        return forumId;
+    }
+
+    public int getFirstPage() {
+        return MIN_PAGE;
+    }
+
+    public int getPrevPage() {
+        return page > MIN_PAGE ? page - 1 : MIN_PAGE;
+    }
+
     public int getPage() {
         return page;
     }
 
-    public int getMaxPage() {
-        return maxPage;
+    public int getNextPage() {
+        return page < maxPage ? page + 1 : maxPage;
     }
 
-    public int getNextPage() {
-        return page < maxPage ? page + 1 : -1;
+    public int getMaxPage() {
+        return maxPage;
     }
 
     public String getTitle() {

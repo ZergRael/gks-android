@@ -3,6 +3,7 @@ package net.thetabx.gksa.libGKSj.objects;
 import android.os.SystemClock;
 import android.util.Log;
 
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMessage;
 
 import org.jsoup.Jsoup;
@@ -23,11 +24,13 @@ public class Topic extends GObject {
     private final String LOG_TAG = "TopicParser";
     private String title;
     private final int page;
+    private final String topicId;
     private int maxPage;
 
     public Topic(String html, String... urlFragments) {
         long startMillis = SystemClock.uptimeMillis();
         status = GStatus.STARTED;
+        topicId = urlFragments[1];
         page = Integer.parseInt(urlFragments[2]);
         maxPage = page;
 
@@ -76,8 +79,24 @@ public class Topic extends GObject {
         return messages;
     }
 
+    public String getTopicId() {
+        return topicId;
+    }
+
+    public int getFirstPage() {
+        return MIN_PAGE;
+    }
+
+    public int getPrevPage() {
+        return page > MIN_PAGE ? page - 1 : MIN_PAGE;
+    }
+
     public int getPage() {
         return page;
+    }
+
+    public int getNextPage() {
+        return page < maxPage ? page + 1 : maxPage;
     }
 
     public int getMaxPage() {
@@ -86,9 +105,5 @@ public class Topic extends GObject {
 
     public String getTitle() {
         return title;
-    }
-
-    public int getNextPage() {
-        return page < maxPage ? page + 1 : -1;
     }
 }

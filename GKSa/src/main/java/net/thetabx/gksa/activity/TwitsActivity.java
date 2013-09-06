@@ -18,11 +18,8 @@ import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
-import net.thetabx.gksa.libGKSj.objects.GObject;
-import net.thetabx.gksa.libGKSj.objects.GStatus;
-import net.thetabx.gksa.libGKSj.objects.Topic;
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Twits;
-import net.thetabx.gksa.libGKSj.objects.rows.TopicMessage;
 import net.thetabx.gksa.libGKSj.objects.rows.Twit;
 
 import java.util.List;

@@ -1,5 +1,7 @@
 package net.thetabx.gksa.libGKSj.objects;
 
+import net.thetabx.gksa.libGKSj.objects.enums.GClass;
+
 /**
  * Created by Zerg on 14/06/13.
  */

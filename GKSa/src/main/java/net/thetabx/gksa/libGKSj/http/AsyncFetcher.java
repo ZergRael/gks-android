@@ -2,8 +2,7 @@ package net.thetabx.gksa.libGKSj.http;
 
 import android.os.AsyncTask;
 
-import net.thetabx.gksa.libGKSj.objects.GObject;
-import net.thetabx.gksa.libGKSj.objects.GStatus;
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 
 /**
  * Created by Zerg on 18/06/13.

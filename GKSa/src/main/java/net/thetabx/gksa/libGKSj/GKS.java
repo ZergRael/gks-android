@@ -1,7 +1,5 @@
 package net.thetabx.gksa.libGKSj;
 
-import android.util.Log;
-
 import net.thetabx.gksa.libGKSj.http.AsyncFetcher;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.http.HttpWrapper;
@@ -10,7 +8,7 @@ import net.thetabx.gksa.libGKSj.objects.Credentials;
 import net.thetabx.gksa.libGKSj.objects.Forum;
 import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.GObject;
-import net.thetabx.gksa.libGKSj.objects.GStatus;
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Mailbox;
 import net.thetabx.gksa.libGKSj.objects.Topic;
 import net.thetabx.gksa.libGKSj.objects.Twits;

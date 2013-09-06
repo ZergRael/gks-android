@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
-    <TableLayout
-            android:layout_width="fill_parent"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:id="@+id/forum_table"
-            android:padding="6dp"
-            >
-    </TableLayout>
-</ScrollView>
+            android:id="@+id/forum_img_first"
+            android:src="@android:drawable/ic_media_previous"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/forum_img_prev"
+            android:src="@android:drawable/ic_media_rew"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_empty"
+            android:id="@+id/forum_txt_pages"
+            android:layout_gravity="center_vertical" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/forum_img_next"
+            android:src="@android:drawable/ic_media_ff"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/forum_img_last"
+            android:src="@android:drawable/ic_media_next"
+            android:clickable="true" />
+    </LinearLayout>
+
+    <ScrollView
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:id="@+id/forum_table"
+                android:padding="6dp"
+                >
+
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout><!-- From: file:/C:/Users/Zerg/workspace/android/gks-android/GKSa/src/main/res/layout/activity_forum.xml -->

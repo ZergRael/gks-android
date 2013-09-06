@@ -19,8 +19,7 @@ import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.rows.ConversationMin;
-import net.thetabx.gksa.libGKSj.objects.GObject;
-import net.thetabx.gksa.libGKSj.objects.GStatus;
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Mailbox;
 
 import java.util.List;

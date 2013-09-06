@@ -64,6 +64,8 @@
     <string name="txt_twits">Twits</string>
     <string name="txt_seeding">Seeding</string>
     <string name="txt_leeching">Leeching</string>
+    <string name="txt_title">Title</string>
+    <string name="txt_infinity">∞</string>
     <string name="txt_ntopics">%s topics</string>
     <string name="txt_topicpagereads">Page %1$s/%2$s</string>
     <string name="txt_topiclastmsg">%1$s - %2$s</string>
@@ -73,6 +75,7 @@
 
     <!-- Debug -->
     <string name="txt_debug">Debug</string>
+    <string name="txt_empty">(no idea)</string>
     <string name="txt_splash_placeholder">Placeholder splash screen</string>
 
 </resources>

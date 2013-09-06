@@ -1,4 +1,4 @@
-package net.thetabx.gksa.libGKSj.objects;
+package net.thetabx.gksa.libGKSj.objects.enums;
 
 /**
  * Created by Zerg on 21/06/13.

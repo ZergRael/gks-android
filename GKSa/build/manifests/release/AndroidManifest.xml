@@ -44,8 +44,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="gks.gs" android:path="/forums.php" android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/title_activity_forum_empty" android:name="net.thetabx.gksa.activity.ForumActivity">

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,16 +21,8 @@ import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.GKS;
-import net.thetabx.gksa.libGKSj.objects.GObject;
-import net.thetabx.gksa.libGKSj.objects.GStatus;
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
-
-import org.json.JSONStringer;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 /**
  * Created by Zerg on 21/06/13.
@@ -46,8 +39,6 @@ public class MainActivity extends Activity {
     // TODO AppWidget
     // TODO TorrentList
     // TODO TorrentSearch
-    // TODO PM list
-    // TODO Unread Twits
     // TODO Proper layout
     // TODO Auto refresh
     // TODO Notifications (freeleech, mp, twits, ratio?)
@@ -118,11 +109,11 @@ public class MainActivity extends Activity {
     private void fillActivity(UserMe me) {
         getProfilePicture(me.getUserPicture());
         Log.d(LOG_TAG, "fillActivity");
-        ((TextView)findViewById(R.id.welc_txt_debug)).setText(me.getStatus().name());
+        ((TextView)findViewById(R.id.welc_txt_status)).setText(me.getStatus().name());
 
         ((TextView)findViewById(R.id.welc_txt_userId)).setText(me.getUserId());
         ((TextView)findViewById(R.id.welc_txt_pseudo)).setText(me.getPseudo());
-        ((TextView)findViewById(R.id.welc_txt_ratio)).setText(Float.toString(me.getRatio()));
+        ((TextView)findViewById(R.id.welc_txt_ratio)).setText(me.getRatio() == -2 ? res.getString(R.string.txt_infinity) : Float.toString(me.getRatio()));
         ((TextView)findViewById(R.id.welc_txt_reqRatio)).setText(Float.toString(me.getRequiredRatio()));
         ((TextView)findViewById(R.id.welc_txt_upload)).setText(Float.toString(me.getUpload()) + " " + me.getUploadUnit());
         ((TextView)findViewById(R.id.welc_txt_download)).setText(Float.toString(me.getDownload()) + " " + me.getDownloadUnit());
@@ -138,7 +129,14 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.welc_txt_seeding)).setText(Integer.toString(me.getSeedingTorrents()));
         ((TextView)findViewById(R.id.welc_txt_leeching)).setText(Integer.toString(me.getLeechingTorrents()));
 
-        ((TextView)findViewById(R.id.welc_txt_debug2)).setText(me.getTitle());
+        ((TextView)findViewById(R.id.welc_txt_title)).setText(me.getTitle());
+
+        findViewById(R.id.welc_btn_forums).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ForumsActivity.class));
+            }
+        });
     }
 
     public void getProfilePicture(String url) {

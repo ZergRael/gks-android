@@ -19,12 +19,10 @@ import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
-import net.thetabx.gksa.libGKSj.objects.GObject;
-import net.thetabx.gksa.libGKSj.objects.GStatus;
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Topic;
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMessage;
 
-import java.net.URI;
 import java.util.List;
 
 /**
@@ -65,6 +63,9 @@ public class TopicActivity extends Activity {
     }
 
     public void initActivity(String topicId, int page) {
+        final Intent intent = getIntent();
+        intent.putExtra("topicid", topicId);
+        intent.putExtra("page", Integer.toString(page));
         gks.fetchTopic(topicId, page, new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 
@@ -98,7 +99,7 @@ public class TopicActivity extends Activity {
         });
     }
 
-    private void fillActivity(Topic topic) {
+    private void fillActivity(final Topic topic) {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.topic_table);
@@ -107,6 +108,7 @@ public class TopicActivity extends Activity {
             Log.d(LOG_TAG, "No messages");
             return;
         }
+        table.removeAllViews();
         final String topicName = topic.getTitle();
         if(topicName != null)
             this.setTitle(res.getString(R.string.title_activity_topic, topicName));
@@ -136,6 +138,32 @@ public class TopicActivity extends Activity {
                 table.addView(row);
             }
         }
+
+        ((TextView)findViewById(R.id.topic_txt_pages)).setText(res.getString(R.string.txt_topicpagereads, topic.getPage(), topic.getMaxPage()));
+        findViewById(R.id.topic_img_first).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(topic.getTopicId(), topic.getFirstPage());
+            }
+        });
+        findViewById(R.id.topic_img_prev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(topic.getTopicId(), topic.getPrevPage());
+            }
+        });
+        findViewById(R.id.topic_img_next).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(topic.getTopicId(), topic.getNextPage());
+            }
+        });
+        findViewById(R.id.topic_img_last).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(topic.getTopicId(), topic.getMaxPage());
+            }
+        });
         Log.d(LOG_TAG, "Done");
     }
 }

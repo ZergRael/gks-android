@@ -3,6 +3,8 @@ package net.thetabx.gksa.libGKSj.objects;
 import android.os.SystemClock;
 import android.util.Log;
 
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 //import org.jsoup.nodes.Element;

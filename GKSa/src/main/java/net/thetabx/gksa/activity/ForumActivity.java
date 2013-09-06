@@ -21,9 +21,7 @@ import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.Forum;
-import net.thetabx.gksa.libGKSj.objects.GObject;
-import net.thetabx.gksa.libGKSj.objects.GStatus;
-import net.thetabx.gksa.libGKSj.objects.Topic;
+import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMin;
 
 import java.util.List;
@@ -47,7 +45,7 @@ public class ForumActivity extends Activity {
 
         final Intent intent = getIntent();
 
-        String forumId = getIntent().getStringExtra("forumid");
+        String forumId = intent.getStringExtra("forumid");
         String pageStr = intent.getStringExtra("page");
         int page = Forum.MIN_PAGE;
         if(forumId == null) {
@@ -66,6 +64,9 @@ public class ForumActivity extends Activity {
     }
 
     public void initActivity(String forumId, int page) {
+        final Intent intent = getIntent();
+        intent.putExtra("forumid", forumId);
+        intent.putExtra("page", Integer.toString(page));
         gks.fetchForum(forumId, page, new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 
@@ -99,7 +100,7 @@ public class ForumActivity extends Activity {
         });
     }
 
-    private void fillActivity(Forum forum) {
+    private void fillActivity(final Forum forum) {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.forum_table);
@@ -108,6 +109,7 @@ public class ForumActivity extends Activity {
             Log.d(LOG_TAG, "No Topics");
             return;
         }
+        table.removeAllViews();
         final String forumName = forum.getTitle();
         if(forumName != null)
             this.setTitle(res.getString(R.string.title_activity_forum, forumName));
@@ -139,6 +141,32 @@ public class ForumActivity extends Activity {
                 table.addView(row);
             }
         }
+
+        ((TextView)findViewById(R.id.forum_txt_pages)).setText(res.getString(R.string.txt_topicpagereads, forum.getPage(), forum.getMaxPage()));
+        findViewById(R.id.forum_img_first).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(forum.getForumId(), forum.getFirstPage());
+            }
+        });
+        findViewById(R.id.forum_img_prev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(forum.getForumId(), forum.getPrevPage());
+            }
+        });
+        findViewById(R.id.forum_img_next).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(forum.getForumId(), forum.getNextPage());
+            }
+        });
+        findViewById(R.id.forum_img_last).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initActivity(forum.getForumId(), forum.getMaxPage());
+            }
+        });
         Log.d(LOG_TAG, "Done");
     }
 }
