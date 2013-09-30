@@ -26,12 +26,17 @@
     <string name="title_activity_topic">Topic : %s</string>
     <string name="title_activity_creds">Login</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_search_torrent">Search torrent</string>
+    <string name="title_activity_browse_torrents">Browse torrents</string>
+    <string name="title_activity_torrent_info">Torrent info</string>
 
     <!-- Toasts -->
     <string name="toast_connected">Connected !</string>
     <string name="toast_badLogin">Wrong credentials</string>
     <string name="toast_serverError">Server error : %s</string>
     <string name="toast_internalError">Internal error : %s</string>
+    <string name="toast_bookmarked">Bookmarked %s</string>
+    <string name="toast_autogeted">Autoget %s</string>
 
     <!-- Progress -->
     <string name="progress_connecting">Connecting</string>
@@ -44,6 +49,9 @@
     <!-- Buttons -->
     <string name="txt_connect">Connect</string>
     <string name="txt_save">Save</string>
+    <string name="txt_torrent_dl">Get .torrent</string>
+    <string name="txt_torrent_bookmark">Bookmark it</string>
+    <string name="txt_torrent_autoget">Autoget it</string>
 
     <!-- Txt -->
     <string name="txt_status">Status</string>
@@ -67,11 +75,70 @@
     <string name="txt_title">Title</string>
     <string name="txt_infinity">∞</string>
     <string name="txt_ntopics">%s topics</string>
-    <string name="txt_topicpagereads">Page %1$s/%2$s</string>
+    <string name="txt_pageSlashPage_empty">Page 0/0</string>
+    <string name="txt_pageSlashPage">Page %1$s/%2$s</string>
     <string name="txt_topiclastmsg">%1$s - %2$s</string>
+    <string name="txt_anonymous">Anonymous</string>
+
+    <!-- Spinner -->
+    <string-array name="spn_cat">
+        <item>Tout</item>
+        <item>Windows</item>
+        <item>Mac</item>
+        <item>DVDRip</item>
+        <item>DVDRip VOSTFR</item>
+        <item>Emissions</item>
+        <item>Docs</item>
+        <item>Docs HD</item>
+        <item>TV Pack</item>
+        <item>TV VOSTFR</item>
+        <item>TV</item>
+        <item>TV HD VOSTFR</item>
+        <item>TV HD</item>
+        <item>720p</item>
+        <item>1080p</item>
+        <item>BluRay</item>
+        <item>Divers</item>
+        <item>DVDR</item>
+        <item>DVDR Series</item>
+        <item>Anime</item>
+        <item>TV VO</item>
+        <item>Concerts</item>
+        <item>eBooks</item>
+        <item>Sport</item>
+        <item>PC Games</item>
+        <item>DS</item>
+        <item>Wii</item>
+        <item>Xbox 360</item>
+        <item>PSP</item>
+        <item>PS3</item>
+        <item>Flac</item>
+    </string-array>
+    <string-array name="spn_sort_browse">
+        <item>Date</item>
+        <item>Freeleech</item>
+        <item>2x UP</item>
+        <item>Nuked</item>
+        <item>Nom</item>
+        <item>Commentaires</item>
+        <item>Taille</item>
+        <item>Completed</item>
+        <item>Seeders</item>
+        <item>Leechers</item>
+    </string-array>
+    <string-array name="spn_order">
+        <item>Desc</item>
+        <item>Asc</item>
+    </string-array>
 
     <!-- Images description -->
     <string name="imgdesc_read">Read status</string>
+
+    <!-- Empty -->
+    <string name="txt_empty_s">AZ</string>
+    <string name="txt_empty_m">Lorem ipsum</string>
+    <string name="txt_empty_l">Excepteur sint occaecat cupidatat</string>
+    <string name="txt_empty_xl">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</string>
 
     <!-- Debug -->
     <string name="txt_debug">Debug</string>

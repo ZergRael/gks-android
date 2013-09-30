@@ -20,6 +20,7 @@ public class UserProfile extends User {
     private final String LOG_TAG = "UserProfileParser";
 
     protected String userPicture;
+    protected String title;
     protected int sex = -1;
     protected int age = -1;
     protected String torrentClient;
@@ -240,10 +241,8 @@ public class UserProfile extends User {
             age = Integer.parseInt(value.substring(0, value.indexOf(' ')));
         else if(key.equals("Client Torrent"))
             torrentClient = value.length() == 0 ? null : value;
-        else if(key.equals("Classe d'Utilisateur")) {
-            String classString = labels.get(1).select("span").first().attr("class");
-            classId = GClass.valueOf(classString.substring(classString.indexOf('_')));
-        }
+        else if(key.equals("Classe d'Utilisateur"))
+            classId = GClass.valueOf(labels.get(1).select("span").first().attr("class"));
         else if(key.equals("Date d'Enregistrement"))
             registerTime = value.contains("asqu") ? null : value;
         else if(key.equals("Posts : Forums / Commentaires")) {
@@ -273,7 +272,7 @@ public class UserProfile extends User {
                 leechingTorrents = Integer.parseInt(value.substring(value.indexOf('/') + 1).trim());
             }
         else if(key.equals("Ratio"))
-            ratio = value.contains("asqu") ? -1 : (value.charAt(0) == 8734 ? -2 : Float.parseFloat(value));
+            ratio = value.contains("asqu") ? -1 : (value.charAt(0) == 8734 ? -2 : Float.parseFloat(value.replace(",", "")));
         else if(key.equals("Upload"))
             if(value.contains("asqu")) {
                 uploadStr = null;
@@ -312,8 +311,12 @@ public class UserProfile extends User {
             ircWords = value.contains("asqu") ? -1 : Integer.parseInt(value.replace(",", ""));
     }
 
-    public String getUserPicture() {
+    public String getUserPictureUrl() {
         return userPicture;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public int getSex() {

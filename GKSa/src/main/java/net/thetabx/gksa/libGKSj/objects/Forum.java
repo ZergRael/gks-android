@@ -13,6 +13,8 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Zerg on 17/06/13.
@@ -60,15 +62,16 @@ public class Forum extends GObject {
         Element linkbox = htmlDoc.select(".linkbox").get(1);
         if(linkbox.children().size() != 0) {
             Elements aList = linkbox.select("a");
-            if(aList.size() == 0) {
-                status = GStatus.OK;
-                return;
-            }
-
-            for(Element a : aList) {
-                String href = a.attr("href");
-                int parsedPage = Integer.parseInt(href.substring(href.indexOf("page=") + 5, href.indexOf("&", href.indexOf("page="))));
-                maxPage = maxPage < parsedPage ? parsedPage : maxPage;
+            if(aList.size() != 0) {
+                Pattern pagePattern = Pattern.compile("page=(\\d+)");
+                for(Element a : aList) {
+                    String href = a.attr("href");
+                    Matcher pageMatcher = pagePattern.matcher(href);
+                    if(pageMatcher.find()) {
+                        int parsedPage = Integer.parseInt(pageMatcher.group(1));
+                        maxPage = maxPage < parsedPage ? parsedPage : maxPage;
+                    }
+                }
             }
         }
         status = GStatus.OK;

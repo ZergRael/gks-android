@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="2dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/clickable_row_border"
+                android:padding="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_empty_l"
+                    android:id="@+id/torrentinfo_txt_name" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:weightSum="12">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/torrentinfo_img_cat"
+                        android:layout_weight="3"
+                        android:src="@drawable/cat_dvdrip" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_empty_s"
+                        android:id="@+id/torrentinfo_txt_size"
+                        android:layout_weight="3"
+                        android:layout_marginLeft="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_empty_s"
+                        android:id="@+id/torrentinfo_txt_completed"
+                        android:textColor="@color/torrent_completed"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_empty_s"
+                        android:id="@+id/torrentinfo_txt_seeders"
+                        android:textColor="@color/torrent_seeders"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_empty_s"
+                        android:id="@+id/torrentinfo_txt_leechers"
+                        android:textColor="@color/torrent_leechers"
+                        android:layout_weight="2"
+                        android:gravity="center_horizontal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_empty_m"
+                        android:id="@+id/torrentinfo_txt_uploader"
+                        android:paddingRight="2dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/torrentinfo_img_new"
+                        android:src="@drawable/torrent_new"
+                        android:padding="1dp"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/torrentinfo_img_nuke"
+                        android:src="@drawable/torrent_nuke"
+                        android:padding="1dp"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/torrentinfo_img_fl"
+                        android:src="@drawable/torrent_freeleech"
+                        android:padding="1dp"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/torrentinfo_img_scene"
+                        android:src="@drawable/torrent_scene"
+                        android:padding="1dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_empty_m"
+                        android:id="@+id/torrentinfo_txt_addedon"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_empty_m"
+                        android:id="@+id/torrentinfo_txt_pretime"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/clickable_row_border"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_torrent_dl"
+                    android:id="@+id/torrentinfo_btn_torrent"
+                    android:layout_weight="1"
+                    android:enabled="false" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_torrent_bookmark"
+                    android:id="@+id/torrentinfo_btn_bookmark"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_torrent_autoget"
+                    android:id="@+id/torrentinfo_btn_autoget"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_empty_xl"
+                android:id="@+id/torrentinfo_txt_summary"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_empty_xl"
+                android:id="@+id/torrentinfo_txt_prez"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

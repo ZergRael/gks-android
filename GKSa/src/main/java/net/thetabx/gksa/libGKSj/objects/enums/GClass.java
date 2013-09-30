@@ -4,21 +4,21 @@ package net.thetabx.gksa.libGKSj.objects.enums;
  * Created by Zerg on 21/06/13.
  */
 public enum GClass {
-    _0  ("Noob", 0, "#b09f91"),
-    _1  ("Membre", 1, "#012BFE"),
-    _10 ("Surfer", 10, "#06aff8"),
-    _20 ("Power User", 20, "#4e70f8"),
-    _25 ("Atomic User", 25, "#6329e9"),
-    _30 ("XViD AddiC1", 30, "#a846c3"), //Nerd
-    _35 ("x264 L0ver", 35, "#7f02ab"), //Geek
-    _40 ("Torrent Rock & Roller", 40, "#FF5B2B"), //Torrent Master
-    _45 ("Great V.I.P.", 45, "#674508"), //NVIP
-    _50 ("Mega V.I.P.", 50, "#f57609"), //VIP
-    _65 ("Jedi", 65, "#46A533"),
-    _70 ("Modo", 70, "#a83838"), // deprecated ?
-    _75 ("Super Poto", 75, "#a83838"), //Smodo
-    _80 ("Méchant !", 80, "#22bbaa"), //Admin
-    _90 ("SysOP", 90, "#ff0000"); // SysOp
+    userclass_0  ("Noob", 0, "#b09f91"),
+    userclass_1  ("Membre", 1, "#012BFE"),
+    userclass_10 ("Surfer", 10, "#06aff8"),
+    userclass_20 ("Power User", 20, "#4e70f8"),
+    userclass_25 ("Atomic User", 25, "#6329e9"),
+    userclass_30 ("XViD AddiC1", 30, "#a846c3"), //Nerd
+    userclass_35 ("x264 L0ver", 35, "#7f02ab"), //Geek
+    userclass_40 ("Torrent Rock & Roller", 40, "#FF5B2B"), //Torrent Master
+    userclass_45 ("Great V.I.P.", 45, "#674508"), //NVIP
+    userclass_50 ("Mega V.I.P.", 50, "#f57609"), //VIP
+    userclass_65 ("Jedi", 65, "#46A533"),
+    userclass_70 ("Modo", 70, "#a83838"), // deprecated ?
+    userclass_75 ("Super Poto", 75, "#a83838"), //Smodo
+    userclass_80 ("Méchant !", 80, "#22bbaa"), //Admin
+    userclass_90 ("SysOP", 90, "#ff0000"); // SysOp
 
     private final int id;
     private final String realName;

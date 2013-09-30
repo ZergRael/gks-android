@@ -18,85 +18,159 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activity.MainActivity"
+            android:name="net.thetabx.gksa.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CredsActivity"
-            android:label="@string/title_activity_creds">
+            android:name="net.thetabx.gksa.activity.CredsActivity"
+            android:label="@string/title_activity_creds" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.SettingsActivity"
-            android:label="@string/title_activity_settings">
+            android:name="net.thetabx.gksa.activity.SettingsActivity"
+            android:label="@string/title_activity_settings" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MailboxActivity"
-            android:label="@string/title_activity_mailbox">
+            android:name="net.thetabx.gksa.activity.MailboxActivity"
+            android:label="@string/title_activity_mailbox" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="gks.gs" android:path="/mailbox/" />
+
+                <data
+                    android:host="gks.gs"
+                    android:path="/mailbox/"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ConversationActivity"
-            android:label="@string/title_activity_conversation_empty">
+            android:name="net.thetabx.gksa.activity.ConversationActivity"
+            android:label="@string/title_activity_conversation_empty" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="gks.gs" android:pathPattern="/mailbox/.*conversation.*" />
+
+                <data
+                    android:host="gks.gs"
+                    android:pathPattern="/mailbox/.*conversation.*"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ForumsActivity"
-            android:label="@string/title_activity_forums">
+            android:name="net.thetabx.gksa.activity.ForumsActivity"
+            android:label="@string/title_activity_forums" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ForumActivity"
-            android:label="@string/title_activity_forum_empty">
+            android:name="net.thetabx.gksa.activity.ForumActivity"
+            android:label="@string/title_activity_forum_empty" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="gks.gs" android:pathPattern="/forums\\.php.*viewforum.*" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.TopicActivity"
-            android:label="@string/title_activity_topic_empty">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="gks.gs" android:pathPattern="/forums\\.php.*viewtopic.*" />
+
+                <data
+                    android:host="gks.gs"
+                    android:pathPattern="/forums\\.php.*viewforum.*"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.TwitsActivity"
-            android:label="@string/title_activity_twits">
+            android:name="net.thetabx.gksa.activity.TopicActivity"
+            android:label="@string/title_activity_topic_empty" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="gks.gs" android:path="/m/account/twits" />
+
+                <data
+                    android:host="gks.gs"
+                    android:pathPattern="/forums\\.php.*viewtopic.*"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.thetabx.gksa.activity.TwitsActivity"
+            android:label="@string/title_activity_twits" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gks.gs"
+                    android:path="/m/account/twits"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.thetabx.gksa.activity.SearchTorrentActivity"
+            android:label="@string/title_activity_search_torrent" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gks.gs"
+                    android:path="/sphinx/"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.thetabx.gksa.activity.BrowseTorrentsActivity"
+            android:label="@string/title_activity_browse_torrents" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gks.gs"
+                    android:path="/browse/"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.thetabx.gksa.activity.TorrentInfoActivity"
+            android:label="@string/title_activity_torrent_info" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gks.gs"
+                    android:path="/torrent/"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
     </application>

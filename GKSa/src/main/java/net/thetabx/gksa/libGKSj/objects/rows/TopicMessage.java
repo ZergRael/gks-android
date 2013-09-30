@@ -7,12 +7,15 @@ import net.thetabx.gksa.libGKSj.objects.GObject;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.nio.charset.Charset;
+
 /**
  * Created by Zerg on 23/06/13.
  */
 public class TopicMessage extends GObject {
     private final int position;
 
+    private Boolean read = false;
     private final String author;
     private final String postId;
     private final String time;
@@ -21,6 +24,8 @@ public class TopicMessage extends GObject {
 
     public TopicMessage(Element htmlEl, int position) {
         this.position = position;
+        if(htmlEl.hasClass("forum_read"))
+            read = true;
 
         Elements headerLinks = htmlEl.select("tr span").first().select("a");
         postId = headerLinks.get(0).text();
@@ -28,19 +33,16 @@ public class TopicMessage extends GObject {
 
         time = htmlEl.select("tr span").first().select(".tiptip").get(1).text();
 
-        content = htmlEl.select(".body").first().text();
+        Element contentEl = htmlEl.select(".body div").first();
+        contentEl.select(".editedby").remove();
+
+        content = contentEl.html();
         if(content.contains("- - - - -"))
             content = content.substring(0, content.lastIndexOf("- - - - -"));
+    }
 
-        Log.d(LOG_TAG, "Html entities : " + (content.contains("Derni&egrave;re &eacute;dition") ? "Yes" : "No"));
-        Log.d(LOG_TAG, "Accents : " + (content.contains("Dernière édition") ? "Yes" : "No"));
-
-
-
-        //if(content.contains("Derni&egrave;re &eacute;dition"))
-        //    content = content.substring(0, content.lastIndexOf("Derni&egrave;re &eacute;dition"));
-        if(content.contains("Dernière édition"))
-            content = content.substring(0, content.lastIndexOf("Dernière édition"));
+    public Boolean isRead() {
+        return read;
     }
 
     public int getPosition() {

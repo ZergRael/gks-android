@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +18,17 @@ import android.widget.Toast;
 
 import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
+import net.thetabx.gksa.utils.URLImageParser;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Topic;
 import net.thetabx.gksa.libGKSj.objects.rows.TopicMessage;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Zerg on 23/06/13.
@@ -108,6 +113,7 @@ public class TopicActivity extends Activity {
             Log.d(LOG_TAG, "No messages");
             return;
         }
+        Pattern smiliesPattern = Pattern.compile("class=\"smiles smiles-(\\w*)\"");
         table.removeAllViews();
         final String topicName = topic.getTitle();
         if(topicName != null)
@@ -115,17 +121,23 @@ public class TopicActivity extends Activity {
         for(final TopicMessage message : messagesList) {
             TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.topic_message, table, false);
             if (row != null) {
+                if(!message.isRead())
+                    row.findViewById(R.id.topicmessage_img_nonread).setVisibility(View.VISIBLE);
                 ((TextView)row.findViewById(R.id.topicmessage_txt_name)).setText(message.getAuthor());
                 ((TextView)row.findViewById(R.id.topicmessage_txt_time)).setText(message.getTime());
-                ((TextView)row.findViewById(R.id.topicmessage_txt_content)).setText(message.getContent());
+                //((TextView)row.findViewById(R.id.topicmessage_txt_content)).setText(Html.fromHtml(message.getContent()));
+                TextView message_content = (TextView)row.findViewById(R.id.topicmessage_txt_content);
+                String content = message.getContent();
+                Matcher smiliesMatcher = smiliesPattern.matcher(content);
+                List<String> smilies = new ArrayList<String>();
+                while (smiliesMatcher.find()) {
+                    smilies.add(smiliesMatcher.group(1));
+                }
+                message_content.setText(Html.fromHtml(content, new URLImageParser(message_content, res, smilies, this), null));
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Log.d(LOG_TAG, "Clicked me " + message.getPosition());
-                        //Intent intent = new Intent(ForumActivity.this, TopicActivity.class);
-                        //intent.putExtra("topicName", topic.getName());
-                        //intent.putExtra("topicId", topic.getTopicId());
-                        //startActivity(intent);
                     }
                 });
                 row.setOnLongClickListener(new View.OnLongClickListener() {
@@ -139,7 +151,7 @@ public class TopicActivity extends Activity {
             }
         }
 
-        ((TextView)findViewById(R.id.topic_txt_pages)).setText(res.getString(R.string.txt_topicpagereads, topic.getPage(), topic.getMaxPage()));
+        ((TextView)findViewById(R.id.topic_txt_pages)).setText(res.getString(R.string.txt_pageSlashPage, topic.getPage(), topic.getMaxPage()));
         findViewById(R.id.topic_img_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

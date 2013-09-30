@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_empty"
+            android:text="@string/txt_pageSlashPage_empty"
             android:id="@+id/topic_txt_pages"
             android:layout_gravity="center_vertical" />
 
@@ -51,7 +51,8 @@
     <ScrollView
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+        android:id="@+id/topic_scrollView">
 
         <TableLayout
                 android:layout_width="fill_parent"

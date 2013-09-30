@@ -21,6 +21,14 @@
                 android:layout_gravity="center"
                 android:layout_weight="50">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/topicmessage_img_nonread"
+                android:src="@android:drawable/presence_online"
+                android:contentDescription="@string/imgdesc_read"
+                android:visibility="invisible" />
+
             <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -29,7 +37,7 @@
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:paddingLeft="8dp"/>
+                    android:paddingLeft="2dp"/>
 
             <TextView
                     android:layout_width="wrap_content"

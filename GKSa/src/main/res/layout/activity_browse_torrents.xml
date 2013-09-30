@@ -12,14 +12,14 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/forum_img_first"
+            android:id="@+id/browsetorrents_img_first"
             android:src="@android:drawable/ic_media_previous"
             android:clickable="true" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/forum_img_prev"
+            android:id="@+id/browsetorrents_img_prev"
             android:src="@android:drawable/ic_media_rew"
             android:clickable="true" />
 
@@ -27,36 +27,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_pageSlashPage_empty"
-            android:id="@+id/forum_txt_pages"
+            android:id="@+id/browsetorrents_txt_pages"
             android:layout_gravity="center_vertical" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/forum_img_next"
+            android:id="@+id/browsetorrents_img_next"
             android:src="@android:drawable/ic_media_ff"
             android:clickable="true" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/forum_img_last"
+            android:id="@+id/browsetorrents_img_last"
             android:src="@android:drawable/ic_media_next"
             android:clickable="true" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/browsetorrents_spn_cat"
+            android:entries="@array/spn_cat"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/browsetorrents_spn_sort"
+            android:entries="@array/spn_sort_browse"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/browsetorrents_spn_order"
+            android:entries="@array/spn_order"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
     <ScrollView
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TableLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:id="@+id/forum_table"
-                android:padding="6dp"
-                >
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:id="@+id/browsetorrents_table"
+            android:padding="6dp"
+            >
 
         </TableLayout>
     </ScrollView>

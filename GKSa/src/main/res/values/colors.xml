@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="torrent_completed">#909090</color>
+    <color name="torrent_seeders">#99cc00</color>
+    <color name="torrent_leechers">#ff4444</color>
+</resources>

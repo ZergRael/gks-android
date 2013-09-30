@@ -8,6 +8,8 @@ import net.thetabx.gksa.libGKSj.objects.Credentials;
 import net.thetabx.gksa.libGKSj.objects.Forum;
 import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.GObject;
+import net.thetabx.gksa.libGKSj.objects.TorrentInfo;
+import net.thetabx.gksa.libGKSj.objects.TorrentsList;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Mailbox;
 import net.thetabx.gksa.libGKSj.objects.Topic;
@@ -109,6 +111,7 @@ public class GKS {
      * Fetchers
      */
 
+    // Users
     public GStatus fetchUserMe(final AsyncListener progressListener) {
         final AsyncListener proxyListener = new AsyncListener() {
             @Override
@@ -152,6 +155,7 @@ public class GKS {
         return GStatus.OK;
     }
 
+    // MP
     public GStatus fetchMailbox(AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
@@ -196,6 +200,7 @@ public class GKS {
         return GStatus.OK;
     }
 
+    // Twits
     public GStatus fetchTwits(AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
@@ -218,6 +223,7 @@ public class GKS {
         return GStatus.OK;
     }
 
+    // Forums
     public GStatus fetchForums(AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
@@ -292,6 +298,7 @@ public class GKS {
         return GStatus.OK;
     }
 
+    // Bookmarks
     public GStatus fetchBookmarks(AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
@@ -314,18 +321,96 @@ public class GKS {
         //return GStatus.OK;
     }
 
-    public GStatus fetchTorrentsList(String category, String sort, boolean order, int page, AsyncListener progressListener) {
+    // Torrents
+    public GStatus fetchTorrentsList(AsyncListener progressListener) {
+        return fetchTorrentsList(TorrentsList.DEFAULT_SORT, TorrentsList.DEFAULT_ORDER, TorrentsList.MIN_PAGE, progressListener);
+    }
+
+    public GStatus fetchTorrentsList(String sort, String order, AsyncListener progressListener) {
+        return fetchTorrentsList(sort, order, TorrentsList.MIN_PAGE, progressListener);
+    }
+
+    public GStatus fetchTorrentsList(int page, AsyncListener progressListener) {
+        return fetchTorrentsList(TorrentsList.DEFAULT_SORT, TorrentsList.DEFAULT_ORDER, page, progressListener);
+    }
+
+    public GStatus fetchTorrentsList(String sort, String order, int page, AsyncListener progressListener) {
+        return fetchTorrentsList(null, sort, order, page, progressListener);
+    }
+
+    public GStatus fetchTorrentsList(String category, AsyncListener progressListener) {
+        return fetchTorrentsList(category, TorrentsList.DEFAULT_SORT, TorrentsList.DEFAULT_ORDER, TorrentsList.MIN_PAGE, progressListener);
+    }
+
+    public GStatus fetchTorrentsList(String category, String sort, String order, AsyncListener progressListener) {
+        return fetchTorrentsList(category, sort, order, TorrentsList.MIN_PAGE, progressListener);
+    }
+
+    public GStatus fetchTorrentsList(String category, int page, AsyncListener progressListener) {
+        return fetchTorrentsList(category, TorrentsList.DEFAULT_SORT, TorrentsList.DEFAULT_ORDER, page, progressListener);
+    }
+
+    public GStatus fetchTorrentsList(String category, String sort, String order, int page, AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
-        throw new UnsupportedOperationException("Not yet implemented");
-        //return GStatus.OK;
+        if(category != null) {
+            class Fetcher extends AsyncFetcher {
+                @Override
+                protected GStatus doInBackground(String... urlFragments) {
+                    try {
+                        parsedObject = new TorrentsList(http.getUrl(String.format(urlFragments[0], urlFragments[1], urlFragments[2], urlFragments[3], urlFragments[4])), urlFragments);
+                        if(http.getLastStatus() != GStatus.OK)
+                            return http.getLastStatus();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return GStatus.ERROR;
+                    }
+                    return ((GObject)parsedObject).getStatus();
+                }
+            }
+            new Fetcher().SetParams(http, progressListener).execute(TorrentsList.DEFAULT_URL, category, sort, order, Integer.toString(page));
+        }
+        else {
+            class Fetcher extends AsyncFetcher {
+                @Override
+                protected GStatus doInBackground(String... urlFragments) {
+                    try {
+                        parsedObject = new TorrentsList(http.getUrl(String.format(urlFragments[0], urlFragments[1], urlFragments[2], urlFragments[3])), urlFragments);
+                        if(http.getLastStatus() != GStatus.OK)
+                            return http.getLastStatus();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return GStatus.ERROR;
+                    }
+                    return ((GObject)parsedObject).getStatus();
+                }
+            }
+            new Fetcher().SetParams(http, progressListener).execute(TorrentsList.DEFAULT_CATLESS_URL, sort, order, Integer.toString(page));
+        }
+        //throw new UnsupportedOperationException("Not yet implemented");
+        return GStatus.OK;
     }
 
     public GStatus fetchTorrentInfo(String torrentId, AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
-        throw new UnsupportedOperationException("Not yet implemented");
-        //return GStatus.OK;
+        class Fetcher extends AsyncFetcher {
+            @Override
+            protected GStatus doInBackground(String... urlFragments) {
+                try {
+                    parsedObject = new TorrentInfo(http.getUrl(String.format(urlFragments[0], urlFragments[1])), urlFragments);
+                    if(http.getLastStatus() != GStatus.OK)
+                        return http.getLastStatus();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return GStatus.ERROR;
+                }
+                return ((GObject)parsedObject).getStatus();
+            }
+        }
+        new Fetcher().SetParams(http, progressListener).execute(TorrentInfo.DEFAULT_URL, torrentId);
+        //throw new UnsupportedOperationException("Not yet implemented");
+        return GStatus.OK;
     }
 
     public GStatus searchTorrent(String name, String category, String sort, boolean order, boolean searchInDesc, int page, AsyncListener progressListener) {
@@ -355,6 +440,67 @@ public class GKS {
             }
         }
         new Fetcher().SetParams(http, progressListener).execute(url);
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    /**
+     * Torrents actions
+     */
+
+    public void downloadTorrent(TorrentInfo torrent, AsyncListener progressListener) {
+        class Fetcher extends AsyncFetcher {
+            @Override
+            protected GStatus doInBackground(String... urlFragments) {
+                try {
+                    parsedObject = new TorrentInfo(http.getUrl(String.format(urlFragments[0], urlFragments[1])), urlFragments);
+                    if(http.getLastStatus() != GStatus.OK)
+                        return http.getLastStatus();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return GStatus.ERROR;
+                }
+                return GStatus.OK;
+            }
+        }
+        new Fetcher().SetParams(http, progressListener).execute(TorrentInfo.DOWNLOAD_URL, torrent.getTorrentId());
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    public void bookmarkTorrent(TorrentInfo torrent, AsyncListener progressListener) {
+        class Fetcher extends AsyncFetcher {
+            @Override
+            protected GStatus doInBackground(String... urlFragments) {
+                try {
+                    http.getUrl(String.format(urlFragments[0], urlFragments[1], urlFragments[2], urlFragments[3]));
+                    if(http.getLastStatus() != GStatus.OK)
+                        return http.getLastStatus();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return GStatus.ERROR;
+                }
+                return GStatus.OK;
+            }
+        }
+        new Fetcher().SetParams(http, progressListener).execute(TorrentInfo.AJAX_URL, "add", "booktorrent", torrent.getTorrentId());
+        //throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    public void autogetTorrent(TorrentInfo torrent, AsyncListener progressListener) {
+        class Fetcher extends AsyncFetcher {
+            @Override
+            protected GStatus doInBackground(String... urlFragments) {
+                try {
+                    http.getUrl(String.format(urlFragments[0], urlFragments[1], urlFragments[2], urlFragments[3]));
+                    if(http.getLastStatus() != GStatus.OK)
+                        return http.getLastStatus();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return GStatus.ERROR;
+                }
+                return GStatus.OK;
+            }
+        }
+        new Fetcher().SetParams(http, progressListener).execute(TorrentInfo.AJAX_URL, "add", "autoget", torrent.getTorrentId());
         //throw new UnsupportedOperationException("Not yet implemented");
     }
 

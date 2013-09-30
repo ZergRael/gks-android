@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +20,7 @@ import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.GKS;
+import net.thetabx.gksa.libGKSj.objects.TorrentInfo;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 
@@ -107,29 +107,73 @@ public class MainActivity extends Activity {
     }
 
     private void fillActivity(UserMe me) {
-        getProfilePicture(me.getUserPicture());
+        getProfilePicture(me.getUserPictureUrl());
         Log.d(LOG_TAG, "fillActivity");
-        ((TextView)findViewById(R.id.welc_txt_status)).setText(me.getStatus().name());
 
-        ((TextView)findViewById(R.id.welc_txt_userId)).setText(me.getUserId());
         ((TextView)findViewById(R.id.welc_txt_pseudo)).setText(me.getPseudo());
-        ((TextView)findViewById(R.id.welc_txt_ratio)).setText(me.getRatio() == -2 ? res.getString(R.string.txt_infinity) : Float.toString(me.getRatio()));
-        ((TextView)findViewById(R.id.welc_txt_reqRatio)).setText(Float.toString(me.getRequiredRatio()));
+        ((TextView)findViewById(R.id.welc_txt_class)).setText(me.getClassName());
+        ((TextView)findViewById(R.id.welc_txt_class)).setTextColor(me.getClassColor());
+        ((TextView)findViewById(R.id.welc_txt_twits)).setText(Integer.toString(me.getUnreadTwits()));
+        ((TextView)findViewById(R.id.welc_txt_mp)).setText(Integer.toString(me.getUnreadMP()));
+
         ((TextView)findViewById(R.id.welc_txt_upload)).setText(Float.toString(me.getUpload()) + " " + me.getUploadUnit());
         ((TextView)findViewById(R.id.welc_txt_download)).setText(Float.toString(me.getDownload()) + " " + me.getDownloadUnit());
-        ((TextView)findViewById(R.id.welc_txt_class)).setText(me.getClassName());
-        ((TextView)findViewById(R.id.welc_txt_class)).setTextColor(Color.parseColor(me.getClassColor()));
+        ((TextView)findViewById(R.id.welc_txt_ratio)).setText(me.getRatio() == -2 ? res.getString(R.string.txt_infinity) : Float.toString(me.getRatio()));
+        ((TextView)findViewById(R.id.welc_txt_reqRatio)).setText(Float.toString(me.getRequiredRatio()));
+        ((TextView)findViewById(R.id.welc_txt_hitAndRun)).setText(Integer.toString(me.getHitAndRun()));
         ((TextView)findViewById(R.id.welc_txt_karma)).setText(Float.toString(me.getKarma()));
         ((TextView)findViewById(R.id.welc_txt_aura)).setText(Float.toString(me.getAura()));
-        ((TextView)findViewById(R.id.welc_txt_mp)).setText(Integer.toString(me.getUnreadMP()));
-        ((TextView)findViewById(R.id.welc_txt_twits)).setText(Integer.toString(me.getUnreadTwits()));
-        ((TextView)findViewById(R.id.welc_txt_hitAndRun)).setText(Integer.toString(me.getHitAndRun()));
-        //((TextView)findViewById(R.id.welc_txt_authKey)).setText(me.getAuthKey());
 
         ((TextView)findViewById(R.id.welc_txt_seeding)).setText(Integer.toString(me.getSeedingTorrents()));
         ((TextView)findViewById(R.id.welc_txt_leeching)).setText(Integer.toString(me.getLeechingTorrents()));
 
+        ((TextView)findViewById(R.id.welc_txt_status)).setText(me.getStatus().name());
+        ((TextView)findViewById(R.id.welc_txt_userId)).setText(me.getUserId());
         ((TextView)findViewById(R.id.welc_txt_title)).setText(me.getTitle());
+        //((TextView)findViewById(R.id.welc_txt_authKey)).setText(me.getAuthKey());
+
+        initButtons();
+
+        //Intent intent = new Intent(MainActivity.this, TopicActivity.class);
+        //intent.putExtra("topicid", "6336");
+        //intent.putExtra("page", "15");
+
+        //Intent intent = new Intent(MainActivity.this, TorrentInfoActivity.class);
+        //intent.putExtra("torrentid", "164236");
+
+        Intent intent = new Intent(MainActivity.this, BrowseTorrentsActivity.class);
+
+        //startActivity(intent);
+    }
+
+    public void initButtons() {
+        findViewById(R.id.welc_btn_search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SearchTorrentActivity.class));
+            }
+        });
+
+        findViewById(R.id.welc_btn_browse).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, BrowseTorrentsActivity.class));
+            }
+        });
+
+        findViewById(R.id.welc_btn_twits).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, TwitsActivity.class));
+            }
+        });
+
+        findViewById(R.id.welc_btn_pm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MailboxActivity.class));
+            }
+        });
 
         findViewById(R.id.welc_btn_forums).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +181,14 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this, ForumsActivity.class));
             }
         });
+
+        findViewById(R.id.welc_btn_settings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            }
+        });
+
     }
 
     public void getProfilePicture(String url) {
@@ -156,7 +208,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -185,7 +237,7 @@ public class MainActivity extends Activity {
                 return super.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
