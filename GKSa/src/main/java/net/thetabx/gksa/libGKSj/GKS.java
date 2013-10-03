@@ -413,7 +413,7 @@ public class GKS {
         return GStatus.OK;
     }
 
-    public GStatus searchTorrent(String name, String category, String sort, boolean order, boolean searchInDesc, int page, AsyncListener progressListener) {
+    public GStatus searchTorrent(String name, String category, String sort, String order, boolean searchInDesc, int page, AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
         throw new UnsupportedOperationException("Not yet implemented");

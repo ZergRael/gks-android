@@ -5,12 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,7 +17,6 @@ import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.GKS;
-import net.thetabx.gksa.libGKSj.objects.TorrentInfo;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 
@@ -141,16 +137,16 @@ public class MainActivity extends Activity {
         //Intent intent = new Intent(MainActivity.this, TorrentInfoActivity.class);
         //intent.putExtra("torrentid", "164236");
 
-        Intent intent = new Intent(MainActivity.this, BrowseTorrentsActivity.class);
+        Intent intent = new Intent(MainActivity.this, SearchTorrentsActivity.class);
 
-        //startActivity(intent);
+        startActivity(intent);
     }
 
     public void initButtons() {
         findViewById(R.id.welc_btn_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, SearchTorrentActivity.class));
+                startActivity(new Intent(MainActivity.this, SearchTorrentsActivity.class));
             }
         });
 

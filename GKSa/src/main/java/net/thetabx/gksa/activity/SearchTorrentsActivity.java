@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
@@ -21,10 +20,10 @@ import android.widget.Toast;
 import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.enums.Categories;
-import net.thetabx.gksa.enums.SortBrowse;
+import net.thetabx.gksa.enums.SortSearch;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
-import net.thetabx.gksa.libGKSj.objects.TorrentsList;
+import net.thetabx.gksa.libGKSj.objects.SearchTorrentsList;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.rows.TorrentMin;
 
@@ -33,39 +32,39 @@ import java.util.List;
 /**
  * Created by Zerg on 13/09/13.
  */
-public class BrowseTorrentsActivity extends Activity {
+public class SearchTorrentsActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
     private final String DEFAULT_CAT = null;
-    private final String DEFAULT_SORT = SortBrowse.id.getId();
+    private final String DEFAULT_SORT = SortSearch.id.getId();
     private final String DEFAULT_ORDER = "desc";
-    private final String LOG_TAG = "BrowseTorrentActivity";
+    private final String LOG_TAG = "SearchTorrentsActivity";
 
     private String cat = DEFAULT_CAT;
     private String sort = DEFAULT_SORT;
     private String order = DEFAULT_ORDER;
-    private int page = TorrentsList.MIN_PAGE;
+    private int page = SearchTorrentsList.MIN_PAGE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_browse_torrents);
+        setContentView(R.layout.activity_search_torrents);
 
         res = getResources();
         con = getApplicationContext();
         gks = GKSa.getGKSlib();
 
-        initActivity();
+        //initActivity();
     }
 
     private void initActivity() {
-        gks.fetchTorrentsList(cat, sort, order, page, new AsyncListener() {
+        gks.searchTorrent("query", cat, sort, order, false, page, new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 
             @Override
             public void onPreExecute() {
-                initProgressDiag = ProgressDialog.show(BrowseTorrentsActivity.this, "", res.getString(R.string.progress_loading), true, false);
+                initProgressDiag = ProgressDialog.show(SearchTorrentsActivity.this, "", res.getString(R.string.progress_loading), true, false);
             }
 
             @Override
@@ -73,7 +72,7 @@ public class BrowseTorrentsActivity extends Activity {
                 //findViewById(R.id.splash_progress).setVisibility(View.INVISIBLE);
                 //setContentView(R.layout.activity_welcome);
                 if (status == GStatus.OK) {
-                    fillActivity((TorrentsList) result);
+                    fillActivity((SearchTorrentsList) result);
                 } else {
                     int toastText;
                     switch (status) {
@@ -93,7 +92,7 @@ public class BrowseTorrentsActivity extends Activity {
         });
     }
 
-    private void fillActivity(final TorrentsList torrentsList) {
+    private void fillActivity(final SearchTorrentsList torrentsList) {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.browsetorrents_table);
@@ -122,7 +121,7 @@ public class BrowseTorrentsActivity extends Activity {
         ((Spinner)findViewById(R.id.browsetorrents_spn_sort)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                sort = SortBrowse.fromString(adapterView.getItemAtPosition(i).toString()).getId();
+                sort = SortSearch.fromString(adapterView.getItemAtPosition(i).toString()).getId();
                 Log.d(LOG_TAG, "Sort : " + sort);
                 initActivity();
             }
@@ -170,7 +169,7 @@ public class BrowseTorrentsActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     Log.d(LOG_TAG, "Clicked me " + torrent.getPosition());
-                    Intent intent = new Intent(BrowseTorrentsActivity.this, TorrentInfoActivity.class);
+                    Intent intent = new Intent(SearchTorrentsActivity.this, TorrentInfoActivity.class);
                     intent.putExtra("torrentid", torrent.getId());
                     startActivity(intent);
                 }
@@ -218,7 +217,6 @@ public class BrowseTorrentsActivity extends Activity {
         });
         Log.d(LOG_TAG, "Done");
     }
-
 
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {

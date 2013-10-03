@@ -129,8 +129,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="net.thetabx.gksa.activity.SearchTorrentActivity"
-            android:label="@string/title_activity_search_torrent" >
+            android:name=".activity.SearchTorrentsActivity"
+            android:label="@string/title_activity_search_torrents" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

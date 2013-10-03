@@ -1,11 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_torrentsearch"
-          android:title="@string/action_torrentsearch"
+          android:title="@string/action_search_torrents"
           android:orderInCategory="10"
           android:showAsAction="never" />
 
     <item android:id="@+id/action_torrentsbrowse"
-          android:title="@string/action_torrentsbrowse"
+          android:title="@string/action_browse_torrents"
           android:orderInCategory="20"
           android:showAsAction="never" />
 

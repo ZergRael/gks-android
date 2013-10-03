@@ -264,14 +264,14 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/action_torrentsearch"
+                android:text="@string/action_search_torrents"
                 android:id="@+id/welc_btn_search"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/action_torrentsbrowse"
+                android:text="@string/action_browse_torrents"
                 android:id="@+id/welc_btn_browse"
                 android:layout_weight="1" />
         </LinearLayout>
