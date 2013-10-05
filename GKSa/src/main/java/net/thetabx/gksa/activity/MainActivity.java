@@ -20,6 +20,8 @@ import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 
+import java.util.Date;
+
 /**
  * Created by Zerg on 21/06/13.
  */
@@ -109,24 +111,28 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.welc_txt_pseudo)).setText(me.getPseudo());
         ((TextView)findViewById(R.id.welc_txt_class)).setText(me.getClassName());
         ((TextView)findViewById(R.id.welc_txt_class)).setTextColor(me.getClassColor());
-        ((TextView)findViewById(R.id.welc_txt_twits)).setText(Integer.toString(me.getUnreadTwits()));
-        ((TextView)findViewById(R.id.welc_txt_mp)).setText(Integer.toString(me.getUnreadMP()));
+        ((TextView)findViewById(R.id.welc_txt_twits)).setText(String.format(res.getString(R.string.txt_format_twits), Integer.toString(me.getUnreadTwits())));
+        ((TextView)findViewById(R.id.welc_txt_mp)).setText(String.format(res.getString(R.string.txt_format_MP), Integer.toString(me.getUnreadMP())));
 
         ((TextView)findViewById(R.id.welc_txt_upload)).setText(Float.toString(me.getUpload()) + " " + me.getUploadUnit());
         ((TextView)findViewById(R.id.welc_txt_download)).setText(Float.toString(me.getDownload()) + " " + me.getDownloadUnit());
         ((TextView)findViewById(R.id.welc_txt_ratio)).setText(me.getRatio() == -2 ? res.getString(R.string.txt_infinity) : Float.toString(me.getRatio()));
-        ((TextView)findViewById(R.id.welc_txt_reqRatio)).setText(Float.toString(me.getRequiredRatio()));
-        ((TextView)findViewById(R.id.welc_txt_hitAndRun)).setText(Integer.toString(me.getHitAndRun()));
-        ((TextView)findViewById(R.id.welc_txt_karma)).setText(Float.toString(me.getKarma()));
-        ((TextView)findViewById(R.id.welc_txt_aura)).setText(Float.toString(me.getAura()));
+        ((TextView)findViewById(R.id.welc_txt_reqRatio)).setText(String.format(res.getString(R.string.txt_format_reqRatio), Float.toString(me.getRequiredRatio())));
+        ((TextView)findViewById(R.id.welc_txt_hitAndRun)).setText(String.format(res.getString(R.string.txt_format_hitAndRun), Integer.toString(me.getHitAndRun())));
+        ((TextView)findViewById(R.id.welc_txt_karma)).setText(String.format(res.getString(R.string.txt_format_karma), Float.toString(me.getKarma())));
+        ((TextView)findViewById(R.id.welc_txt_aura)).setText(String.format(res.getString(R.string.txt_format_aura), Float.toString(me.getAura())));
 
-        ((TextView)findViewById(R.id.welc_txt_seeding)).setText(Integer.toString(me.getSeedingTorrents()));
-        ((TextView)findViewById(R.id.welc_txt_leeching)).setText(Integer.toString(me.getLeechingTorrents()));
+        ((TextView)findViewById(R.id.welc_txt_seeding)).setText(String.format(res.getString(R.string.txt_format_seeds), Integer.toString(me.getSeedingTorrents())));
+        ((TextView)findViewById(R.id.welc_txt_leeching)).setText(String.format(res.getString(R.string.txt_format_leechs), Integer.toString(me.getLeechingTorrents())));
 
         ((TextView)findViewById(R.id.welc_txt_status)).setText(me.getStatus().name());
         ((TextView)findViewById(R.id.welc_txt_userId)).setText(me.getUserId());
         ((TextView)findViewById(R.id.welc_txt_title)).setText(me.getTitle());
         //((TextView)findViewById(R.id.welc_txt_authKey)).setText(me.getAuthKey());
+
+        if(me.isFreeleech()) {
+            ((TextView)findViewById(R.id.welc_txt_freeleech)).setText(String.format(res.getString(R.string.txt_format_freeleech), me.getFreeleechSection(), timestampToDuration(me.getFreeleechTimestamp())));
+        }
 
         initButtons();
 
@@ -140,6 +146,11 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(MainActivity.this, SearchTorrentsActivity.class);
 
         //startActivity(intent);
+    }
+
+    public String timestampToDuration(long timestamp) {
+        long duration = timestamp - (new Date().getTime() / 1000);
+        return String.format("%d:%02d:%02d", duration / 3600, (duration % 3600) / 60, duration % 60);
     }
 
     public void initButtons() {

@@ -95,7 +95,7 @@ public class ForumsActivity extends Activity {
                     ((ImageView)row.findViewById(R.id.forummin_img_read)).setImageResource(android.R.drawable.presence_online);
                 ((TextView)row.findViewById(R.id.forummin_txt_name)).setText(forum.getName());
                 ((TextView)row.findViewById(R.id.forummin_txt_desc)).setText(forum.getDescription());
-                ((TextView)row.findViewById(R.id.forummin_txt_ntopics)).setText(res.getString(R.string.txt_ntopics, forum.getTopicsNum()));
+                ((TextView)row.findViewById(R.id.forummin_txt_ntopics)).setText(res.getString(R.string.txt_format_ntopics, forum.getTopicsNum()));
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

@@ -75,11 +75,21 @@
     <string name="txt_leeching">Leeching</string>
     <string name="txt_title">Title</string>
     <string name="txt_infinity">∞</string>
-    <string name="txt_ntopics">%s topics</string>
     <string name="txt_pageSlashPage_empty">Page 0/0</string>
-    <string name="txt_pageSlashPage">Page %1$s/%2$s</string>
-    <string name="txt_topiclastmsg">%1$s - %2$s</string>
     <string name="txt_anonymous">Anonymous</string>
+    <!-- Formatted text -->
+    <string name="txt_format_ntopics">%s topics</string>
+    <string name="txt_format_freeleech">FL %1$s : %2$s</string>
+    <string name="txt_format_reqRatio">%1$s required</string>
+    <string name="txt_format_hitAndRun">%1$s Hit\'n\'Run</string>
+    <string name="txt_format_karma">%1$s Karma</string>
+    <string name="txt_format_aura">%1$s Aura</string>
+    <string name="txt_format_pageSlashPage">Page %1$s/%2$s</string>
+    <string name="txt_format_topiclastmsg">%1$s - %2$s</string>
+    <string name="txt_format_MP">%1$s PM</string>
+    <string name="txt_format_twits">%1$s Twits</string>
+    <string name="txt_format_seeds">%1$s Seeds</string>
+    <string name="txt_format_leechs">%1$s Leechs</string>
 
     <!-- Spinner -->
     <string-array name="spn_cat">

@@ -8,6 +8,7 @@ import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 //import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
@@ -19,7 +20,9 @@ public class UserMe extends UserProfile {
     private int unreadTwits;
     private int hitAndRun;
     private String authKey;
-    private boolean freeleech;
+    private boolean freeleech = false;
+    private String freeleechSection;
+    private long freeleechTimestamp;
 
     private final String LOG_TAG = "UserMeParser";
 
@@ -90,6 +93,16 @@ public class UserMe extends UserProfile {
         hitAndRun = Integer.parseInt(hitAndRunString.substring(0, hitAndRunString.indexOf(' ')));
         String authKeyString = fourthLiLinks.get(3).attr("href");
         authKey = authKeyString.substring(authKeyString.lastIndexOf('/') + 1);
+        if(htmlEls.size() > 4) {
+            //<li class="fl-activated">FreeLeech Anime : <span class="tiptip" title="Temps restant FL"><span id="countdown_fl" class="countdown" data-time="1381048265"></span></span></li>
+            Element fifthLi = htmlEls.get(4);
+            if(fifthLi.hasClass("fl-activated")) {
+                freeleech = true;
+                String freeleechText = fifthLi.text();
+                freeleechSection = freeleechText.substring(10, freeleechText.indexOf(":") - 1);
+                freeleechTimestamp = Long.valueOf(fifthLi.select("span#countdown_fl").first().attr("data-time"));
+            }
+        }
 
         status = GStatus.OK;
         Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
@@ -117,5 +130,13 @@ public class UserMe extends UserProfile {
 
     public boolean isFreeleech() {
         return freeleech;
+    }
+
+    public String getFreeleechSection() {
+        return freeleechSection;
+    }
+
+    public long getFreeleechTimestamp() {
+        return freeleechTimestamp;
     }
 }

@@ -119,8 +119,8 @@ public class ForumActivity extends Activity {
                 if(!topic.isRead())
                     ((ImageView)row.findViewById(R.id.topicmin_img_read)).setImageResource(android.R.drawable.presence_online);
                 ((TextView)row.findViewById(R.id.topicmin_txt_name)).setText(topic.getName());
-                ((TextView)row.findViewById(R.id.topicmin_txt_npagereads)).setText(res.getString(R.string.txt_pageSlashPage, topic.getPage(), topic.getMaxPage()));
-                ((TextView)row.findViewById(R.id.topicmin_txt_lastmsg)).setText(res.getString(R.string.txt_topiclastmsg, topic.getLastPostAuthor(), topic.getLastPostTime()));
+                ((TextView)row.findViewById(R.id.topicmin_txt_npagereads)).setText(res.getString(R.string.txt_format_pageSlashPage, topic.getPage(), topic.getMaxPage()));
+                ((TextView)row.findViewById(R.id.topicmin_txt_lastmsg)).setText(res.getString(R.string.txt_format_topiclastmsg, topic.getLastPostAuthor(), topic.getLastPostTime()));
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -142,7 +142,7 @@ public class ForumActivity extends Activity {
             }
         }
 
-        ((TextView)findViewById(R.id.forum_txt_pages)).setText(res.getString(R.string.txt_pageSlashPage, forum.getPage(), forum.getMaxPage()));
+        ((TextView)findViewById(R.id.forum_txt_pages)).setText(res.getString(R.string.txt_format_pageSlashPage, forum.getPage(), forum.getMaxPage()));
         findViewById(R.id.forum_img_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

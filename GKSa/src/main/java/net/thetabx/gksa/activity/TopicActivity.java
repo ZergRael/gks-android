@@ -151,7 +151,7 @@ public class TopicActivity extends Activity {
             }
         }
 
-        ((TextView)findViewById(R.id.topic_txt_pages)).setText(res.getString(R.string.txt_pageSlashPage, topic.getPage(), topic.getMaxPage()));
+        ((TextView)findViewById(R.id.topic_txt_pages)).setText(res.getString(R.string.txt_format_pageSlashPage, topic.getPage(), topic.getMaxPage()));
         findViewById(R.id.topic_img_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

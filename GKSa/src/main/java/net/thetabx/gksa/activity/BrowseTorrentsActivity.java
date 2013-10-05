@@ -187,7 +187,7 @@ public class BrowseTorrentsActivity extends Activity {
             table.addView(row);
         }
 
-        ((TextView)findViewById(R.id.browsetorrents_txt_pages)).setText(res.getString(R.string.txt_pageSlashPage, torrentsList.getPage(), torrentsList.getMaxPage()));
+        ((TextView)findViewById(R.id.browsetorrents_txt_pages)).setText(res.getString(R.string.txt_format_pageSlashPage, torrentsList.getPage(), torrentsList.getMaxPage()));
         findViewById(R.id.browsetorrents_img_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
