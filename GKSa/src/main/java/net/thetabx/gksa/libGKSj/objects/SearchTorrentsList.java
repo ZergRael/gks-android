@@ -26,7 +26,7 @@ public class SearchTorrentsList extends GObject {
     public final static String DEFAULT_ORDER = "desc";
     public final static String DEFAULT_CATLESS_URL = "/sphinx/?q=%1$s&sort=%2$s&order=%3$s&page=%4$s";
     public final static String DEFAULT_URL = "/sphinx/?q=%1$s&cat=%2$s&sort=%3$s&order=%4$s&page=%5$s";
-    private final String LOG_TAG = "TorrentsListParser";
+    private final String LOG_TAG = "SearchTorrentsListParser";
 
     private final String cat;
     private final String sort;

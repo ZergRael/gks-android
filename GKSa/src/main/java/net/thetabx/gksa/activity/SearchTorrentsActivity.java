@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
@@ -41,6 +42,7 @@ public class SearchTorrentsActivity extends Activity {
     private final String DEFAULT_ORDER = "desc";
     private final String LOG_TAG = "SearchTorrentsActivity";
 
+    private String query = "";
     private String cat = DEFAULT_CAT;
     private String sort = DEFAULT_SORT;
     private String order = DEFAULT_ORDER;
@@ -56,10 +58,17 @@ public class SearchTorrentsActivity extends Activity {
         gks = GKSa.getGKSlib();
 
         //initActivity();
+        findViewById(R.id.searchtorrents_btn_go).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                query = ((EditText)findViewById(R.id.searchtorrents_edt_query)).getText().toString();
+                initActivity();
+            }
+        });
     }
 
     private void initActivity() {
-        gks.searchTorrent("query", cat, sort, order, false, page, new AsyncListener() {
+        gks.searchTorrent(query, cat, sort, order, false, page, new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 
             @Override
@@ -95,7 +104,7 @@ public class SearchTorrentsActivity extends Activity {
     private void fillActivity(final SearchTorrentsList torrentsList) {
         Log.d(LOG_TAG, "Inflating views");
 
-        TableLayout table = (TableLayout)findViewById(R.id.browsetorrents_table);
+        TableLayout table = (TableLayout)findViewById(R.id.searchtorrents_table);
         List<TorrentMin> torrents = torrentsList.getTorrents();
         if(torrents == null) {
             Log.d(LOG_TAG, "No torrents");
@@ -104,7 +113,7 @@ public class SearchTorrentsActivity extends Activity {
         table.removeAllViews();
         table.scrollTo(0, 0);
 
-        ((Spinner)findViewById(R.id.browsetorrents_spn_cat)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ((Spinner)findViewById(R.id.searchtorrents_spn_cat)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 cat = Categories.fromString(adapterView.getItemAtPosition(i).toString()).getId();
@@ -118,7 +127,7 @@ public class SearchTorrentsActivity extends Activity {
             }
         });
 
-        ((Spinner)findViewById(R.id.browsetorrents_spn_sort)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ((Spinner)findViewById(R.id.searchtorrents_spn_sort)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 sort = SortSearch.fromString(adapterView.getItemAtPosition(i).toString()).getId();
@@ -132,7 +141,7 @@ public class SearchTorrentsActivity extends Activity {
             }
         });
 
-        ((Spinner)findViewById(R.id.browsetorrents_spn_order)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ((Spinner)findViewById(R.id.searchtorrents_spn_order)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 order = (i == 0 ? "desc" : "asc");
@@ -186,29 +195,29 @@ public class SearchTorrentsActivity extends Activity {
             table.addView(row);
         }
 
-        ((TextView)findViewById(R.id.browsetorrents_txt_pages)).setText(res.getString(R.string.txt_pageSlashPage, torrentsList.getPage(), torrentsList.getMaxPage()));
-        findViewById(R.id.browsetorrents_img_first).setOnClickListener(new View.OnClickListener() {
+        ((TextView)findViewById(R.id.searchtorrents_txt_pages)).setText(res.getString(R.string.txt_pageSlashPage, torrentsList.getPage(), torrentsList.getMaxPage()));
+        findViewById(R.id.searchtorrents_img_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 page = torrentsList.getFirstPage();
                 initActivity();
             }
         });
-        findViewById(R.id.browsetorrents_img_prev).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.searchtorrents_img_prev).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 page = torrentsList.getPrevPage();
                 initActivity();
             }
         });
-        findViewById(R.id.browsetorrents_img_next).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.searchtorrents_img_next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 page = torrentsList.getNextPage();
                 initActivity();
             }
         });
-        findViewById(R.id.browsetorrents_img_last).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.searchtorrents_img_last).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 page = torrentsList.getMaxPage();

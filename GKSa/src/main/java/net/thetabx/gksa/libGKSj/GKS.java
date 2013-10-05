@@ -8,6 +8,7 @@ import net.thetabx.gksa.libGKSj.objects.Credentials;
 import net.thetabx.gksa.libGKSj.objects.Forum;
 import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.GObject;
+import net.thetabx.gksa.libGKSj.objects.SearchTorrentsList;
 import net.thetabx.gksa.libGKSj.objects.TorrentInfo;
 import net.thetabx.gksa.libGKSj.objects.TorrentsList;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
@@ -413,11 +414,45 @@ public class GKS {
         return GStatus.OK;
     }
 
-    public GStatus searchTorrent(String name, String category, String sort, String order, boolean searchInDesc, int page, AsyncListener progressListener) {
+    public GStatus searchTorrent(String query, String category, String sort, String order, boolean searchInDesc, int page, AsyncListener progressListener) {
         if(!ready)
             return GStatus.HTTPNOTREADY;
-        throw new UnsupportedOperationException("Not yet implemented");
-        //return GStatus.OK;
+        if(category != null) {
+            class Fetcher extends AsyncFetcher {
+                @Override
+                protected GStatus doInBackground(String... urlFragments) {
+                    try {
+                        parsedObject = new SearchTorrentsList(http.getUrl(String.format(urlFragments[0], urlFragments[1], urlFragments[2], urlFragments[3], urlFragments[4], urlFragments[5])), urlFragments);
+                        if(http.getLastStatus() != GStatus.OK)
+                            return http.getLastStatus();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return GStatus.ERROR;
+                    }
+                    return ((GObject)parsedObject).getStatus();
+                }
+            }
+            new Fetcher().SetParams(http, progressListener).execute(SearchTorrentsList.DEFAULT_URL, query, category, sort, order, Integer.toString(page));
+        }
+        else {
+            class Fetcher extends AsyncFetcher {
+                @Override
+                protected GStatus doInBackground(String... urlFragments) {
+                    try {
+                        parsedObject = new SearchTorrentsList(http.getUrl(String.format(urlFragments[0], urlFragments[1], urlFragments[2], urlFragments[3], urlFragments[4])), urlFragments);
+                        if(http.getLastStatus() != GStatus.OK)
+                            return http.getLastStatus();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return GStatus.ERROR;
+                    }
+                    return ((GObject)parsedObject).getStatus();
+                }
+            }
+            new Fetcher().SetParams(http, progressListener).execute(SearchTorrentsList.DEFAULT_CATLESS_URL, query, sort, order, Integer.toString(page));
+        }
+        //throw new UnsupportedOperationException("Not yet implemented");
+        return GStatus.OK;
     }
 
     /**

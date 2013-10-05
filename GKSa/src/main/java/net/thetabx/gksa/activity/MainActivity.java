@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
 
         Intent intent = new Intent(MainActivity.this, SearchTorrentsActivity.class);
 
-        startActivity(intent);
+        //startActivity(intent);
     }
 
     public void initButtons() {
