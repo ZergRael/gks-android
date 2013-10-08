@@ -19,6 +19,8 @@ import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
+import net.thetabx.gksa.utils.SimpleImageFetcher;
+import net.thetabx.gksa.utils.URLImageParser;
 
 import java.util.Date;
 
@@ -130,9 +132,10 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.welc_txt_title)).setText(me.getTitle());
         //((TextView)findViewById(R.id.welc_txt_authKey)).setText(me.getAuthKey());
 
-        if(me.isFreeleech()) {
+        if(me.isFreeleech())
             ((TextView)findViewById(R.id.welc_txt_freeleech)).setText(String.format(res.getString(R.string.txt_format_freeleech), me.getFreeleechSection(), timestampToDuration(me.getFreeleechTimestamp())));
-        }
+        else
+            ((TextView)findViewById(R.id.welc_txt_freeleech)).setText(R.string.txt_noFreeleech);
 
         initButtons();
 
@@ -202,17 +205,9 @@ public class MainActivity extends Activity {
         if(url == null)
             return;
         Log.d(LOG_TAG, "getProfilePicture");
-        gks.fetchImage(url, new AsyncListener() {
-            @Override
-            public void onPreExecute() { }
 
-            @Override
-            public void onPostExecute(GStatus status, Object result) {
-                if (status == GStatus.OK && result != null) {
-                    ((ImageView)findViewById(R.id.welc_img_user)).setImageBitmap((Bitmap) result);
-                }
-            }
-        });
+        SimpleImageFetcher imgFetcher = new SimpleImageFetcher((ImageView)findViewById(R.id.welc_img_user));
+        imgFetcher.execute(url);
     }
 
     /*@Override

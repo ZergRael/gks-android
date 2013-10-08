@@ -7,8 +7,10 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,15 +39,12 @@ public class SearchTorrentsActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
-    private final String DEFAULT_CAT = null;
-    private final String DEFAULT_SORT = SortSearch.id.getId();
-    private final String DEFAULT_ORDER = "desc";
     private final String LOG_TAG = "SearchTorrentsActivity";
 
     private String query = "";
-    private String cat = DEFAULT_CAT;
-    private String sort = DEFAULT_SORT;
-    private String order = DEFAULT_ORDER;
+    private String cat = SearchTorrentsList.DEFAULT_CAT;
+    private String sort = SearchTorrentsList.DEFAULT_SORT;
+    private String order = SearchTorrentsList.DEFAULT_ORDER;
     private int page = SearchTorrentsList.MIN_PAGE;
 
     @Override
@@ -58,11 +57,15 @@ public class SearchTorrentsActivity extends Activity {
         gks = GKSa.getGKSlib();
 
         //initActivity();
-        findViewById(R.id.searchtorrents_btn_go).setOnClickListener(new View.OnClickListener() {
+
+        ((EditText)findViewById(R.id.searchtorrents_edt_query)).setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onClick(View view) {
-                query = ((EditText)findViewById(R.id.searchtorrents_edt_query)).getText().toString();
-                initActivity();
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i == EditorInfo.IME_ACTION_SEARCH) {
+                    query = textView.getText().toString();
+                    initActivity();
+                }
+                return false;
             }
         });
     }
@@ -83,7 +86,7 @@ public class SearchTorrentsActivity extends Activity {
                 if (status == GStatus.OK) {
                     fillActivity((SearchTorrentsList) result);
                 } else {
-                    int toastText;
+                    int toastText = -1;
                     switch (status) {
                         case BADKEY:
                             toastText = R.string.toast_badLogin;
@@ -91,10 +94,13 @@ public class SearchTorrentsActivity extends Activity {
                         case STATUSCODE:
                             toastText = R.string.toast_serverError;
                             break;
+                        case EMPTY:
+                            break;
                         default:
                             toastText = R.string.toast_internalError;
                     }
-                    Toast.makeText(con, String.format(res.getString(toastText), status.name()), Toast.LENGTH_LONG).show();
+                    if(toastText != -1)
+                        Toast.makeText(con, String.format(res.getString(toastText), status.name()), Toast.LENGTH_LONG).show();
                 }
                 initProgressDiag.dismiss();
             }
@@ -116,7 +122,7 @@ public class SearchTorrentsActivity extends Activity {
         ((Spinner)findViewById(R.id.searchtorrents_spn_cat)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                cat = Categories.fromString(adapterView.getItemAtPosition(i).toString()).getId();
+                cat = Categories.fromPos(i).getId();
                 Log.d(LOG_TAG, "Cat : " + order);
                 initActivity();
             }
@@ -130,7 +136,7 @@ public class SearchTorrentsActivity extends Activity {
         ((Spinner)findViewById(R.id.searchtorrents_spn_sort)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                sort = SortSearch.fromString(adapterView.getItemAtPosition(i).toString()).getId();
+                sort = SortSearch.fromPos(i).getId();
                 Log.d(LOG_TAG, "Sort : " + sort);
                 initActivity();
             }

@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.thetabx.gksa.GKSa;
@@ -31,31 +32,39 @@ public class URLImageParser implements Html.ImageGetter {
     Resources res;
     List smilies;
     TextView container;
+    ImageView imageContainer;
 
     /***
      * Construct the URLImageParser which will execute AsyncTask and refresh the container
-     * @param t
-     * @param c
+     * @param t TextView
+     * @param res Application resources
+     * @param smilies List of parsed smilies
+     * @param c Application context
      */
-    public URLImageParser(View t, Resources res, List smilies, Context c) {
+    public URLImageParser(TextView t, Resources res, List smilies, Context c) {
         this.c = c;
         this.res = res;
         this.smilies = smilies;
-        this.container = (TextView)t;
+        this.container = t;
     }
 
-    public URLImageParser(View t, Resources res, Context c) {
+    /***
+     * Construct the URLImageParser which will execute AsyncTask and refresh the container
+     * @param t TextView
+     * @param res Application resources
+     * @param c Application context
+     */
+    public URLImageParser(TextView t, Resources res, Context c) {
         this.c = c;
         this.res = res;
-        this.container = (TextView)t;
+        this.container = t;
     }
 
     public Drawable getDrawable(String source) {
         if(source.equals("https://s.gks.gs/static/images/1.gif")) {
             if(smilies != null && smilies.size() > 0) {
                 Drawable smiley = res.getDrawable(Smilies.valueOf((String) smilies.remove(0)).getId());
-                smiley.setBounds(0, 0, 0 + smiley.getIntrinsicWidth(), 0
-                        + smiley.getIntrinsicHeight());
+                smiley.setBounds(0, 0, 0 + smiley.getIntrinsicWidth(), 0 + smiley.getIntrinsicHeight());
                 return smiley;
             }
         }
@@ -64,8 +73,7 @@ public class URLImageParser implements Html.ImageGetter {
         URLDrawable urlDrawable = new URLDrawable();
 
         // get the actual source
-        ImageGetterAsyncTask asyncTask =
-                new ImageGetterAsyncTask(urlDrawable);
+        ImageGetterAsyncTask asyncTask = new ImageGetterAsyncTask(urlDrawable);
 
         asyncTask.execute(source);
 
@@ -94,8 +102,7 @@ public class URLImageParser implements Html.ImageGetter {
             if(result == null)
                 return;
             // set the correct bound according to the result from HTTP call
-            urlDrawable.setBounds(0, 0, 0 + result.getIntrinsicWidth(), 0
-                    + result.getIntrinsicHeight());
+            urlDrawable.setBounds(0, 0, 0 + result.getIntrinsicWidth(), 0 + result.getIntrinsicHeight());
 
             // change the reference of the current drawable to the result
             // from the HTTP call
@@ -108,15 +115,14 @@ public class URLImageParser implements Html.ImageGetter {
 
         /***
          * Get the Drawable from URL
-         * @param urlString
-         * @return
+         * @param urlString Complete url to the drawable
+         * @return Drawable
          */
         public Drawable fetchDrawable(String urlString) {
             try {
                 InputStream is = fetch(urlString);
                 Drawable drawable = Drawable.createFromStream(is, "src");
-                drawable.setBounds(0, 0, 0 + drawable.getIntrinsicWidth(), 0
-                        + drawable.getIntrinsicHeight());
+                drawable.setBounds(0, 0, 0 + drawable.getIntrinsicWidth(), 0 + drawable.getIntrinsicHeight());
                 return drawable;
             } catch (Exception e) {
                 return null;

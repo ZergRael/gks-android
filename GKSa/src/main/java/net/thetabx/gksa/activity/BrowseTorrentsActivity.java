@@ -37,14 +37,11 @@ public class BrowseTorrentsActivity extends Activity {
     private GKS gks;
     private Resources res;
     private Context con;
-    private final String DEFAULT_CAT = null;
-    private final String DEFAULT_SORT = SortBrowse.id.getId();
-    private final String DEFAULT_ORDER = "desc";
     private final String LOG_TAG = "BrowseTorrentActivity";
 
-    private String cat = DEFAULT_CAT;
-    private String sort = DEFAULT_SORT;
-    private String order = DEFAULT_ORDER;
+    private String cat = TorrentsList.DEFAULT_CAT;
+    private String sort = TorrentsList.DEFAULT_SORT;
+    private String order = TorrentsList.DEFAULT_ORDER;
     private int page = TorrentsList.MIN_PAGE;
 
     @Override
@@ -108,29 +105,25 @@ public class BrowseTorrentsActivity extends Activity {
         ((Spinner)findViewById(R.id.browsetorrents_spn_cat)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                cat = Categories.fromString(adapterView.getItemAtPosition(i).toString()).getId();
-                Log.d(LOG_TAG, "Cat : " + order);
+                cat = Categories.fromPos(i).getId();
+                Log.d(LOG_TAG, "Cat : " + cat);
                 initActivity();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                Log.d(LOG_TAG, "Cat : onNothingSelected");
-            }
+            public void onNothingSelected(AdapterView<?> adapterView) { }
         });
 
         ((Spinner)findViewById(R.id.browsetorrents_spn_sort)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                sort = SortBrowse.fromString(adapterView.getItemAtPosition(i).toString()).getId();
+                sort = SortBrowse.fromPos(i).getId();
                 Log.d(LOG_TAG, "Sort : " + sort);
                 initActivity();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                Log.d(LOG_TAG, "Sort : onNothingSelected");
-            }
+            public void onNothingSelected(AdapterView<?> adapterView) { }
         });
 
         ((Spinner)findViewById(R.id.browsetorrents_spn_order)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 public class TorrentsList extends GObject {
     private List<TorrentMin> torrents;
     public final static int MIN_PAGE = 0;
+    public final static String DEFAULT_CAT = null;
     public final static String DEFAULT_SORT = "id";
     public final static String DEFAULT_ORDER = "desc";
     public final static String DEFAULT_CATLESS_URL = "/browse/?sort=%1$s&order=%2$s&page=%3$s";

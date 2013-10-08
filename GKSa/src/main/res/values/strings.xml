@@ -69,6 +69,7 @@
     <string name="txt_MP">PM</string>
     <string name="txt_unreadTwits">Unread Twits</string>
     <string name="txt_hitAndRun">Hit\'n\'Run</string>
+    <string name="txt_noFreeleech">No freeleech</string>
     <string name="txt_authKey">AuthKey</string>
     <string name="txt_twits">Twits</string>
     <string name="txt_seeding">Seeding</string>
@@ -81,15 +82,15 @@
     <string name="txt_format_ntopics">%s topics</string>
     <string name="txt_format_freeleech">FL %1$s : %2$s</string>
     <string name="txt_format_reqRatio">%1$s required</string>
-    <string name="txt_format_hitAndRun">%1$s Hit\'n\'Run</string>
-    <string name="txt_format_karma">%1$s Karma</string>
-    <string name="txt_format_aura">%1$s Aura</string>
+    <string name="txt_format_hitAndRun">%1$s hit\'n\'run</string>
+    <string name="txt_format_karma">%1$s karma</string>
+    <string name="txt_format_aura">%1$s aura</string>
     <string name="txt_format_pageSlashPage">Page %1$s/%2$s</string>
     <string name="txt_format_topiclastmsg">%1$s - %2$s</string>
     <string name="txt_format_MP">%1$s PM</string>
-    <string name="txt_format_twits">%1$s Twits</string>
-    <string name="txt_format_seeds">%1$s Seeds</string>
-    <string name="txt_format_leechs">%1$s Leechs</string>
+    <string name="txt_format_twits">%1$s twits</string>
+    <string name="txt_format_seeds">%1$s seeding</string>
+    <string name="txt_format_leechs">%1$s leeching</string>
 
     <!-- Spinner -->
     <string-array name="spn_cat">
@@ -127,12 +128,21 @@
     </string-array>
     <string-array name="spn_sort_browse">
         <item>Date</item>
+        <item>Nom</item>
+        <item>Comments</item>
+        <item>Size</item>
+        <item>Completed</item>
+        <item>Seeders</item>
+        <item>Leechers</item>
         <item>Freeleech</item>
         <item>2x UP</item>
         <item>Nuked</item>
-        <item>Nom</item>
-        <item>Commentaires</item>
-        <item>Taille</item>
+    </string-array>
+    <string-array name="spn_sort_search">
+        <item>Pertinence</item>
+        <item>Date</item>
+        <item>Comments</item>
+        <item>Size</item>
         <item>Completed</item>
         <item>Seeders</item>
         <item>Leechers</item>

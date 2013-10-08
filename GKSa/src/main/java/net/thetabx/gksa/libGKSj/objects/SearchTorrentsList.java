@@ -22,13 +22,15 @@ import java.util.regex.Pattern;
 public class SearchTorrentsList extends GObject {
     private List<TorrentMin> torrents;
     public final static int MIN_PAGE = 0;
+    public final static String DEFAULT_CAT = null;
     public final static String DEFAULT_SORT = "normal";
     public final static String DEFAULT_ORDER = "desc";
     public final static String DEFAULT_CATLESS_URL = "/sphinx/?q=%1$s&sort=%2$s&order=%3$s&page=%4$s";
-    public final static String DEFAULT_URL = "/sphinx/?q=%1$s&cat=%2$s&sort=%3$s&order=%4$s&page=%5$s";
+    public final static String DEFAULT_URL = "/sphinx/?q=%1$s&category=%2$s&sort=%3$s&order=%4$s&page=%5$s";
     private final String LOG_TAG = "SearchTorrentsListParser";
 
     private final String cat;
+    private final String query;
     private final String sort;
     private final String order;
     private final int page;
@@ -37,17 +39,19 @@ public class SearchTorrentsList extends GObject {
     public SearchTorrentsList(String html, String... urlFragments) {
         long startMillis = SystemClock.uptimeMillis();
         status = GStatus.STARTED;
-        if(urlFragments.length == 4) {
+        if(urlFragments.length == 5) {
             cat = null;
-            sort = urlFragments[1];
-            order = urlFragments[2];
-            page = Integer.parseInt(urlFragments[3]);
-        }
-        else {
-            cat = urlFragments[1];
+            query = urlFragments[1];
             sort = urlFragments[2];
             order = urlFragments[3];
             page = Integer.parseInt(urlFragments[4]);
+        }
+        else {
+            cat = urlFragments[1];
+            query = urlFragments[2];
+            sort = urlFragments[3];
+            order = urlFragments[4];
+            page = Integer.parseInt(urlFragments[5]);
         }
 
         if(html == null || html.length() == 0) {
@@ -92,6 +96,10 @@ public class SearchTorrentsList extends GObject {
 
     public List<TorrentMin> getTorrents() {
         return torrents;
+    }
+
+    public String getQuery() {
+        return query;
     }
 
     public String getCat() {

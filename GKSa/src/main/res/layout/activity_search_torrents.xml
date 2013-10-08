@@ -55,23 +55,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <EditText
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/searchtorrents_edt_query"
-                    android:layout_weight="1"
-                    android:singleLine="true" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_go"
-                    android:id="@+id/searchtorrents_btn_go" />
-            </LinearLayout>
+                android:layout_height="0dp"
+                android:id="@+id/searchtorrents_edt_query"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:imeOptions="actionSearch"
+                android:inputType="textNoSuggestions" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -89,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/searchtorrents_spn_sort"
-                    android:entries="@array/spn_sort_browse"
+                    android:entries="@array/spn_sort_search"
                     android:layout_weight="1" />
 
                 <Spinner
@@ -110,6 +101,7 @@
                 >
 
             </TableLayout>
+
         </LinearLayout>
     </ScrollView>
 

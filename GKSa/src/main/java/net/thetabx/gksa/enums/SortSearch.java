@@ -4,36 +4,33 @@ package net.thetabx.gksa.enums;
  * Created by Zerg on 04/10/13.
  */
 public enum SortSearch {
-    id ("id", "Date"),
-    freeleech ("freeleech", "Freeleech"),
-    twoxup ("2xup", "2X Up"),
-    nuked ("nuked", "Nuked"),
-    name ("name", "Nom"),
-    comments ("comments", "Commentaires"),
-    size ("size", "Taille"),
-    timescompleted ("times_completed", "Completed"),
-    seeders ("seeders", "Seeders"),
-    leechers ("leechers", "Leechers");
+    normal ("normal", 0),
+    date ("date", 1),
+    coms ("coms", 2),
+    size ("size", 3),
+    complets ("complets", 4),
+    seeders ("seeders", 5),
+    leechers ("leechers", 6);
 
     private String idSort;
-    private String nameSort;
+    private int getArrayPos;
 
-    SortSearch(String id, String name) {
+    SortSearch(String id, int getArrayPos) {
         this.idSort = id;
-        this.nameSort = name;
+        this.getArrayPos = getArrayPos;
     }
 
     public String getId() {
         return idSort;
     }
 
-    public String getName() {
-        return nameSort;
+    public int getArrayPos() {
+        return getArrayPos;
     }
 
-    public static SortSearch fromString(String str) {
+    public static SortSearch fromPos(int pos) {
         for(SortSearch sort : SortSearch.values()) {
-            if(sort.getName().equals(str))
+            if(sort.getArrayPos() == pos)
                 return sort;
         }
         return null;

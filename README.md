@@ -40,6 +40,7 @@ _Nothing_
     - Read / Unread
     - Pages
 
+- Detect Freeleech
 
 ### Non working / Missing
 - Torrent search
@@ -55,5 +56,5 @@ _Nothing_
 - Next / Prev page by swipes
 - Pages += 1
 - Cache images
-- Detect Freeleech & Notifications
+- Freeleech / Torrent watcher Notifications
 - Widget
