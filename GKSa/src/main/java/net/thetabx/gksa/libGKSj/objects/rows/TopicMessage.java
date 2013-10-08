@@ -1,16 +1,13 @@
 package net.thetabx.gksa.libGKSj.objects.rows;
 
-import android.util.Log;
-
 import net.thetabx.gksa.libGKSj.objects.GObject;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.nio.charset.Charset;
-
 /**
  * Created by Zerg on 23/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class TopicMessage extends GObject {
     private final int position;

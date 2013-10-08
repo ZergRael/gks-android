@@ -24,6 +24,7 @@ import net.thetabx.gksa.libGKSj.objects.Mailbox;
 
 import java.util.List;
 
+@SuppressWarnings("WeakerAccess")
 public class MailboxActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -41,7 +42,7 @@ public class MailboxActivity extends Activity {
         initActivity();
     }
 
-    public void initActivity() {
+    void initActivity() {
         gks.fetchMailbox(new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 

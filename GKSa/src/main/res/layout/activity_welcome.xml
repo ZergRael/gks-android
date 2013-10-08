@@ -124,6 +124,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView"
                         android:src="@drawable/profile_upload"
+                        android:contentDescription="@string/imgdesc_upload"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="2dp" />
 
@@ -143,6 +144,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView3"
                         android:src="@drawable/profile_ratio"
+                        android:contentDescription="@string/imgdesc_ratio"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="2dp" />
 
@@ -181,6 +183,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/imageView2"
                         android:src="@drawable/profile_download"
+                        android:contentDescription="@string/imgdesc_download"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="2dp" />
 

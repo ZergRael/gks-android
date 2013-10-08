@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Zerg on 23/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Topic extends GObject {
     private List<TopicMessage> messages;

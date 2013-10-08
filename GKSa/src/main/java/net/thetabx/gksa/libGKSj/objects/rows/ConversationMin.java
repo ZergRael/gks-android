@@ -5,6 +5,10 @@ import net.thetabx.gksa.libGKSj.objects.GObject;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * Created by Zerg on 17/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
+ */
 public class ConversationMin extends GObject {
     private final int position;
     private boolean read;

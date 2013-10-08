@@ -8,23 +8,24 @@ import org.jsoup.select.Elements;
 
 /**
  * Created by Zerg on 13/09/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class TorrentMin extends GObject {
-    private int position;
+    private final int position;
     private final String LOG_TAG = "TorrentMinParser";
     private final int URL_IGNORE_NUMBER = 9;
-    private Categories cat;
+    private final Categories cat;
     private Boolean tNew = false;
     private Boolean nuked = false;
     private Boolean freeleech = false;
     private Boolean scene = false;
-    private String name;
-    private String id;
-    private String comm;
-    private String size;
-    private String comp;
-    private String seed;
-    private String leech;
+    private final String name;
+    private final String id;
+    private final String comm;
+    private final String size;
+    private final String comp;
+    private final String seed;
+    private final String leech;
 
     /*<tr>
         <td class="cat_torrent_1">

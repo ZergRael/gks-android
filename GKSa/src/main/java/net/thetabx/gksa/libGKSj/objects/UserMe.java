@@ -13,6 +13,7 @@ import org.jsoup.select.Elements;
 
 /**
  * Created by Zerg on 14/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class UserMe extends UserProfile {
     private float requiredRatio;
@@ -25,22 +26,6 @@ public class UserMe extends UserProfile {
     private long freeleechTimestamp;
 
     private final String LOG_TAG = "UserMeParser";
-
-    /*
-        <ul id="userlink">
-            <li>
-                <a href="/users/2360140"><span class="userclass_50">ZergRael</span></a> <img src="https://s.gks.gs/static/themes/sifuture/img/love.png" alt="Merci" width="15" height="13"> | Mega V.I.P.  | <a href="/mailbox/">Aucun Message</a> 							</li>
-            <li>
-                Up: <span class="uploaded">14.685 To</span> | Down: <span class="downloaded">0.01 Ko</span>
-            </li>
-            <li>
-                Ratio: <span class="r99">∞</span> | <a href="/rules#requiredratio">Req</a>: <span>0.00</span> | <a href="/karma/">Karma: <span class="karma">223,136.33</span></a>
-            </li>
-            <li>
-                <a href="/m/aura/">Aura</a>: 45.903 | <a href="/m/account/twits">0 Twit</a> |  <a href="/m/account/hnr">0 H&amp;R</a> | <a href="/logout/e6ba122edca5bea8151943b773084230">Logout</a>
-            </li>
-		</ul>
-    */
 
     public UserMe(String html, String... urlFragments) {
         super(html, urlFragments);

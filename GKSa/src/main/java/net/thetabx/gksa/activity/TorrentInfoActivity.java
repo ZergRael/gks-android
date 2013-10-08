@@ -26,7 +26,9 @@ import java.util.List;
 
 /**
  * Created by Zerg on 16/09/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class TorrentInfoActivity extends Activity {
     private GKS gks;
     private Resources res;

@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Zerg on 13/09/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class TorrentInfo extends GObject {
     public final static String DEFAULT_URL = "/torrent/%1$s/";
@@ -24,7 +25,7 @@ public class TorrentInfo extends GObject {
 
     private final String LOG_TAG = "TorrentInfoParser";
 
-    private String torrentId;
+    private final String torrentId;
     private String name;
     private Boolean tNew = false;
     private Boolean nuked = false;

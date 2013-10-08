@@ -21,6 +21,7 @@ import java.util.Map;
 
 /**
  * Created by Zerg on 14/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class HttpWrapper {
     private final String LOG_TAG = "HttpWrapper";

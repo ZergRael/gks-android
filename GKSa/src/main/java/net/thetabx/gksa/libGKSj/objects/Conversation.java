@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Zerg on 22/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Conversation extends GObject {
     private final String conversationId;

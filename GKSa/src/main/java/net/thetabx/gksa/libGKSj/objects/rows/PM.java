@@ -7,6 +7,7 @@ import org.jsoup.select.Elements;
 
 /**
  * Created by Zerg on 22/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class PM extends GObject {
     private final int position;

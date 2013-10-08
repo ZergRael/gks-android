@@ -6,6 +6,7 @@ import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 
 /**
  * Created by Zerg on 18/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public abstract class AsyncFetcher extends AsyncTask<String, Boolean, GStatus> {
     protected Object parsedObject;

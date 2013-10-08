@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Zerg on 17/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Forum extends GObject {
     private List<TopicMin> topics;

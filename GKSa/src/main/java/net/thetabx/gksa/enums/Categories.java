@@ -2,11 +2,9 @@ package net.thetabx.gksa.enums;
 
 import net.thetabx.gksa.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Zerg on 14/09/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public enum Categories {
     cat_3 (1, "3", R.drawable.cat_windows),
@@ -40,9 +38,9 @@ public enum Categories {
     cat_38 (29, "38", R.drawable.cat_ps3),
     cat_39 (30, "39", R.drawable.cat_flac);
 
-    private int arrayPos;
-    private String id;
-    private int resId;
+    private final int arrayPos;
+    private final String id;
+    private final int resId;
 
     Categories(int arrayPos, String id, int drawableId) {
         this.arrayPos = arrayPos;
@@ -50,7 +48,7 @@ public enum Categories {
         this.resId = drawableId;
     }
 
-    public int getArrayPos() {
+    int getArrayPos() {
         return arrayPos;
     }
 

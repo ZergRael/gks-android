@@ -13,9 +13,10 @@ import java.io.InputStream;
 
 /**
  * Created by Zerg on 07/10/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class SimpleImageFetcher extends AsyncTask<String, Void, Drawable> {
-    private ImageView i;
+    private final ImageView i;
 
     public SimpleImageFetcher(ImageView i) {
         this.i = i;

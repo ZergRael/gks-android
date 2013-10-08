@@ -34,7 +34,9 @@ import java.util.List;
 
 /**
  * Created by Zerg on 13/09/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class SearchTorrentsActivity extends Activity {
     private GKS gks;
     private Resources res;

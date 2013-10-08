@@ -26,7 +26,9 @@ import java.util.List;
 
 /**
  * Created by Zerg on 22/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class ConversationActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -56,7 +58,7 @@ public class ConversationActivity extends Activity {
             finish();
     }
 
-    public void initActivity(String conversationId) {
+    void initActivity(String conversationId) {
         gks.fetchConversation(conversationId, new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 

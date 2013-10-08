@@ -2,6 +2,7 @@ package net.thetabx.gksa.enums;
 
 /**
  * Created by Zerg on 04/10/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public enum SortSearch {
     normal ("normal", 0),
@@ -12,8 +13,8 @@ public enum SortSearch {
     seeders ("seeders", 5),
     leechers ("leechers", 6);
 
-    private String idSort;
-    private int getArrayPos;
+    private final String idSort;
+    private final int getArrayPos;
 
     SortSearch(String id, int getArrayPos) {
         this.idSort = id;
@@ -24,7 +25,7 @@ public enum SortSearch {
         return idSort;
     }
 
-    public int getArrayPos() {
+    int getArrayPos() {
         return getArrayPos;
     }
 

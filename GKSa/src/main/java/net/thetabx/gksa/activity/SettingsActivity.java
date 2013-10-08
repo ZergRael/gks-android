@@ -1,19 +1,16 @@
 package net.thetabx.gksa.activity;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import net.thetabx.gksa.R;
 
 /**
  * Created by Zerg on 14/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class SettingsActivity extends Activity {
     public final int LOGIN_REQUEST = 3;
 

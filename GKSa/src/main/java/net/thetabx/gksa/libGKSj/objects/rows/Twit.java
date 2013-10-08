@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 
 /**
  * Created by Zerg on 23/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Twit extends GObject {
     private final String LOG_TAG = "TwitParser";

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -20,13 +19,14 @@ import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.UserMe;
 import net.thetabx.gksa.utils.SimpleImageFetcher;
-import net.thetabx.gksa.utils.URLImageParser;
 
 import java.util.Date;
 
 /**
  * Created by Zerg on 21/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class MainActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void initActivity() {
+    void initActivity() {
         Log.d(LOG_TAG, "initActivity");
         gks.fetchUserMe(new AsyncListener() {
             //ProgressDialog initProgressDiag = null;
@@ -151,12 +151,12 @@ public class MainActivity extends Activity {
         //startActivity(intent);
     }
 
-    public String timestampToDuration(long timestamp) {
+    String timestampToDuration(long timestamp) {
         long duration = timestamp - (new Date().getTime() / 1000);
         return String.format("%d:%02d:%02d", duration / 3600, (duration % 3600) / 60, duration % 60);
     }
 
-    public void initButtons() {
+    void initButtons() {
         findViewById(R.id.welc_btn_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -201,7 +201,7 @@ public class MainActivity extends Activity {
 
     }
 
-    public void getProfilePicture(String url) {
+    void getProfilePicture(String url) {
         if(url == null)
             return;
         Log.d(LOG_TAG, "getProfilePicture");

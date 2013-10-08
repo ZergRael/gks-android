@@ -2,6 +2,7 @@ package net.thetabx.gksa.libGKSj.objects;
 
 /**
  * Created by Zerg on 20/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Credentials extends GObject {
     private final String userId;

@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/topic_img_first"
             android:src="@android:drawable/ic_media_previous"
+            android:contentDescription="@string/imgdesc_first"
             android:clickable="true" />
 
         <ImageView
@@ -23,6 +24,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/topic_img_prev"
             android:src="@android:drawable/ic_media_rew"
+            android:contentDescription="@string/imgdesc_previous"
             android:clickable="true" />
 
         <TextView
@@ -37,6 +39,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/topic_img_next"
             android:src="@android:drawable/ic_media_ff"
+            android:contentDescription="@string/imgdesc_next"
             android:clickable="true" />
 
         <ImageView
@@ -44,6 +47,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/topic_img_last"
             android:src="@android:drawable/ic_media_next"
+            android:contentDescription="@string/imgdesc_last"
             android:clickable="true"
             android:focusable="false" />
     </LinearLayout>

@@ -6,8 +6,8 @@
 
     <!-- Menu buttons -->
     <string name="action_settings">Settings</string>
-    <string name="action_disconnect">Settings</string>
-    <string name="action_connect">Settings</string>
+    <string name="action_disconnect">Disconnect</string>
+    <string name="action_connect">Connect</string>
     <string name="action_forums">Forums</string>
     <string name="action_mailbox">Private messages</string>
     <string name="action_twits">Twits</string>
@@ -94,7 +94,7 @@
 
     <!-- Spinner -->
     <string-array name="spn_cat">
-        <item>Tout</item>
+        <item>All</item>
         <item>Windows</item>
         <item>Mac</item>
         <item>DVDRip</item>
@@ -110,7 +110,7 @@
         <item>720p</item>
         <item>1080p</item>
         <item>BluRay</item>
-        <item>Divers</item>
+        <item>Others</item>
         <item>DVDR</item>
         <item>DVDR Series</item>
         <item>Anime</item>
@@ -128,7 +128,7 @@
     </string-array>
     <string-array name="spn_sort_browse">
         <item>Date</item>
-        <item>Nom</item>
+        <item>Name</item>
         <item>Comments</item>
         <item>Size</item>
         <item>Completed</item>
@@ -154,6 +154,18 @@
 
     <!-- Images description -->
     <string name="imgdesc_read">Read status</string>
+    <string name="imgdesc_first">First</string>
+    <string name="imgdesc_previous">Previous</string>
+    <string name="imgdesc_next">Next</string>
+    <string name="imgdesc_last">Last</string>
+    <string name="imgdesc_new">New</string>
+    <string name="imgdesc_fl">FL</string>
+    <string name="imgdesc_nuked">Nuked</string>
+    <string name="imgdesc_scene">Scene</string>
+    <string name="imgdesc_cat">Category</string>
+    <string name="imgdesc_upload">Upload</string>
+    <string name="imgdesc_download">Download</string>
+    <string name="imgdesc_ratio">Ratio</string>
 
     <!-- Empty -->
     <string name="txt_empty_s">AZ</string>

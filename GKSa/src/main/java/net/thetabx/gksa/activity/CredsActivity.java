@@ -18,7 +18,9 @@ import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 
 /**
  * Created by Zerg on 21/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class CredsActivity extends Activity {
     private GKS gks;
     private Resources res;

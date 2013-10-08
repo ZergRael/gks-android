@@ -22,6 +22,7 @@ import java.io.IOException;
 
 /**
  * Created by Zerg on 18/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class GKS {
     private String meUserId;

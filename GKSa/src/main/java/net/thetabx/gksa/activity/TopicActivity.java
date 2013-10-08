@@ -32,7 +32,9 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Zerg on 23/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class TopicActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -67,7 +69,7 @@ public class TopicActivity extends Activity {
             finish();
     }
 
-    public void initActivity(String topicId, int page) {
+    void initActivity(String topicId, int page) {
         final Intent intent = getIntent();
         intent.putExtra("topicid", topicId);
         intent.putExtra("page", Integer.toString(page));

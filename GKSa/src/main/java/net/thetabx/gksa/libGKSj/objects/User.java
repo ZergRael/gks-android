@@ -8,6 +8,7 @@ import org.jsoup.nodes.Element;
 
 /**
  * Created by Zerg on 14/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class User extends GObject {
     protected String pseudo;

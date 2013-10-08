@@ -5,6 +5,7 @@ import org.jsoup.select.Elements;
 
 /**
  * Created by Zerg on 17/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class ForumMin {
     private boolean read = false;
@@ -38,8 +39,8 @@ public class ForumMin {
         this.lastMessageAuthor = td.get(3).select("span").text();
     }
 
-    public boolean isRead() {
-        return read;
+    public boolean isNotRead() {
+        return !read;
     }
 
     public int getPosition() {

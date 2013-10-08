@@ -6,8 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.text.Html;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.thetabx.gksa.GKSa;
@@ -19,7 +17,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.util.List;
 
 /**
@@ -28,11 +25,10 @@ import java.util.List;
  */
 public class URLImageParser implements Html.ImageGetter {
     private final String LOG_TAG = "URLImageParser";
-    Context c;
-    Resources res;
-    List smilies;
-    TextView container;
-    ImageView imageContainer;
+    private final Context c;
+    private final Resources res;
+    private List smilies;
+    private final TextView container;
 
     /***
      * Construct the URLImageParser which will execute AsyncTask and refresh the container
@@ -129,7 +125,7 @@ public class URLImageParser implements Html.ImageGetter {
             }
         }
 
-        private InputStream fetch(String urlString) throws MalformedURLException, IOException {
+        private InputStream fetch(String urlString) throws IOException {
             DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpGet request = new HttpGet(urlString);
             HttpResponse response = httpClient.execute(request);

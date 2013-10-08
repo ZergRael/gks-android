@@ -27,7 +27,9 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Zerg on 23/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class TwitsActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -45,7 +47,7 @@ public class TwitsActivity extends Activity {
         initActivity();
     }
 
-    public void initActivity() {
+    void initActivity() {
         gks.fetchTwits(new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 

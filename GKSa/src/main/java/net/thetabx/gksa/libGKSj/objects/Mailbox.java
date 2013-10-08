@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by Zerg on 21/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Mailbox extends GObject {
     public final static String DEFAULT_URL = "/mailbox/";

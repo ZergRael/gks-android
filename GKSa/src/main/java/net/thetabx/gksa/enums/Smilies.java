@@ -4,6 +4,7 @@ import net.thetabx.gksa.R;
 
 /**
  * Created by Zerg on 13/09/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public enum Smilies {
     big_smile (R.drawable.smiles_big_smile),

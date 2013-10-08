@@ -5,6 +5,7 @@ import org.jsoup.select.Elements;
 
 /**
  * Created by Zerg on 17/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class TopicMin {
     private final int position;
@@ -60,8 +61,8 @@ public class TopicMin {
         return position;
     }
 
-    public boolean isRead() {
-        return read;
+    public boolean isNotRead() {
+        return !read;
     }
 
     public boolean isLocked() {

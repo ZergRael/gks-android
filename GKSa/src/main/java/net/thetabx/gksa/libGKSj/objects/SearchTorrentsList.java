@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Zerg on 03/10/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class SearchTorrentsList extends GObject {
     private List<TorrentMin> torrents;

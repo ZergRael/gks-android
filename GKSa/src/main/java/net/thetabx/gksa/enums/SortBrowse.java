@@ -2,6 +2,7 @@ package net.thetabx.gksa.enums;
 
 /**
  * Created by Zerg on 19/09/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public enum SortBrowse {
     id ("id", 0),
@@ -15,8 +16,8 @@ public enum SortBrowse {
     twoxup ("2xup", 8),
     nuked ("nuked", 9);
 
-    private String idSort;
-    private int arrayPos;
+    private final String idSort;
+    private final int arrayPos;
 
     SortBrowse(String id, int arrayPos) {
         this.idSort = id;
@@ -27,7 +28,7 @@ public enum SortBrowse {
         return idSort;
     }
 
-    public int getArrayPos() {
+    int getArrayPos() {
         return arrayPos;
     }
 

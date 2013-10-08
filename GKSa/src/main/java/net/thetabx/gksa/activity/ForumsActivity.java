@@ -27,7 +27,9 @@ import java.util.List;
 
 /**
  * Created by Zerg on 23/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class ForumsActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -45,7 +47,7 @@ public class ForumsActivity extends Activity {
         initActivity();
     }
 
-    public void initActivity() {
+    void initActivity() {
         gks.fetchForums(new AsyncListener() {
             ProgressDialog initProgressDiag = null;
 
@@ -91,7 +93,7 @@ public class ForumsActivity extends Activity {
         for(final ForumMin forum : forumsList) {
             TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.forum_min, table, false);
             if (row != null) {
-                if(!forum.isRead())
+                if(forum.isNotRead())
                     ((ImageView)row.findViewById(R.id.forummin_img_read)).setImageResource(android.R.drawable.presence_online);
                 ((TextView)row.findViewById(R.id.forummin_txt_name)).setText(forum.getName());
                 ((TextView)row.findViewById(R.id.forummin_txt_desc)).setText(forum.getDescription());

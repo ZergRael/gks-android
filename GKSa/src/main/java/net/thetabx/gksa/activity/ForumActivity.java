@@ -28,7 +28,9 @@ import java.util.List;
 
 /**
  * Created by Zerg on 23/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
+@SuppressWarnings("WeakerAccess")
 public class ForumActivity extends Activity {
     private GKS gks;
     private Resources res;
@@ -63,7 +65,7 @@ public class ForumActivity extends Activity {
             finish();
     }
 
-    public void initActivity(String forumId, int page) {
+    void initActivity(String forumId, int page) {
         final Intent intent = getIntent();
         intent.putExtra("forumid", forumId);
         intent.putExtra("page", Integer.toString(page));
@@ -116,7 +118,7 @@ public class ForumActivity extends Activity {
         for(final TopicMin topic : topicsList) {
             TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.topic_min, table, false);
             if (row != null) {
-                if(!topic.isRead())
+                if(topic.isNotRead())
                     ((ImageView)row.findViewById(R.id.topicmin_img_read)).setImageResource(android.R.drawable.presence_online);
                 ((TextView)row.findViewById(R.id.topicmin_txt_name)).setText(topic.getName());
                 ((TextView)row.findViewById(R.id.topicmin_txt_npagereads)).setText(res.getString(R.string.txt_format_pageSlashPage, topic.getPage(), topic.getMaxPage()));

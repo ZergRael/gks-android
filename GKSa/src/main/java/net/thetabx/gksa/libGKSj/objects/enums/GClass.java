@@ -2,6 +2,7 @@ package net.thetabx.gksa.libGKSj.objects.enums;
 
 /**
  * Created by Zerg on 21/06/13.
+ * Under MIT Licence - See MIT-LICENCE.txt
  */
 public enum GClass {
     userclass_0  ("Noob", 0, "#b09f91"),

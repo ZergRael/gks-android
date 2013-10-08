@@ -1,38 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello_world">Bonjour monde !</string>
+    <string name="app_name">"GKSA"</string>
+    <string name="hello_world">"Bonjour monde"</string>
+
+    <!-- Menu buttons -->
+    <string name="action_settings">"Réglages"</string>
+    <string name="action_disconnect">"Déconnecter"</string>
+    <string name="action_connect">"Connecter"</string>
+    <string name="action_forums">"Forums"</string>
+    <string name="action_mailbox">"Messages privés"</string>
+    <string name="action_twits">"Twits"</string>
+    <string name="action_search_torrents">"Recherche torrents"</string>
+    <string name="action_browse_torrents">"Parcourir les torrents"</string>
+
+    <!-- Activity titles -->
+    <string name="title_activity_mailbox">"Messages privés"</string>
+    <string name="title_activity_conversation_empty">"Message privé"</string>
+    <string name="title_activity_conversation">"MP: %s"</string>
+    <string name="title_activity_twits">"Twits"</string>
+    <string name="title_activity_forums">"Forums"</string>
+    <string name="title_activity_forum_empty">"Forum"</string>
+    <string name="title_activity_forum">"Forum: %s"</string>
+    <string name="title_activity_topic_empty">"Sujet"</string>
+    <string name="title_activity_topic">"Sujet: %s"</string>
+    <string name="title_activity_creds">"Connexion"</string>
+    <string name="title_activity_settings">"Réglages"</string>
+    <string name="title_activity_search_torrents">"Recherche torrents"</string>
+    <string name="title_activity_browse_torrents">"Parcourir les torrents"</string>
+    <string name="title_activity_torrent_info">"Info torrent"</string>
 
     <!-- Toasts -->
-    <string name="toast_connected">Connecté !</string>
-    <string name="toast_badLogin">Login / password incorrect</string>
-    <string name="toast_serverError">Erreur serveur : %s</string>
-    <string name="toast_internalError">Erreur interne : %s</string>
+    <string name="toast_connected">"Connecté!"</string>
+    <string name="toast_badLogin">"Login erroné"</string>
+    <string name="toast_serverError">"Erreur de serveur: %s"</string>
+    <string name="toast_internalError">"Erreur interne: %s"</string>
+    <string name="toast_bookmarked">"Bookmarké %s"</string>
+    <string name="toast_autogeted">"Autoget %s"</string>
 
     <!-- Progress -->
-    <string name="progress_connecting">Connection</string>
-    <string name="progress_loading">Chargement</string>
+    <string name="progress_connecting">"Connection"</string>
+    <string name="progress_loading">"Chargement"</string>
 
     <!-- Input fields -->
-    <string name="txt_username">Nom d\'utilisateur</string>
-    <string name="txt_password">Mot de passe</string>
+    <string name="txt_username">"Nom d'utilisateur"</string>
+    <string name="txt_password">"Mot de passe"</string>
 
     <!-- Buttons -->
-    <string name="txt_connect">Se connecter</string>
-    <string name="txt_save">Enregistrer</string>
+    <string name="txt_connect">"Connecter"</string>
+    <string name="txt_save">"Sauvegarder"</string>
+    <string name="txt_torrent_dl">"Télécharger .torrent"</string>
+    <string name="txt_torrent_bookmark">"Bookmarker"</string>
+    <string name="txt_torrent_autoget">"Autoget"</string>
+    <string name="txt_go">"Aller"</string>
 
     <!-- Txt -->
-    <string name="txt_status">Statut</string>
-    <string name="txt_userId">ID utilisateur</string>
-    <string name="txt_pseudo">Pseudo</string>
-    <string name="txt_reqRatio">Ratio requis</string>
-    <string name="txt_class">Classe</string>
-    <string name="txt_unreadMP">MP non lus</string>
-    <string name="txt_MP">MP</string>
-    <string name="txt_unreadTwits">Twits non lus</string>
-    <string name="txt_seeding">En seed</string>
-    <string name="txt_leeching">En leech</string>
+    <string name="txt_status">"Statut"</string>
+    <string name="txt_userId">"ID de l´utilisateur"</string>
+    <string name="txt_pseudo">"Pseudo"</string>
+    <string name="txt_upload">"Upload"</string>
+    <string name="txt_download">"Download"</string>
+    <string name="txt_ratio">"Ratio"</string>
+    <string name="txt_reqRatio">"Ratio requis"</string>
+    <string name="txt_class">"Catégorie"</string>
+    <string name="txt_karma">"Karma"</string>
+    <string name="txt_aura">"Aura"</string>
+    <string name="txt_unreadMP">"MP non-lu"</string>
+    <string name="txt_MP">"MP"</string>
+    <string name="txt_unreadTwits">"Twits non lus"</string>
+    <string name="txt_hitAndRun">"Hit'n'Run"</string>
+    <string name="txt_noFreeleech">"Pas de freeleech"</string>
+    <string name="txt_authKey">"Authkey"</string>
+    <string name="txt_twits">"Twits"</string>
+    <string name="txt_seeding">"En seed"</string>
+    <string name="txt_leeching">"En leech"</string>
+    <string name="txt_title">"Titre"</string>
+    <string name="txt_infinity">"∞"</string>
+    <string name="txt_pageSlashPage_empty">"Page 0/0"</string>
+    <string name="txt_anonymous">"Anonyme"</string>
+    <!-- Formatted text -->
+    <string name="txt_format_ntopics">"%s sujets"</string>
+    <string name="txt_format_freeleech">"FL %1$s : %2$s"</string>
+    <string name="txt_format_reqRatio">"%1$s requis"</string>
+    <string name="txt_format_hitAndRun">"%1$s hit'n'run"</string>
+    <string name="txt_format_karma">"%1$s karma"</string>
+    <string name="txt_format_aura">"%1$s aura"</string>
+    <string name="txt_format_pageSlashPage">"Page %1$s / %2$s"</string>
+    <string name="txt_format_topiclastmsg">"%1$s, %2$s"</string>
+    <string name="txt_format_MP">"%1$s MP"</string>
+    <string name="txt_format_twits">"%1$s twits"</string>
+    <string name="txt_format_seeds">"%1$s en seed"</string>
+    <string name="txt_format_leechs">"%1$s en leech"</string>
+
+    <!-- Spinner -->
+    <string-array name="spn_cat">
+        <item>"Tout"</item>
+        <item>"Windows"</item>
+        <item>"Mac"</item>
+        <item>"DVDRip"</item>
+        <item>"DVDRip VOSTFR"</item>
+        <item>"Émissions"</item>
+        <item>"Docs"</item>
+        <item>"Docs HD"</item>
+        <item>"Pack TV"</item>
+        <item>"TV VOSTFR"</item>
+        <item>"TV"</item>
+        <item>"TV HD VOSTFR"</item>
+        <item>"TV HD"</item>
+        <item>"720p"</item>
+        <item>"1080p"</item>
+        <item>"BluRay"</item>
+        <item>"Divers"</item>
+        <item>"DVDR"</item>
+        <item>"DVDR Series"</item>
+        <item>"Anime"</item>
+        <item>"TV VO"</item>
+        <item>"Concerts"</item>
+        <item>"eBooks"</item>
+        <item>"Sport"</item>
+        <item>"Jeux PC"</item>
+        <item>"DS"</item>
+        <item>"Wii"</item>
+        <item>"Xbox 360"</item>
+        <item>"PSP"</item>
+        <item>"PS3"</item>
+        <item>"Flac"</item>
+    </string-array>
+    <string-array name="spn_sort_browse">
+        <item>"Date "</item>
+        <item>"Nom"</item>
+        <item>"Commentaires "</item>
+        <item>"Taille"</item>
+        <item>"Terminé"</item>
+        <item>"Seeders"</item>
+        <item>"Leechers"</item>
+        <item>"Freeleech"</item>
+        <item>"2x UP"</item>
+        <item>"Nuked"</item>
+    </string-array>
+    <string-array name="spn_sort_search">
+        <item>"Pertinence"</item>
+        <item>"Date "</item>
+        <item>"Commentaires "</item>
+        <item>"Taille"</item>
+        <item>"Terminés"</item>
+        <item>"Seeders"</item>
+        <item>"Leechers"</item>
+    </string-array>
+    <string-array name="spn_order">
+        <item>"Desc"</item>
+        <item>"Asc"</item>
+    </string-array>
+
+    <!-- Images description -->
+    <string name="imgdesc_read">"Etat lecture"</string>
+    <string name="imgdesc_first">"Premier"</string>
+    <string name="imgdesc_previous">"Précédent"</string>
+    <string name="imgdesc_next">"Suivant"</string>
+    <string name="imgdesc_last">"Dernier"</string>
+    <string name="imgdesc_new">"Nouveau"</string>
+    <string name="imgdesc_fl">"FL"</string>
+    <string name="imgdesc_nuked">"Nuked"</string>
+    <string name="imgdesc_scene">"Scène"</string>
+    <string name="imgdesc_cat">"Catégorie"</string>
+    <string name="imgdesc_upload">"Upload"</string>
+    <string name="imgdesc_download">"Download"</string>
+    <string name="imgdesc_ratio">"Ratio"</string>
+
+    <!-- Empty -->
+    <string name="txt_empty_s">"AZ"</string>
+    <string name="txt_empty_m">"Lorem ipsum"</string>
+    <string name="txt_empty_l">"Excepteur sint occaecat cupidatat"</string>
+    <string name="txt_empty_xl">"Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute Irure dolor dans reprehenderit dans voluptate Velit esse cillum dolore eu fugiat nulla pariatur"</string>
 
     <!-- Debug -->
+    <string name="txt_debug">"Débogage"</string>
+    <string name="txt_empty">"(Aucune idée)"</string>
+    <string name="txt_splash_placeholder">"Ecran d'accueil générique"</string>
 
 </resources>
