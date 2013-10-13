@@ -15,6 +15,7 @@ public class PM extends GObject {
     private final String message;
     private final boolean me;
     private final String time;
+    private final boolean unread;
 
     /*
     <div id="message" style="display:block;">
@@ -39,9 +40,8 @@ public class PM extends GObject {
             user = "System";
 
         time = divs.get(0).select("em span").first().text();
-
         me = divs.get(0).select("em a").size() == 0;
-
+        unread = divs.get(1).hasClass("mb_unread");
         message = divs.get(2).text();
     }
 
@@ -63,5 +63,9 @@ public class PM extends GObject {
 
     public String getTime() {
         return time;
+    }
+
+    public boolean isUnread() {
+        return unread;
     }
 }

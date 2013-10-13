@@ -15,14 +15,25 @@
             android:padding="6dp"
             android:layout_weight="1">
 
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="JeanMichMich"
-                android:id="@+id/pm_incoming_txt_pseudo"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical|right"
-                />
+                android:id="@+id/pm_incoming_img_read"
+                android:src="@android:drawable/presence_invisible"
+                android:contentDescription="@string/imgdesc_read" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="JeanMichMich"
+                    android:id="@+id/pm_incoming_txt_pseudo"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical|right" />
+        </LinearLayout>
 
         <TextView
                 android:layout_width="fill_parent"

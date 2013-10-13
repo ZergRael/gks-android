@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -91,6 +92,8 @@ public class MailboxActivity extends Activity {
                 ((TextView)row.findViewById(R.id.conversationmin_txt_pseudo)).setText(conv.getFromUser());
                 ((TextView)row.findViewById(R.id.conversationmin_txt_subject)).setText(conv.getSubject());
                 ((TextView)row.findViewById(R.id.conversationmin_txt_time)).setText(conv.getTime());
+                if(!conv.isRead())
+                    ((ImageView)row.findViewById(R.id.conversationmin_img_read)).setImageResource(android.R.drawable.presence_online);
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

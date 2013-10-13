@@ -47,7 +47,7 @@ public class Conversation extends GObject {
         for(int i = 0; i < messages.size(); i++) {
             PMsList.add(new PM(messages.get(i), i));
         }
-        Collections.reverse(PMsList);
+        //Collections.reverse(PMsList);
 
         status = GStatus.OK;
         Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));

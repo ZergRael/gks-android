@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -117,6 +118,8 @@ public class ConversationActivity extends Activity {
             else {
                 row = (TableRow) LayoutInflater.from(this).inflate(R.layout.pm_incoming, table, false);
                 if (row != null) {
+                    if(pm.isUnread())
+                        ((ImageView)row.findViewById(R.id.pm_incoming_img_read)).setImageResource(android.R.drawable.presence_online);
                     ((TextView)row.findViewById(R.id.pm_incoming_txt_pseudo)).setText(pm.getUser());
                     ((TextView)row.findViewById(R.id.pm_incoming_txt_text)).setText(pm.getMessage());
                     ((TextView)row.findViewById(R.id.pm_incoming_txt_time)).setText(pm.getTime());
