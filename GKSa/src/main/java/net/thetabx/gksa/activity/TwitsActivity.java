@@ -3,12 +3,14 @@ package net.thetabx.gksa.activity;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -21,7 +23,9 @@ import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Twits;
 import net.thetabx.gksa.libGKSj.objects.rows.Twit;
+import net.thetabx.gksa.utils.URLParser;
 
+import java.net.URL;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -91,7 +95,6 @@ public class TwitsActivity extends Activity {
             return;
         }
         Pattern urlPattern = Pattern.compile("/\\w.*\\b");
-        String urlBase = gks.getBaseUrl();
 
         //this.setTitle(res.getString(R.string.title_activity_topic, topicName));
         for(final Twit twit : twitsList) {
@@ -100,17 +103,22 @@ public class TwitsActivity extends Activity {
                 ((TextView)row.findViewById(R.id.twit_txt_name)).setText(twit.getName());
                 ((TextView)row.findViewById(R.id.twit_txt_time)).setText(twit.getTime());
                 ((TextView)row.findViewById(R.id.twit_txt_content)).setText(twit.getContent());
-                TextView url = (TextView)row.findViewById(R.id.twit_txt_url);
-                url.setText(twit.getUrl());
-                Linkify.addLinks(url, urlPattern, urlBase);
+                if(twit.isUnread())
+                    ((ImageView)row.findViewById(R.id.twit_img_read)).setImageResource(android.R.drawable.presence_online);
+
+                ((TextView)row.findViewById(R.id.twit_txt_url)).setText(twit.getUrl());
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        URLParser u = new URLParser(twit.getUrl());
+                        if(u.query != null && u.query.get("action").equals("viewtopic")) {
+                            Intent intent = new Intent(TwitsActivity.this, TopicActivity.class);
+                            intent.putExtra("topicid", u.query.get("topicid"));
+                            intent.putExtra("page", u.query.get("page"));
+                            startActivity(intent);
+                        }
+
                         Log.d(LOG_TAG, "Clicked me " + twit.getPosition());
-                        //Intent intent = new Intent(ForumActivity.this, TopicActivity.class);
-                        //intent.putExtra("topicName", topic.getName());
-                        //intent.putExtra("topicId", topic.getTopicId());
-                        //startActivity(intent);
                     }
                 });
                 row.setOnLongClickListener(new View.OnLongClickListener() {

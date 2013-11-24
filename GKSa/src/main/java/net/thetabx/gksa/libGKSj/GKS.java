@@ -19,6 +19,8 @@ import net.thetabx.gksa.libGKSj.objects.UserMe;
 import net.thetabx.gksa.libGKSj.objects.UserProfile;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by Zerg on 18/06/13.
@@ -554,7 +556,7 @@ public class GKS {
         return ready;
     }
 
-    public String getBaseUrl() {
+    public String getBaseUrlString() {
         return http.BASE_URL;
     }
 }

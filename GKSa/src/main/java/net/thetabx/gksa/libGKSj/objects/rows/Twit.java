@@ -1,8 +1,12 @@
 package net.thetabx.gksa.libGKSj.objects.rows;
 
+import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.libGKSj.objects.GObject;
 
 import org.jsoup.nodes.Element;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by Zerg on 23/06/13.
@@ -15,6 +19,7 @@ public class Twit extends GObject {
     private final String time;
     private final String url;
     private final String content;
+    private final boolean read;
 
     /*
     <p class="twit">Par <a href="/users/2354547"><span class="userclass_40">champaf</span></a> , il y a 2 jours || <a href="/forums.php?action=viewtopic&amp;topicid=7531&amp;page=1#post415673">gks.gs/forums.php?action=viewtopic&amp;topicid=7531&amp;page=1#post415673</a><br>
@@ -30,6 +35,7 @@ public class Twit extends GObject {
         String text = htmlEl.text();
         time = text.substring(text.indexOf(',') + 2, text.indexOf('|') - 1);
         content = text.substring(text.indexOf('@'));
+        read = false;
     }
 
     public int getPosition() {
@@ -50,5 +56,9 @@ public class Twit extends GObject {
 
     public String getContent() {
         return content;
+    }
+
+    public boolean isUnread() {
+        return !read;
     }
 }

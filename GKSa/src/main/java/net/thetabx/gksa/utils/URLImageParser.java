@@ -65,7 +65,7 @@ public class URLImageParser implements Html.ImageGetter {
             }
         }
         if(source.indexOf('/') == 0)
-            source = GKSa.getGKSlib().getBaseUrl() + source;
+            source = GKSa.getGKSlib().getBaseUrlString() + source;
         URLDrawable urlDrawable = new URLDrawable();
 
         // get the actual source
