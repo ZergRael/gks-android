@@ -94,9 +94,7 @@ public class TwitsActivity extends Activity {
             Log.d(LOG_TAG, "No twits");
             return;
         }
-        Pattern urlPattern = Pattern.compile("/\\w.*\\b");
 
-        //this.setTitle(res.getString(R.string.title_activity_topic, topicName));
         for(final Twit twit : twitsList) {
             TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.twit, table, false);
             if (row != null) {
@@ -106,10 +104,12 @@ public class TwitsActivity extends Activity {
                 if(twit.isUnread())
                     ((ImageView)row.findViewById(R.id.twit_img_read)).setImageResource(android.R.drawable.presence_online);
 
-                ((TextView)row.findViewById(R.id.twit_txt_url)).setText(twit.getUrl());
+                // Do we really need to display the url ?
+                //((TextView)row.findViewById(R.id.twit_txt_url)).setText(twit.getUrl());
                 row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        // Parsing url on click is easier
                         URLParser u = new URLParser(twit.getUrl());
                         if(u.query != null && u.query.get("action").equals("viewtopic")) {
                             Intent intent = new Intent(TwitsActivity.this, TopicActivity.class);
@@ -121,6 +121,7 @@ public class TwitsActivity extends Activity {
                         Log.d(LOG_TAG, "Clicked me " + twit.getPosition());
                     }
                 });
+                // Is the longclick really needed ?
                 row.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View view) {

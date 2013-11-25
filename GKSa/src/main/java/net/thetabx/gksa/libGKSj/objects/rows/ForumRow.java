@@ -7,7 +7,7 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 17/06/13.
  * Under MIT Licence - See MIT-LICENCE.txt
  */
-public class ForumMin {
+public class ForumRow {
     private boolean read = false;
     private final int position;
     private final String name;
@@ -21,7 +21,7 @@ public class ForumMin {
     private final String lastMessageTime;
 
 
-    public ForumMin(Element htmlEl, int position) {
+    public ForumRow(Element htmlEl, int position) {
         // from Forums.java
         Elements td = htmlEl.select("td");
         this.read = htmlEl.select(".read").size() != 0;

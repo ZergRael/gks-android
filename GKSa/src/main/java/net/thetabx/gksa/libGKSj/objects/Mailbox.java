@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
-import net.thetabx.gksa.libGKSj.objects.rows.ConversationMin;
+import net.thetabx.gksa.libGKSj.objects.rows.ConversationRow;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class Mailbox extends GObject {
     public final static String DEFAULT_URL = "/mailbox/";
-    private List<ConversationMin> conversationsList;
+    private List<ConversationRow> conversationsList;
     private final String LOG_TAG = "MailboxParser";
 
     public Mailbox(String html, String... urlFragments) {
@@ -39,16 +39,16 @@ public class Mailbox extends GObject {
         }
 
         Elements mpList = mailbox.select("tr");
-        conversationsList = new ArrayList<ConversationMin>();
+        conversationsList = new ArrayList<ConversationRow>();
         for(int i = 0; i < mpList.size(); i++) {
-            conversationsList.add(new ConversationMin(mpList.get(i), i));
+            conversationsList.add(new ConversationRow(mpList.get(i), i));
         }
 
         status = GStatus.OK;
         Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
-    public List<ConversationMin> getConversations() {
+    public List<ConversationRow> getConversations() {
         return conversationsList;
     }
 }

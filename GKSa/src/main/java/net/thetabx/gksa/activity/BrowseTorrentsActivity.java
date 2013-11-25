@@ -25,7 +25,7 @@ import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.TorrentsList;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
-import net.thetabx.gksa.libGKSj.objects.rows.TorrentMin;
+import net.thetabx.gksa.libGKSj.objects.rows.TorrentRow;
 
 import java.util.List;
 
@@ -95,7 +95,7 @@ public class BrowseTorrentsActivity extends Activity {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.browsetorrents_table);
-        List<TorrentMin> torrents = torrentsList.getTorrents();
+        List<TorrentRow> torrents = torrentsList.getTorrents();
         if(torrents == null) {
             Log.d(LOG_TAG, "No torrents");
             return;
@@ -141,8 +141,8 @@ public class BrowseTorrentsActivity extends Activity {
             }
         });
 
-        for(final TorrentMin torrent : torrents) {
-            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.torrent_min, table, false);
+        for(final TorrentRow torrent : torrents) {
+            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.torrent_row, table, false);
             if(torrent.isNew())
                 row.findViewById(R.id.torrentmin_img_new).setVisibility(View.VISIBLE);
             if(torrent.isNuked())

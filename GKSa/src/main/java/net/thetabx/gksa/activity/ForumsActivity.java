@@ -19,7 +19,7 @@ import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
-import net.thetabx.gksa.libGKSj.objects.rows.ForumMin;
+import net.thetabx.gksa.libGKSj.objects.rows.ForumRow;
 import net.thetabx.gksa.libGKSj.objects.Forums;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 
@@ -85,13 +85,13 @@ public class ForumsActivity extends Activity {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.forums_table);
-        List<ForumMin> forumsList = forums.getForumsMin();
+        List<ForumRow> forumsList = forums.getForumsMin();
         if(forumsList == null) {
             Log.d(LOG_TAG, "No Forums");
             return;
         }
-        for(final ForumMin forum : forumsList) {
-            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.forum_min, table, false);
+        for(final ForumRow forum : forumsList) {
+            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.forum_row, table, false);
             if (row != null) {
                 if(forum.isNotRead())
                     ((ImageView)row.findViewById(R.id.forummin_img_read)).setImageResource(android.R.drawable.presence_online);

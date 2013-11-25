@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
-import net.thetabx.gksa.libGKSj.objects.rows.TopicMin;
+import net.thetabx.gksa.libGKSj.objects.rows.TopicRow;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Forum extends GObject {
-    private List<TopicMin> topics;
+    private List<TopicRow> topics;
     public final static int MIN_PAGE = 1;
     public final static String DEFAULT_URL = "/forums.php?action=viewforum&forumid=%1$s&page=%2$s";
     private final String LOG_TAG = "ForumParser";
@@ -54,9 +54,9 @@ public class Forum extends GObject {
 
         Elements topicsList = topicsEls.select("tr");
         Log.d(LOG_TAG, String.format("Found %s topics", topicsList.size()));
-        topics = new ArrayList<TopicMin>();
+        topics = new ArrayList<TopicRow>();
         for(int i = 1; i < topicsList.size(); i++) {
-            topics.add(new TopicMin(topicsList.get(i), i));
+            topics.add(new TopicRow(topicsList.get(i), i));
         }
 
         Log.d(LOG_TAG, String.format("Parsed %s topics", topics.size()));
@@ -79,7 +79,7 @@ public class Forum extends GObject {
         Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
-    public List<TopicMin> getTopics() {
+    public List<TopicRow> getTopics() {
         return topics;
     }
 

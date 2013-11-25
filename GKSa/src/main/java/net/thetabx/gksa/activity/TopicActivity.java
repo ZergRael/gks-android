@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -136,7 +137,8 @@ public class TopicActivity extends Activity {
                     smilies.add(smiliesMatcher.group(1));
                 }
                 message_content.setText(Html.fromHtml(content, new URLImageParser(message_content, res, smilies, this), null));
-                row.setOnClickListener(new View.OnClickListener() {
+                message_content.setMovementMethod(LinkMovementMethod.getInstance());
+                /*row.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Log.d(LOG_TAG, "Clicked me " + message.getPosition());
@@ -148,7 +150,7 @@ public class TopicActivity extends Activity {
                         Log.d(LOG_TAG, "Long clicked me " + message.getPosition());
                         return false;
                     }
-                });
+                });*/
                 table.addView(row);
             }
         }

@@ -60,13 +60,13 @@
                 android:paddingLeft="8dp"
                 android:layout_gravity="center_vertical"/>
 
-        <TextView
+        <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="/forum.php?action=viewtopic!topicid=6336"
                 android:id="@+id/twit_txt_url"
                 android:textIsSelectable="false"
                 android:textSize="12sp"
-                android:singleLine="true"/>
+                android:singleLine="true"/>-->
     </LinearLayout>
 </TableRow>

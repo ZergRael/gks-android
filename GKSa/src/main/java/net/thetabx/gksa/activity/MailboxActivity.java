@@ -19,7 +19,7 @@ import net.thetabx.gksa.GKSa;
 import net.thetabx.gksa.R;
 import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
-import net.thetabx.gksa.libGKSj.objects.rows.ConversationMin;
+import net.thetabx.gksa.libGKSj.objects.rows.ConversationRow;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
 import net.thetabx.gksa.libGKSj.objects.Mailbox;
 
@@ -81,13 +81,13 @@ public class MailboxActivity extends Activity {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.mailbox_table);
-        List<ConversationMin> conversationsList = mplist.getConversations();
+        List<ConversationRow> conversationsList = mplist.getConversations();
         if(conversationsList == null) {
             Log.d(LOG_TAG, "No PM");
             return;
         }
-        for(final ConversationMin conv : conversationsList) {
-            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.conversation_min, table, false);
+        for(final ConversationRow conv : conversationsList) {
+            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.conversation_row, table, false);
             if (row != null) {
                 ((TextView)row.findViewById(R.id.conversationmin_txt_pseudo)).setText(conv.getFromUser());
                 ((TextView)row.findViewById(R.id.conversationmin_txt_subject)).setText(conv.getSubject());

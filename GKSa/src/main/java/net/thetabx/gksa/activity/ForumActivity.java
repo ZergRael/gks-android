@@ -22,7 +22,7 @@ import net.thetabx.gksa.libGKSj.GKS;
 import net.thetabx.gksa.libGKSj.http.AsyncListener;
 import net.thetabx.gksa.libGKSj.objects.Forum;
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
-import net.thetabx.gksa.libGKSj.objects.rows.TopicMin;
+import net.thetabx.gksa.libGKSj.objects.rows.TopicRow;
 
 import java.util.List;
 
@@ -106,7 +106,7 @@ public class ForumActivity extends Activity {
         Log.d(LOG_TAG, "Inflating views");
 
         TableLayout table = (TableLayout)findViewById(R.id.forum_table);
-        List<TopicMin> topicsList = forum.getTopics();
+        List<TopicRow> topicsList = forum.getTopics();
         if(topicsList == null) {
             Log.d(LOG_TAG, "No Topics");
             return;
@@ -115,8 +115,8 @@ public class ForumActivity extends Activity {
         final String forumName = forum.getTitle();
         if(forumName != null)
             this.setTitle(res.getString(R.string.title_activity_forum, forumName));
-        for(final TopicMin topic : topicsList) {
-            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.topic_min, table, false);
+        for(final TopicRow topic : topicsList) {
+            TableRow row = (TableRow) LayoutInflater.from(this).inflate(R.layout.topic_row, table, false);
             if (row != null) {
                 if(topic.isNotRead())
                     ((ImageView)row.findViewById(R.id.topicmin_img_read)).setImageResource(android.R.drawable.presence_online);

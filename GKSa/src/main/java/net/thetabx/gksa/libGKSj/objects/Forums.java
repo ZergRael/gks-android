@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
-import net.thetabx.gksa.libGKSj.objects.rows.ForumMin;
+import net.thetabx.gksa.libGKSj.objects.rows.ForumRow;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,7 +18,7 @@ import java.util.List;
  * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class Forums extends GObject {
-    private List<ForumMin> forums;
+    private List<ForumRow> forums;
     public final static String DEFAULT_URL = "/forums.php";
     private final String LOG_TAG = "ForumsParser";
 
@@ -39,15 +39,15 @@ public class Forums extends GObject {
         }
 
         Elements forumsList = forumsEls.select("tr");
-        forums = new ArrayList<ForumMin>();
+        forums = new ArrayList<ForumRow>();
         for(int i = 1; i < forumsList.size(); i++) {
-            forums.add(new ForumMin(forumsList.get(i), i));
+            forums.add(new ForumRow(forumsList.get(i), i));
         }
         status = GStatus.OK;
         Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
-    public List<ForumMin> getForumsMin() {
+    public List<ForumRow> getForumsMin() {
         return forums;
     }
 }

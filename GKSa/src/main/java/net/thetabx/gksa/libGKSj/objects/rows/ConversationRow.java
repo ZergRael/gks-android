@@ -9,7 +9,7 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 17/06/13.
  * Under MIT Licence - See MIT-LICENCE.txt
  */
-public class ConversationMin extends GObject {
+public class ConversationRow extends GObject {
     private final int position;
     private boolean read;
     private String fromUser;
@@ -35,7 +35,7 @@ public class ConversationMin extends GObject {
 
 		</tr>
      */
-    public ConversationMin(Element htmlEl, int position) {
+    public ConversationRow(Element htmlEl, int position) {
         this.position = position;
 
         Elements td = htmlEl.select("td");

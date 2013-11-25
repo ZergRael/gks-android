@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 13/09/13.
  * Under MIT Licence - See MIT-LICENCE.txt
  */
-public class TorrentMin extends GObject {
+public class TorrentRow extends GObject {
     private final int position;
     private final String LOG_TAG = "TorrentMinParser";
     private final int URL_IGNORE_NUMBER = 9;
@@ -61,7 +61,7 @@ public class TorrentMin extends GObject {
         </td>
     </tr>*/
 
-    public TorrentMin(Element htmlEl, int position) {
+    public TorrentRow(Element htmlEl, int position) {
         // from TorrentsList.java
         this.position = position;
 

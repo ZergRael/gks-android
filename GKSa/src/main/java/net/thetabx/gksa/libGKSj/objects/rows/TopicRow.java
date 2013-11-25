@@ -7,7 +7,7 @@ import org.jsoup.select.Elements;
  * Created by Zerg on 17/06/13.
  * Under MIT Licence - See MIT-LICENCE.txt
  */
-public class TopicMin {
+public class TopicRow {
     private final int position;
     private final boolean read;
     private final boolean locked;
@@ -24,7 +24,7 @@ public class TopicMin {
     private final String lastPostAuthor;
     private final String lastPostTime;
 
-    public TopicMin(Element htmlEl, int position) {
+    public TopicRow(Element htmlEl, int position) {
         // from Forum.java
         this.position = position;
 

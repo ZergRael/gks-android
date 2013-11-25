@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import net.thetabx.gksa.libGKSj.objects.enums.GStatus;
-import net.thetabx.gksa.libGKSj.objects.rows.TorrentMin;
+import net.thetabx.gksa.libGKSj.objects.rows.TorrentRow;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  * Under MIT Licence - See MIT-LICENCE.txt
  */
 public class SearchTorrentsList extends GObject {
-    private List<TorrentMin> torrents;
+    private List<TorrentRow> torrents;
     public final static int MIN_PAGE = 0;
     public final static String DEFAULT_CAT = null;
     public final static String DEFAULT_SORT = "normal";
@@ -68,9 +68,9 @@ public class SearchTorrentsList extends GObject {
             return;
         }
 
-        torrents = new ArrayList<TorrentMin>();
+        torrents = new ArrayList<TorrentRow>();
         for(int i = 1; i < torrentsList.size(); i += 2) {
-            torrents.add(new TorrentMin(torrentsList.get(i), i));
+            torrents.add(new TorrentRow(torrentsList.get(i), i));
         }
         Log.d(LOG_TAG, String.format("Parsed %s torrents", torrents.size()));
 
@@ -95,7 +95,7 @@ public class SearchTorrentsList extends GObject {
         Log.d(LOG_TAG, String.format("Took %s ms", SystemClock.uptimeMillis() - startMillis));
     }
 
-    public List<TorrentMin> getTorrents() {
+    public List<TorrentRow> getTorrents() {
         return torrents;
     }
 
