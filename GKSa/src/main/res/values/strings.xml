@@ -154,6 +154,7 @@
 
     <!-- Images description -->
     <string name="imgdesc_read">Read status</string>
+    <string name="imgdesc_starred">Starred</string>
     <string name="imgdesc_first">First</string>
     <string name="imgdesc_previous">Previous</string>
     <string name="imgdesc_next">Next</string>

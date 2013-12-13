@@ -120,6 +120,8 @@ public class ForumActivity extends Activity {
             if (row != null) {
                 if(topic.isNotRead())
                     ((ImageView)row.findViewById(R.id.topicmin_img_read)).setImageResource(android.R.drawable.presence_online);
+                if(topic.isStarred())
+                    row.findViewById(R.id.topicmin_img_starred).setVisibility(View.VISIBLE);
                 ((TextView)row.findViewById(R.id.topicmin_txt_name)).setText(topic.getName());
                 ((TextView)row.findViewById(R.id.topicmin_txt_npagereads)).setText(res.getString(R.string.txt_format_pageSlashPage, topic.getPage(), topic.getMaxPage()));
                 ((TextView)row.findViewById(R.id.topicmin_txt_lastmsg)).setText(res.getString(R.string.txt_format_topiclastmsg, topic.getLastPostAuthor(), topic.getLastPostTime()));

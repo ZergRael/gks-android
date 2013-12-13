@@ -28,6 +28,14 @@
                     android:src="@android:drawable/presence_invisible"
                     android:contentDescription="@string/imgdesc_read"/>
 
+            <ImageView
+                android:layout_width="16dip"
+                android:layout_height="16dip"
+                android:id="@+id/topicmin_img_starred"
+                android:src="@android:drawable/star_on"
+                android:contentDescription="@string/imgdesc_starred"
+                android:visibility="gone" />
+
             <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
