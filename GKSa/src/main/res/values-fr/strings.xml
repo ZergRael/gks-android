@@ -8,9 +8,9 @@
     <string name="action_settings">"Réglages"</string>
     <string name="action_disconnect">"Déconnecter"</string>
     <string name="action_connect">"Connecter"</string>
-    <string name="action_forums">"Forums"</string>
+    <!-- <string name="action_forums">"Forums"</string> -->
     <string name="action_mailbox">"Messages privés"</string>
-    <string name="action_twits">"Twits"</string>
+    <!-- <string name="action_twits">"Twits"</string> -->
     <string name="action_search_torrents">"Recherche torrents"</string>
     <string name="action_browse_torrents">"Parcourir les torrents"</string>
 
@@ -18,10 +18,10 @@
     <string name="title_activity_mailbox">"Messages privés"</string>
     <string name="title_activity_conversation_empty">"Message privé"</string>
     <string name="title_activity_conversation">"MP: %s"</string>
-    <string name="title_activity_twits">"Twits"</string>
-    <string name="title_activity_forums">"Forums"</string>
-    <string name="title_activity_forum_empty">"Forum"</string>
-    <string name="title_activity_forum">"Forum: %s"</string>
+    <!-- <string name="title_activity_twits">"Twits"</string> -->
+    <!-- <string name="title_activity_forums">"Forums"</string> -->
+    <!-- <string name="title_activity_forum_empty">"Forum"</string> -->
+    <!-- <string name="title_activity_forum">"Forum: %s"</string> -->
     <string name="title_activity_topic_empty">"Sujet"</string>
     <string name="title_activity_topic">"Sujet: %s"</string>
     <string name="title_activity_creds">"Connexion"</string>
@@ -36,7 +36,7 @@
     <string name="toast_serverError">"Erreur de serveur: %s"</string>
     <string name="toast_internalError">"Erreur interne: %s"</string>
     <string name="toast_bookmarked">"Bookmarké %s"</string>
-    <string name="toast_autogeted">"Autoget %s"</string>
+    <!-- <string name="toast_autogeted">"Autoget %s"</string> -->
 
     <!-- Progress -->
     <string name="progress_connecting">"Connection"</string>
@@ -58,37 +58,37 @@
     <string name="txt_status">"Statut"</string>
     <string name="txt_userId">"ID de l´utilisateur"</string>
     <string name="txt_pseudo">"Pseudo"</string>
-    <string name="txt_upload">"Upload"</string>
-    <string name="txt_download">"Download"</string>
-    <string name="txt_ratio">"Ratio"</string>
+    <!-- <string name="txt_upload">"Upload"</string> -->
+    <!-- <string name="txt_download">"Download"</string> -->
+    <!-- <string name="txt_ratio">"Ratio"</string> -->
     <string name="txt_reqRatio">"Ratio requis"</string>
     <string name="txt_class">"Catégorie"</string>
-    <string name="txt_karma">"Karma"</string>
-    <string name="txt_aura">"Aura"</string>
+    <!-- <string name="txt_karma">"Karma"</string> -->
+    <!-- <string name="txt_aura">"Aura"</string> -->
     <string name="txt_unreadMP">"MP non-lu"</string>
     <string name="txt_MP">"MP"</string>
     <string name="txt_unreadTwits">"Twits non lus"</string>
-    <string name="txt_hitAndRun">"Hit'n'Run"</string>
+    <!-- <string name="txt_hitAndRun">"Hit'n'Run"</string> -->
     <string name="txt_noFreeleech">"Pas de freeleech"</string>
-    <string name="txt_authKey">"Authkey"</string>
-    <string name="txt_twits">"Twits"</string>
+    <!-- <string name="txt_authKey">"Authkey"</string> -->
+    <!-- <string name="txt_twits">"Twits"</string> -->
     <string name="txt_seeding">"En seed"</string>
     <string name="txt_leeching">"En leech"</string>
     <string name="txt_title">"Titre"</string>
-    <string name="txt_infinity">"∞"</string>
-    <string name="txt_pageSlashPage_empty">"Page 0/0"</string>
+    <!-- <string name="txt_infinity">"∞"</string> -->
+    <!-- <string name="txt_pageSlashPage_empty">"Page 0/0"</string> -->
     <string name="txt_anonymous">"Anonyme"</string>
     <!-- Formatted text -->
     <string name="txt_format_ntopics">"%s sujets"</string>
-    <string name="txt_format_freeleech">"FL %1$s : %2$s"</string>
+    <!-- <string name="txt_format_freeleech">"FL %1$s : %2$s"</string> -->
     <string name="txt_format_reqRatio">"%1$s requis"</string>
-    <string name="txt_format_hitAndRun">"%1$s hit'n'run"</string>
-    <string name="txt_format_karma">"%1$s karma"</string>
-    <string name="txt_format_aura">"%1$s aura"</string>
-    <string name="txt_format_pageSlashPage">"Page %1$s / %2$s"</string>
-    <string name="txt_format_topiclastmsg">"%1$s, %2$s"</string>
+    <!-- <string name="txt_format_hitAndRun">"%1$s hit'n'run"</string> -->
+    <!-- <string name="txt_format_karma">"%1$s karma"</string> -->
+    <!-- <string name="txt_format_aura">"%1$s aura"</string> -->
+    <!-- <string name="txt_format_pageSlashPage">"Page %1$s / %2$s"</string> -->
+    <!-- <string name="txt_format_topiclastmsg">"%1$s, %2$s"</string> -->
     <string name="txt_format_MP">"%1$s MP"</string>
-    <string name="txt_format_twits">"%1$s twits"</string>
+    <!-- <string name="txt_format_twits">"%1$s twits"</string> -->
     <string name="txt_format_seeds">"%1$s en seed"</string>
     <string name="txt_format_leechs">"%1$s en leech"</string>
 
@@ -140,8 +140,8 @@
     </string-array>
     <string-array name="spn_sort_search">
         <item>"Pertinence"</item>
-        <item>"Date "</item>
-        <item>"Commentaires "</item>
+        <item>"Date"</item>
+        <item>"Commentaires"</item>
         <item>"Taille"</item>
         <item>"Terminés"</item>
         <item>"Seeders"</item>
@@ -159,19 +159,13 @@
     <string name="imgdesc_next">"Suivant"</string>
     <string name="imgdesc_last">"Dernier"</string>
     <string name="imgdesc_new">"Nouveau"</string>
-    <string name="imgdesc_fl">"FL"</string>
-    <string name="imgdesc_nuked">"Nuked"</string>
+    <!-- <string name="imgdesc_fl">"FL"</string> -->
+    <!-- <string name="imgdesc_nuked">"Nuked"</string> -->
     <string name="imgdesc_scene">"Scène"</string>
     <string name="imgdesc_cat">"Catégorie"</string>
-    <string name="imgdesc_upload">"Upload"</string>
-    <string name="imgdesc_download">"Download"</string>
-    <string name="imgdesc_ratio">"Ratio"</string>
-
-    <!-- Empty -->
-    <string name="txt_empty_s">"AZ"</string>
-    <string name="txt_empty_m">"Lorem ipsum"</string>
-    <string name="txt_empty_l">"Excepteur sint occaecat cupidatat"</string>
-    <string name="txt_empty_xl">"Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute Irure dolor dans reprehenderit dans voluptate Velit esse cillum dolore eu fugiat nulla pariatur"</string>
+    <!-- <string name="imgdesc_upload">"Upload"</string> -->
+    <!-- <string name="imgdesc_download">"Download"</string> -->
+    <!-- <string name="imgdesc_ratio">"Ratio"</string> -->
 
     <!-- Debug -->
     <string name="txt_debug">"Débogage"</string>

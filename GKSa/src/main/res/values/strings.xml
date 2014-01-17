@@ -68,7 +68,7 @@
     <string name="txt_unreadMP">Unread PM</string>
     <string name="txt_MP">PM</string>
     <string name="txt_unreadTwits">Unread Twits</string>
-    <string name="txt_hitAndRun">Hit\'n\'Run</string>
+    <string name="txt_hitAndRun">"Hit'n'Run"</string>
     <string name="txt_noFreeleech">No freeleech</string>
     <string name="txt_authKey">AuthKey</string>
     <string name="txt_twits">Twits</string>
@@ -82,7 +82,7 @@
     <string name="txt_format_ntopics">%s topics</string>
     <string name="txt_format_freeleech">FL %1$s : %2$s</string>
     <string name="txt_format_reqRatio">%1$s required</string>
-    <string name="txt_format_hitAndRun">%1$s hit\'n\'run</string>
+    <string name="txt_format_hitAndRun">"%1$s hit'n'run"</string>
     <string name="txt_format_karma">%1$s karma</string>
     <string name="txt_format_aura">%1$s aura</string>
     <string name="txt_format_pageSlashPage">Page %1$s/%2$s</string>
@@ -112,7 +112,7 @@
         <item>BluRay</item>
         <item>Others</item>
         <item>DVDR</item>
-        <item>DVDR Series</item>
+        <item>DVDR Shows</item>
         <item>Anime</item>
         <item>TV VO</item>
         <item>Concerts</item>
@@ -139,7 +139,7 @@
         <item>Nuked</item>
     </string-array>
     <string-array name="spn_sort_search">
-        <item>Pertinence</item>
+        <item>Relevance</item>
         <item>Date</item>
         <item>Comments</item>
         <item>Size</item>
@@ -167,12 +167,6 @@
     <string name="imgdesc_upload">Upload</string>
     <string name="imgdesc_download">Download</string>
     <string name="imgdesc_ratio">Ratio</string>
-
-    <!-- Empty -->
-    <string name="txt_empty_s">AZ</string>
-    <string name="txt_empty_m">Lorem ipsum</string>
-    <string name="txt_empty_l">Excepteur sint occaecat cupidatat</string>
-    <string name="txt_empty_xl">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</string>
 
     <!-- Debug -->
     <string name="txt_debug">Debug</string>
